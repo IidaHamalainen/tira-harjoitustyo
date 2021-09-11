@@ -11,13 +11,14 @@ Muita kieliä en tunne kovin hyvin. Dokumentaatiossa käytän kielenä suomea.
 ### Algoritmit ja tietorakenteet
 
 Käyttämäni algoritmit ja tietorakenteet: 
-* Markovin ketju vähintään toisessa asteessa.
-* Trie
+* Markovin ketju vähintään toisessa asteessa, eli ottaa huomioon kaksi edeltävää sanaa.
+* Trie, johon tallennetaan sanasto.
+* Lista, johon tallennetaan sanat Trie-tietorakenteen nodeissa.
 
 
 ### Aika- ja tilavaatimus
 
-Trie-puussa aikavaatimus O(m), missä m on haettavan merkkijonon pituus.
+Trie-puussa aikavaatimus O(m), missä m on haettavan merkkijonon pituus. Tilavaatimus on O(n), missä n on sanojen määrä sanastossa. Trie-rakenteen huono puoli on sen suuri tilavaatimus.
 
 ### käyttö ja syötteet
 
@@ -26,5 +27,7 @@ Trie-puussa aikavaatimus O(m), missä m on haettavan merkkijonon pituus.
 * https://en.wikipedia.org/wiki/Natural-language_generation
 * https://en.wikipedia.org/wiki/Parody_generator
 * https://en.wikipedia.org/wiki/Dissociated_press (kuvaus algoritmista, josta voi olla hyötyä)
+* https://en.wikipedia.org/wiki/Trie
+* https://www.geeksforgeeks.org/trie-insert-and-search/
 
 
