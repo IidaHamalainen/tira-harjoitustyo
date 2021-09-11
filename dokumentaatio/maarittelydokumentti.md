@@ -20,7 +20,6 @@ Käyttämäni algoritmit ja tietorakenteet:
 
 Trie-puussa aikavaatimus O(m), missä m on haettavan merkkijonon pituus. Tilavaatimus on O(n), missä n on sanojen määrä sanastossa. Trie-rakenteen huono puoli on sen suuri tilavaatimus.
 
-### käyttö ja syötteet
 
 ## Lähteet
 * https://en.wikipedia.org/wiki/Markov_chain
