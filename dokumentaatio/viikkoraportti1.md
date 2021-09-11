@@ -7,4 +7,5 @@ Tällä hetkellä mietityttää projektin kieli. Ajattelin että ohjelmani toimi
 
 ## Tuntikirjanpito
 Pe 10.9 2h
+
 La 11.9 2h
