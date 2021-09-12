@@ -1,16 +1,27 @@
-apply plugin: 'java'
-apply plugin: 'jacoco'
-apply plugin: 'application'
 
+plugins {
+   
+    id 'java'
+
+    id 'application'
+
+    id 'jacoco'
+    
+    id 'checkstyle'
+}
 
 mainClassName = 'tira.harjoitustyo.Main'
+
+checkstyle {
+    toolVersion '8.17';    
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation     'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13'
 }
 
 jacocoTestReport {
