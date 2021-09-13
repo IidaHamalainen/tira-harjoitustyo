@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.17">
+<file name="/home/iida/Documents/Koulu/Tiralabra/tira-harjoitustyo/tira-harjoitustyo/src/main/java/harjoitustyo/Main.java">
+<error line="12" severity="error" message="All TODOs should be named.  e.g. &quot;TODO(johndoe): Refactor when v2 is released.&quot;" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="/home/iida/Documents/Koulu/Tiralabra/tira-harjoitustyo/tira-harjoitustyo/src/main/java/harjoitustyo/tietorakenne/Trie.java">
+</file>
+<file name="/home/iida/Documents/Koulu/Tiralabra/tira-harjoitustyo/tira-harjoitustyo/src/main/java/harjoitustyo/tietorakenne/TrieSolmu.java">
+</file>
+</checkstyle>
