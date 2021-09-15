@@ -1,5 +1,7 @@
 harjoitustyo/tietorakenne/TrieSolmu.java
  harjoitustyo.tietorakenne.TrieSolmu
+harjoitustyo/markovinketju/MarkovAlgoritmi.java
+ harjoitustyo.markovinketju.MarkovAlgoritmi
 harjoitustyo/tietorakenne/Trie.java
  harjoitustyo.tietorakenne.Trie
 harjoitustyo/Main.java

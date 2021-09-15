@@ -1,7 +1,6 @@
 
 package harjoitustyo.tietorakenne;
 
-import java.util.HashMap;
 
 /**
  *
@@ -11,33 +10,34 @@ public class Trie {
     
     private TrieSolmu juuri;
     
-    public Trie(TrieSolmu juurisolmu) {
-        juuri = juurisolmu;
-    }
+    
+    public Trie() {
+        juuri = new TrieSolmu();
+    }   
     
     /**
      * 
      * lisaa sanan trie-puuhun.
      */
     public void lisaaSana(String sana) {
-        HashMap<Character, TrieSolmu> lapset = juuri.haeLapset();
         
-        TrieSolmu nykyinen;
+        TrieSolmu nykyinen = juuri;  
         
         for (int i = 0; i < sana.length(); i++) {
             char kirjain = sana.charAt(i);
             
-            if (lapset.containsKey(kirjain)) {
-                nykyinen = lapset.get(kirjain); //uusi nykyinen solmu on kirjaimen sisältänyt
-            } else {
-                nykyinen = new TrieSolmu(kirjain); //jos kirjainta ei löydy, luodaan uusi solmu
-                lapset.put(kirjain, nykyinen);
-            }
-            lapset = nykyinen.haeLapset();
+            //jos kirjainta ei löydy, luodaan uusi solmu
+            if (nykyinen.lista[kirjain - 'a'] == null) {
+                nykyinen.lista[kirjain - 'a'] = new TrieSolmu(); 
+                nykyinen = nykyinen.lista[kirjain - 'a'];
             
-            if (i == sana.length() - 1) {
-                nykyinen.asetaSana(true);
-            }
+            //uusi nykyinen solmu on kirjaimen sisältänyt solmu
+            } else {
+                nykyinen = nykyinen.lista[kirjain - 'a'];
+                
+            }        
+            nykyinen.asetaSana(true);
+            
         }
         
            
@@ -47,30 +47,25 @@ public class Trie {
      * haetaan sanaa trie-puusta. Jos sana löytyy, palautetaan true, muuten false.
      *  
      */
-    public boolean haku(String sana) {
-        HashMap<Character, TrieSolmu> lapset = juuri.haeLapset();
+    public boolean haku(String sana) {     
         
-        TrieSolmu nykyinen = null;  
+        TrieSolmu nykyinen = juuri;  
         
         for (int i = 0; i < sana.length(); i++) {
             char kirjain = sana.charAt(i);
             
-            if (lapset.containsKey(kirjain)) {
-               nykyinen = lapset.get(kirjain);  
-               lapset = nykyinen.haeLapset();
+            if (nykyinen.lista[kirjain - 'a'] == null) {
+               return false;
                      
             } else {
-                nykyinen = null;
-                break;
+               nykyinen = nykyinen.lista[kirjain - 'a'];
             } 
+            
         }   
-        if (nykyinen != null && nykyinen.onSana()) {
-            return true;
-        } else {
-            return false;
-        }
+        return nykyinen.onSana();
     }
-    
 }
+    
+
 
 

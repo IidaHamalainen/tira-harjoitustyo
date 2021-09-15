@@ -2,18 +2,20 @@
 plugins {
    
     id 'java'
-
     id 'application'
-
     id 'jacoco'
-    
     id 'checkstyle'
 }
 
-mainClassName = 'tira.harjoitustyo.Main'
+mainClassName = 'harjoitustyo.Main'
 
 checkstyle {
     toolVersion '8.17';    
+}
+
+jacoco {
+    toolVersion = "0.8.5"
+    reportsDir = file("$buildDir/jacoco")
 }
 
 repositories {
@@ -23,11 +25,14 @@ repositories {
 dependencies {
     testImplementation 'junit:junit:4.13'
 }
-
+test {
+    finalizedBy jacocoTestReport
+}
 jacocoTestReport {
     reports {
         xml.enabled = true
         html.enabled = true
+       
     }
 }
 check.dependsOn jacocoTestReport

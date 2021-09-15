@@ -1,7 +1,6 @@
 
 package harjoitustyo.tietorakenne;
 
-import java.util.HashMap;
 
 /**
  *
@@ -9,27 +8,19 @@ import java.util.HashMap;
  */
 public class TrieSolmu {
     
-    private HashMap<Character, TrieSolmu> lapset = new HashMap<>();
-    private char solmunSisalto;
+    
+    TrieSolmu lista [];
     private boolean onSana;
-    
-    public TrieSolmu(char merkki) {       
-        this.solmunSisalto = merkki;
-        this.onSana = false;
-    }
-    
-    public TrieSolmu(char merkki, boolean onSana) {     
-        this.solmunSisalto = merkki;
-        this.onSana = onSana;
-    }
-    
+    private char solmunKirjain;
+ 
     /**
      * 
-     * palauttaa solmun lapset.
+     * alustaa trien a-z kirjaimia ajatellen.
      */
-    public HashMap<Character, TrieSolmu> haeLapset() {
-        return lapset;
-    }
+    public TrieSolmu() {       
+        lista = new TrieSolmu[26];      
+        this.onSana = false;      
+    }  
     
     /**
      * 
@@ -39,13 +30,6 @@ public class TrieSolmu {
         return onSana;
     }
     
-    /**
-     * 
-     * asettaa solmulle lapset.
-     */
-    public void asetaLapset(HashMap<Character, TrieSolmu> lapset) {
-        this.lapset = lapset;
-    }
     
     /**
      * 
@@ -54,4 +38,6 @@ public class TrieSolmu {
     public void asetaSana(boolean onSana) {
         this.onSana = onSana;
     }
+    
+   
 }

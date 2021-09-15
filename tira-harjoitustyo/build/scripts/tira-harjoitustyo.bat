@@ -71,7 +71,7 @@ set CLASSPATH=%APP_HOME%\lib\tira-harjoitustyo.jar
 
 
 @rem Execute tira-harjoitustyo
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %TIRA_HARJOITUSTYO_OPTS%  -classpath "%CLASSPATH%" tira.harjoitustyo.Main %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %TIRA_HARJOITUSTYO_OPTS%  -classpath "%CLASSPATH%" harjoitustyo.Main %*
 
 :end
 @rem End local scope for the variables with windows NT shell

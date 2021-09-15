@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MarkovAlgoritmi.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">tira-harjoitustyo</a> &gt; <a href="index.source.html" class="el_package">harjoitustyo.markovinketju</a> &gt; <span class="el_source">MarkovAlgoritmi.java</span></div><h1>MarkovAlgoritmi.java</h1><pre class="source lang-java linenums">
+package harjoitustyo.markovinketju;
+
+import harjoitustyo.tietorakenne.Trie;
+
+/**
+ *
+ * @author iida
+ */
+<span class="nc" id="L10">public class MarkovAlgoritmi {</span>
+    
+    private Trie trie;
+<span class="nc" id="L13">    private String sana= &quot;&quot;;</span>
+    
+    /**
+     * lisätään opetusmateriaali Triehen
+     */
+    public void lueMateriaali(String opetusmateriaali) {
+        
+<span class="nc" id="L20">        trie = new Trie();</span>
+        
+<span class="nc" id="L22">        String sanat[] = opetusmateriaali.split(&quot; &quot;);</span>
+        
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (int i = 0; i &lt; sanat.length; i++) {</span>
+<span class="nc" id="L25">            sana = sanat[i];</span>
+<span class="nc" id="L26">            trie.lisaaSana(sana);</span>
+        }
+<span class="nc" id="L28">    }</span>
+                       
+    
+    
+    /**
+     * generoidaan teksti
+     * @return luotu teksi
+     * @param haluttu tekstin pituus sanoina
+     */
+    public String luoTeksti(int sanamaara) {
+<span class="nc" id="L38">        return &quot;hello&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
