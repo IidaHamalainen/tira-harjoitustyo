@@ -15,7 +15,7 @@ public class Main {
         
         Trie trie = new Trie();    
         
-        trie.lisaaSana("kissa");
+        trie.lisaaSana("Kissa");
         System.out.println("sana lisätty");
         trie.lisaaSana("koira");
         System.out.println("sana lisätty");
@@ -25,10 +25,15 @@ public class Main {
         } else {
             System.out.println("sanaa ei löydy");
         }
+        if (trie.haku("Kissa") == true) {
+            System.out.println("sana löytyi");
+        } else {
+            System.out.println("sanaa ei löydy");
+        }
         
         
         
-        System.out.println(trie);
+       
         
     }
     

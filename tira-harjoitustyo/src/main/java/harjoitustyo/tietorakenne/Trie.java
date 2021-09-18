@@ -1,6 +1,9 @@
 
 package harjoitustyo.tietorakenne;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  *
@@ -16,55 +19,63 @@ public class Trie {
     }   
     
     /**
-     * 
-     * lisaa sanan trie-puuhun.
-     */
+    * 
+    * lisaa sanan trie-puuhun.
+    */
     public void lisaaSana(String sana) {
-        
-        TrieSolmu nykyinen = juuri;  
-        
+    Map<Character, TrieSolmu> lapset = juuri.haeLapset();
+
+    TrieSolmu nykyinen;
+
         for (int i = 0; i < sana.length(); i++) {
             char kirjain = sana.charAt(i);
-            
-            //jos kirjainta ei löydy, luodaan uusi solmu
-            if (nykyinen.lista[kirjain - 'a'] == null) {
-                nykyinen.lista[kirjain - 'a'] = new TrieSolmu(); 
-                nykyinen = nykyinen.lista[kirjain - 'a'];
-            
-            //uusi nykyinen solmu on kirjaimen sisältänyt solmu
+
+            if (lapset.containsKey(kirjain)) {
+                nykyinen = lapset.get(kirjain); //uusi nykyinen solmu on kirjaimen sisältänyt
             } else {
-                nykyinen = nykyinen.lista[kirjain - 'a'];
-                
-            }        
-            nykyinen.asetaSana(true);
-            
+                nykyinen = new TrieSolmu(); //jos kirjainta ei löydy, luodaan uusi solmu
+                lapset.put(kirjain, nykyinen);
+            }
+            lapset = nykyinen.haeLapset();
+
+            if (i == sana.length() - 1) {
+                nykyinen.asetaSana(true);
+            }
         }
-        
-           
     }
     /**
      * 
      * haetaan sanaa trie-puusta. Jos sana löytyy, palautetaan true, muuten false.
      *  
-     */
-    public boolean haku(String sana) {     
-        
-        TrieSolmu nykyinen = juuri;  
-        
+     */   
+    public boolean haku(String sana) {
+        Map<Character, TrieSolmu> lapset = juuri.haeLapset();
+
+        TrieSolmu nykyinen = null;  
+
         for (int i = 0; i < sana.length(); i++) {
             char kirjain = sana.charAt(i);
-            
-            if (nykyinen.lista[kirjain - 'a'] == null) {
-               return false;
-                     
+
+            if (lapset.containsKey(kirjain)) {
+               nykyinen = lapset.get(kirjain);  
+               lapset = nykyinen.haeLapset();
+
             } else {
-               nykyinen = nykyinen.lista[kirjain - 'a'];
+                nykyinen = null;
+                break;
             } 
-            
         }   
-        return nykyinen.onSana();
+        if (nykyinen != null && nykyinen.onSana()) {
+            return true;
+        } else {
+            return false;
+        }    
     }
+
+
 }
+    
+
     
 
 

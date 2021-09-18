@@ -1,6 +1,9 @@
 
 package harjoitustyo.tietorakenne;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  *
@@ -8,19 +11,17 @@ package harjoitustyo.tietorakenne;
  */
 public class TrieSolmu {
     
-    
-    TrieSolmu lista [];
+    private final Map<Character, TrieSolmu> lapset = new HashMap<>();
     private boolean onSana;
-    private char solmunKirjain;
- 
+
+    
     /**
-     * 
-     * alustaa trien a-z kirjaimia ajatellen.
+     * Hakee solmun lapsisolmut.
+     * @return palauttaa hashMapin lapsista.
      */
-    public TrieSolmu() {       
-        lista = new TrieSolmu[26];      
-        this.onSana = false;      
-    }  
+    Map<Character, TrieSolmu> haeLapset() {
+        return lapset;
+    }
     
     /**
      * 
@@ -29,15 +30,14 @@ public class TrieSolmu {
     public boolean onSana() {
         return onSana;
     }
-    
-    
     /**
      * 
      * asettaa tiedon onko sana joka päättyy tähän kirjaimeen/solmuun.
-     */
+     */    
     public void asetaSana(boolean onSana) {
         this.onSana = onSana;
     }
+    
     
    
 }
