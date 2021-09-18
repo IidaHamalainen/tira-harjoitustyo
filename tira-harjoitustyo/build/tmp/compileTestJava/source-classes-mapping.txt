@@ -1,2 +1,4 @@
 tietorakenne/TrieTest.java
  tietorakenne.TrieTest
+tietorakenne/MarkovTest.java
+ tietorakenne.MarkovTest

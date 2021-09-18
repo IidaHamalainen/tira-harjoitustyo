@@ -3,7 +3,6 @@
 <file name="/home/iida/Documents/Koulu/Tiralabra/tira-harjoitustyo/tira-harjoitustyo/src/main/java/harjoitustyo/Main.java">
 </file>
 <file name="/home/iida/Documents/Koulu/Tiralabra/tira-harjoitustyo/tira-harjoitustyo/src/main/java/harjoitustyo/markovinketju/MarkovAlgoritmi.java">
-<error line="32" severity="warning" message="First sentence should end with a period." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 </file>
 <file name="/home/iida/Documents/Koulu/Tiralabra/tira-harjoitustyo/tira-harjoitustyo/src/main/java/harjoitustyo/tietorakenne/Trie.java">
 </file>

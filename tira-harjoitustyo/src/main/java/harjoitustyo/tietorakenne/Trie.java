@@ -1,8 +1,11 @@
 
 package harjoitustyo.tietorakenne;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 
 /**
@@ -70,6 +73,32 @@ public class Trie {
         } else {
             return false;
         }    
+    }
+    /**
+     * Arpoo satunnaisen sanan trien sisältä.
+     * @return palauttaa sanan.
+     */
+    public String satunnainenSana() {
+        Random random = new Random();         
+        Map<Character, TrieSolmu> lapset = juuri.haeLapset();
+        String sana = "";    
+         
+        while (true) {
+            //haetaan lapsisolmujen avaimet
+            List<Character> keys = new ArrayList<Character>(lapset.keySet()); 
+            //arvotaan yksi niistä
+            char randomMerkki = keys.get(random.nextInt(keys.size()));
+            //lisätään sanaan
+            sana = sana + randomMerkki;
+            //otetaan uusi solmu arvotusta avaimesta
+            TrieSolmu solmu = lapset.get(randomMerkki); 
+            //jos kokonainen sana, lopetetana arpominen
+            if (solmu.onSana()) {
+                break;
+            }
+            lapset = solmu.haeLapset();          
+        }      
+        return sana;
     }
 
 

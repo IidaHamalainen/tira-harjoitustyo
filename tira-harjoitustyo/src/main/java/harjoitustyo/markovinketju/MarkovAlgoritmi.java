@@ -2,6 +2,8 @@
 package harjoitustyo.markovinketju;
 
 import harjoitustyo.tietorakenne.Trie;
+import harjoitustyo.tietorakenne.TrieSolmu;
+
 
 /**
  *
@@ -10,24 +12,26 @@ import harjoitustyo.tietorakenne.Trie;
 public class MarkovAlgoritmi {
     
     private Trie trie;
-    private String sana = "";
+    private String sana = "";  
+    
+    public MarkovAlgoritmi() {
+        
+        this.trie = new Trie();
+        
+    }
     
     /**
      * lisätään opetusmateriaali Triehen.
      */
     public void lueMateriaali(String opetusmateriaali) {
-        
-        trie = new Trie();
-        
+                    
         String sanat[] = opetusmateriaali.split(" ");
         
         for (int i = 0; i < sanat.length; i++) {
             sana = sanat[i];
             trie.lisaaSana(sana);
         }
-    }
-                       
-    
+    }             
     
     /**
      * generoidaan teksti.
@@ -35,6 +39,23 @@ public class MarkovAlgoritmi {
      * @param sanamaara haluttu tekstin pituus sanoina.
      */
     public String luoTeksti(int sanamaara) {
-        return "TO DO";
+        
+        if (sanamaara < 0) {
+            return null;
+        }
+        
+        StringBuilder teksti = new StringBuilder();
+        teksti.append("");
+        
+        for (int i = 0; i < sanamaara; i++) {
+            String uusiSana = trie.satunnainenSana();
+            
+            teksti.append(uusiSana + " ");               
+        }       
+        return teksti.toString();
+    }
+    
+    public Trie getTrie() {
+        return this.trie;
     }
 }

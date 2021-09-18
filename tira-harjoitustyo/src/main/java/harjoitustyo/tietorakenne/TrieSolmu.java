@@ -3,6 +3,7 @@ package harjoitustyo.tietorakenne;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 
 /**
@@ -37,6 +38,7 @@ public class TrieSolmu {
     public void asetaSana(boolean onSana) {
         this.onSana = onSana;
     }
+    
     
     
    
