@@ -20,10 +20,11 @@ public class Main {
         
         Ngrams bigrams = new Ngrams();
         
-        HashMap<String, Integer> testigrams = bigrams.ngrams("Mitä suurempi vaiva, sitä suurempi ilo sitä suurempi ilo");
+        HashMap<String, Integer> testigrams = bigrams.chargrams("Mitä suurempi vaiva, sitä suurempi ilo sitä suurempi ilo");
         
         System.out.println(Arrays.asList(testigrams));
         
+        /*
         MarkovAlgoritmi generaattori = new MarkovAlgoritmi();
         
         String materiaali = " Yksinkertainen ja selvä ei tavallisesti tule ensimmäisenä vaan viimeisenä" 
@@ -64,7 +65,7 @@ public class Main {
         String sana2 = trie.satunnainenSana();
         
         System.out.println(sana1 + " " + sana2);
-        
+        */
         
        
         

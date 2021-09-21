@@ -37,4 +37,24 @@ public class Ngrams {
         return nGrams;
     }
     
+    public HashMap<String, Integer> chargrams(String teksti) {
+        HashMap<String, Integer> cGrams = new HashMap<String, Integer>();   
+        for (int i = 0; i < teksti.length() - 1 ; i++) {
+                   
+            char m1 = teksti.charAt(i); 
+            char m2 = teksti.charAt(i + 1);
+            
+            String kirjaimet = String.valueOf(m1) + String.valueOf(m2);
+            
+            if (cGrams.containsKey(kirjaimet)) {
+                int lukumaara = cGrams.get(kirjaimet);
+                cGrams.put(kirjaimet, lukumaara + 1);      
+            } else {
+                cGrams.put(kirjaimet, 1);
+            }
+            
+        }
+        return cGrams;
+    }
+    
 }
