@@ -4,6 +4,9 @@ package harjoitustyo;
 import harjoitustyo.markovinketju.MarkovAlgoritmi;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
+import harjoitustyo.markovinketju.Ngrams;
+import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * 
@@ -13,6 +16,13 @@ public class Main {
 
     
     public static void main(String[] args) {
+        
+        
+        Ngrams bigrams = new Ngrams();
+        
+        HashMap<String, Integer> testigrams = bigrams.ngrams("Mitä suurempi vaiva, sitä suurempi ilo sitä suurempi ilo");
+        
+        System.out.println(Arrays.asList(testigrams));
         
         MarkovAlgoritmi generaattori = new MarkovAlgoritmi();
         
@@ -29,7 +39,7 @@ public class Main {
         System.out.println(generaattori.luoTeksti(7));
         
        
-        /*
+        
         Trie trie = new Trie();    
         
         trie.lisaaSana("Kissa");
@@ -54,7 +64,7 @@ public class Main {
         String sana2 = trie.satunnainenSana();
         
         System.out.println(sana1 + " " + sana2);
-        */
+        
         
        
         

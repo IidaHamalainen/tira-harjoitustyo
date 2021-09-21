@@ -4,5 +4,7 @@ harjoitustyo/tietorakenne/Trie.java
  harjoitustyo.tietorakenne.Trie
 harjoitustyo/markovinketju/MarkovAlgoritmi.java
  harjoitustyo.markovinketju.MarkovAlgoritmi
+harjoitustyo/markovinketju/Ngrams.java
+ harjoitustyo.markovinketju.Ngrams
 harjoitustyo/Main.java
  harjoitustyo.Main

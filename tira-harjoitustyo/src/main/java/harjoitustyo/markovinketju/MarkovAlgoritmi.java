@@ -31,7 +31,8 @@ public class MarkovAlgoritmi {
             sana = sanat[i];
             trie.lisaaSana(sana);
         }
-    }             
+    }  
+    
     
     /**
      * generoidaan teksti.
