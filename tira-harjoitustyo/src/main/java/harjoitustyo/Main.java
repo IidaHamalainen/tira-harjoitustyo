@@ -7,6 +7,7 @@ import harjoitustyo.tietorakenne.TrieSolmu;
 import harjoitustyo.markovinketju.Ngrams;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * 
@@ -20,11 +21,13 @@ public class Main {
         
         Ngrams bigrams = new Ngrams();
         
-        HashMap<String, Integer> testigrams = bigrams.chargrams("Mitä suurempi vaiva, sitä suurempi ilo sitä suurempi ilo");
+        //HashMap<String, Integer> testigrams = bigrams.trigrams("Mitä suurempi vaiva, sitä suurempi ilo sitä suurempi ilo");
         
-        System.out.println(Arrays.asList(testigrams));
+        //HashMap<Character, List<Character>> testi = bigrams.luetteloBigram("hei hoi  haikala hauki");
         
-        /*
+        //System.out.println(Arrays.asList(testi));
+        
+       
         MarkovAlgoritmi generaattori = new MarkovAlgoritmi();
         
         String materiaali = " Yksinkertainen ja selvä ei tavallisesti tule ensimmäisenä vaan viimeisenä" 
@@ -34,13 +37,16 @@ public class Main {
                 + " Mitä suurempi vaiva, sitä suurempi ilo";
         
         generaattori.lueMateriaali(materiaali);
+        //generaattori.luetteloBigram(materiaali);
+        
+        System.out.println(generaattori.luetteloTrigram(materiaali));
         
         System.out.println(generaattori.luoTeksti(5));
         System.out.println("");
         System.out.println(generaattori.luoTeksti(7));
         
        
-        
+        /*
         Trie trie = new Trie();    
         
         trie.lisaaSana("Kissa");

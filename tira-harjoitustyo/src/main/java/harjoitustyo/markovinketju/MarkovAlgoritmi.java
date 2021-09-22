@@ -3,6 +3,9 @@ package harjoitustyo.markovinketju;
 
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
+import harjoitustyo.markovinketju.Ngrams;
+import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -13,10 +16,12 @@ public class MarkovAlgoritmi {
     
     private Trie trie;
     private String sana = "";  
+    private Ngrams bigram;
     
     public MarkovAlgoritmi() {
         
         this.trie = new Trie();
+        this.bigram = new Ngrams();
         
     }
     
@@ -31,7 +36,22 @@ public class MarkovAlgoritmi {
             sana = sanat[i];
             trie.lisaaSana(sana);
         }
-    }  
+    }
+    
+    /**
+     * luodaan opetusmateriaalista bigram
+     * @param opetusmateriaali 
+     */
+    public HashMap<Character, List<Character>> luetteloBigram (String opetusmateriaali) {
+        HashMap<Character, List<Character>> lista = bigram.luetteloBigram(opetusmateriaali);
+        return lista;
+        
+    }
+    public HashMap<String, List<Character>> luetteloTrigram(String opetusmateriaali) {
+        HashMap<String, List<Character>> lista = bigram.luetteloTrigram(opetusmateriaali);
+        return lista;
+    }
+            
     
     
     /**
@@ -59,4 +79,5 @@ public class MarkovAlgoritmi {
     public Trie getTrie() {
         return this.trie;
     }
+    
 }
