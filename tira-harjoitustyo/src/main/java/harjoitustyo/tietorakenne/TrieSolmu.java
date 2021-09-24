@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class TrieSolmu {
     
-    private final Map<Character, TrieSolmu> lapset = new HashMap<>();
+    private final Map<String, TrieSolmu> lapset = new HashMap<>();
     private boolean onSana;
 
     
@@ -20,7 +20,7 @@ public class TrieSolmu {
      * Hakee solmun lapsisolmut.
      * @return palauttaa hashMapin lapsista.
      */
-    Map<Character, TrieSolmu> haeLapset() {
+    Map<String, TrieSolmu> haeLapset() {
         return lapset;
     }
     

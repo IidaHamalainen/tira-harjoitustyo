@@ -20,65 +20,85 @@ public class Trie {
     
     public Trie() {
         juuri = new TrieSolmu();
-    }   
+    } 
+    
+    /**
+     * Poistetaan tekstistä turhat välilyönnit ja pilkut & pisteet.
+     * @param teksti
+     * @return muokattu teksti.
+     */
+    public String kasitteleTeksti(String teksti) {
+        teksti = teksti.strip();
+        teksti = teksti.replace(",", "");
+        teksti = teksti.replace(".", "");
+        
+        return teksti;
+    }
     
     /**
     * 
-    * lisaa sanan trie-puuhun.
+    * lisaa tekstin (lause) trie-puuhun.
     */
-    public void lisaaSana(String sana) {
-    Map<Character, TrieSolmu> lapset = juuri.haeLapset();
+    public void lisaaSanoja(String teksti) {
+        Map<String, TrieSolmu> lapset = juuri.haeLapset();
+        TrieSolmu nykyinen;
+        
+        teksti = kasitteleTeksti(teksti);
 
-    TrieSolmu nykyinen;
-
-        for (int i = 0; i < sana.length(); i++) {
-            char kirjain = sana.charAt(i);
-
-            if (lapset.containsKey(kirjain)) {
-                nykyinen = lapset.get(kirjain); //uusi nykyinen solmu on kirjaimen sisältänyt
+        String[] sanat = teksti.split(" ");
+    
+        for (int i = 0; i < sanat.length; i++) {
+            String sana = sanat[i];
+            
+            if (lapset.containsKey(sana)) {
+                nykyinen = lapset.get(sana);
             } else {
-                nykyinen = new TrieSolmu(); //jos kirjainta ei löydy, luodaan uusi solmu
-                lapset.put(kirjain, nykyinen);
+                nykyinen = new TrieSolmu();
+                lapset.put(sana, nykyinen);
             }
             lapset = nykyinen.haeLapset();
-
-            if (i == sana.length() - 1) {
-                nykyinen.asetaSana(true);
-            }
+           if (i == sanat.length - 1) {
+               nykyinen.asetaSana(true);
+           }
         }
+         
     }
     /**
      * 
-     * haetaan sanaa trie-puusta. Jos sana löytyy, palautetaan true, muuten false.
+     * haetaan lausetta trie-puusta. Jos lause tai sen alkuosa löytyy, palautetaan true, muuten false.
      *  
      */   
-    public boolean haku(String sana) {
-        Map<Character, TrieSolmu> lapset = juuri.haeLapset();
+    public boolean haku(String teksti) {
+        Map<String, TrieSolmu> lapset = juuri.haeLapset();
 
         TrieSolmu nykyinen = null;  
 
-        for (int i = 0; i < sana.length(); i++) {
-            char kirjain = sana.charAt(i);
-
-            if (lapset.containsKey(kirjain)) {
-               nykyinen = lapset.get(kirjain);  
-               lapset = nykyinen.haeLapset();
-
+        teksti = kasitteleTeksti(teksti);
+        
+        String[] sanat = teksti.split(" ");
+        for (int i = 0; i < sanat.length; i++) {
+            String sana = sanat[i];
+            
+            if (lapset.containsKey(sana)) {
+                nykyinen = lapset.get(sana);
+                lapset = nykyinen.haeLapset();
             } else {
                 nykyinen = null;
                 break;
-            } 
-        }   
-        if (nykyinen != null && nykyinen.onSana()) {
+            }                 
+        } 
+        
+        if (nykyinen != null) {
             return true;
         } else {
             return false;
         }    
     }
+    
     /**
      * Arpoo satunnaisen sanan trien sisältä.
      * @return palauttaa sanan.
-     */
+     *
     public String satunnainenSana() {
         Random random = new Random();         
         Map<Character, TrieSolmu> lapset = juuri.haeLapset();
@@ -101,6 +121,7 @@ public class Trie {
         }      
         return sana;
     }
+    */
 
 
 }

@@ -12,7 +12,7 @@ import java.util.Random;
  */
 <span class="fc" id="L13">public class TrieSolmu {</span>
     
-<span class="fc" id="L15">    private final Map&lt;Character, TrieSolmu&gt; lapset = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L15">    private final Map&lt;String, TrieSolmu&gt; lapset = new HashMap&lt;&gt;();</span>
     private boolean onSana;
 
     
@@ -20,7 +20,7 @@ import java.util.Random;
      * Hakee solmun lapsisolmut.
      * @return palauttaa hashMapin lapsista.
      */
-    Map&lt;Character, TrieSolmu&gt; haeLapset() {
+    Map&lt;String, TrieSolmu&gt; haeLapset() {
 <span class="fc" id="L24">        return lapset;</span>
     }
     
@@ -29,7 +29,7 @@ import java.util.Random;
      * palauttaa tiedon onko solmuun paattyvä sana olemassa.
      */
     public boolean onSana() {
-<span class="fc" id="L32">        return onSana;</span>
+<span class="nc" id="L32">        return onSana;</span>
     }
     /**
      * 

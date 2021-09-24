@@ -4,61 +4,84 @@ package harjoitustyo;
 import harjoitustyo.markovinketju.MarkovAlgoritmi;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
+import harjoitustyo.markovinketju.Ngrams;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * 
  * @author iida
  */
-<span class="nc" id="L12">public class Main {</span>
+<span class="nc" id="L16">public class Main {</span>
 
     
     public static void main(String[] args) {
         
-<span class="nc" id="L17">        MarkovAlgoritmi generaattori = new MarkovAlgoritmi();</span>
-        
-<span class="nc" id="L19">        String materiaali = &quot; Yksinkertainen ja selvä ei tavallisesti tule ensimmäisenä vaan viimeisenä&quot; </span>
+<span class="nc" id="L21">        String materiaali1 = &quot; Yksinkertainen ja selvä ei tavallisesti tule ensimmäisenä vaan viimeisenä&quot; </span>
                 + &quot; Viisas ihminen ei sure sitä, mitä hänellä ei ole vaan iloitsee siitä, mitä hänellä on&quot;
                 + &quot; Elämä vailla juhlia on kuin pitkä tie vailla lepotaukoja&quot;
                 + &quot; Joskus on pelkkä elokin uroteko&quot;
-                + &quot; Mitä suurempi vaiva, sitä suurempi ilo&quot;;
+                + &quot; Mitä suurempi vaiva, sitä suurempi ilo&quot;
+                + &quot; Mitä suurempi ilo, sitä suurempi vaiva&quot;;
         
-<span class="nc" id="L25">        generaattori.lueMateriaali(materiaali);</span>
+<span class="nc" id="L28">        String materiaali2 = &quot;hai haikara hattara haituva haitari&quot;;</span>
         
-<span class="nc" id="L27">        System.out.println(generaattori.luoTeksti(5));</span>
-<span class="nc" id="L28">        System.out.println(&quot;&quot;);</span>
-<span class="nc" id="L29">        System.out.println(generaattori.luoTeksti(7));</span>
+<span class="nc" id="L30">        Ngrams bigrams = new Ngrams();</span>
         
-       
-        /*
-        Trie trie = new Trie();    
+        //HashMap&lt;String, Integer&gt; testigrams = bigrams.trigrams(&quot;Mitä suurempi vaiva, sitä suurempi ilo sitä suurempi ilo&quot;);
         
-        trie.lisaaSana(&quot;Kissa&quot;);
-        trie.lisaaSana(&quot;koira&quot;);
-        trie.lisaaSana(&quot;apina&quot;);
-        trie.lisaaSana(&quot;pupu&quot;);
-        trie.lisaaSana(&quot;paviaani&quot;);
-        trie.lisaaSana(&quot;ankka&quot;);
-        System.out.println(&quot;sanat lisätty&quot;);
+        //HashMap&lt;String, List&lt;String&gt;&gt; testi = bigrams.sanaTrigram(materiaali);
         
-        if (trie.haku(&quot;kissa&quot;) == true) {
-            System.out.println(&quot;sana löytyi&quot;);
-        } else {
-            System.out.println(&quot;sanaa ei löydy&quot;);
-        }
-        if (trie.haku(&quot;Kissa&quot;) == true) {
-            System.out.println(&quot;sana löytyi&quot;);
-        } else {
-            System.out.println(&quot;sanaa ei löydy&quot;);
-        }
-        String sana1 = trie.satunnainenSana();
-        String sana2 = trie.satunnainenSana();
-        
-        System.out.println(sana1 + &quot; &quot; + sana2);
-        */
+        //System.out.println(Arrays.asList(testi));
         
        
         
-<span class="nc" id="L61">    }</span>
+        //MarkovAlgoritmi generaattori = new MarkovAlgoritmi();
+        
+        //generaattori.lueMateriaali(materiaali2);
+        //generaattori.luetteloBigram(materiaali);
+        
+        //System.out.println(generaattori.luetteloTrigram(materiaali));
+        
+        //System.out.println(generaattori.luoTeksti(5));
+        //System.out.println(&quot;&quot;);
+        //System.out.println(generaattori.luoTeksti(7));
+        
+       
+        
+<span class="nc" id="L53">        Trie trie = new Trie();    </span>
+        
+<span class="nc" id="L55">        trie.lisaaSanoja(&quot;Kissa vei kielen&quot;);</span>
+<span class="nc" id="L56">        trie.lisaaSanoja(&quot;Kissa istui puussa&quot;);</span>
+<span class="nc" id="L57">        trie.lisaaSanoja(&quot;Ken söi kesävoin&quot;);</span>
+      
+<span class="nc" id="L59">        System.out.println(&quot;sanat lisätty&quot;);</span>
+        
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (trie.haku(&quot;Kissa vei kielen.&quot;) == true) {</span>
+<span class="nc" id="L62">            System.out.println(&quot;sana löytyi&quot;);</span>
+        } else {
+<span class="nc" id="L64">            System.out.println(&quot;sanaa ei löydy&quot;);</span>
+        }
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (trie.haku(&quot;Kissa vei&quot;) == true) {</span>
+<span class="nc" id="L67">            System.out.println(&quot;sana löytyi&quot;);</span>
+        } else {
+<span class="nc" id="L69">            System.out.println(&quot;sanaa ei löydy&quot;);</span>
+        }
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (trie.haku(&quot;Kensöi&quot;) == true) {</span>
+<span class="nc" id="L72">            System.out.println(&quot;sana löytyi&quot;);</span>
+        } else {
+<span class="nc" id="L74">            System.out.println(&quot;sanaa ei löydy&quot;);</span>
+        }
+        
+     
+        
+        
+        
+        
+       
+        
+<span class="nc" id="L84">    }</span>
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

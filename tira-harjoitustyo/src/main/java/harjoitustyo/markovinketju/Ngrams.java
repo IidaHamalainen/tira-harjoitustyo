@@ -8,7 +8,11 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ *
+ * @author iida
+ * Tässä luokassa luodaan Markovin ketjuun tarvitava n-gram rakenne. Toisen asteen Markovin ketjuun tarvitaan trigram.
+ */
 public class Ngrams {
     
     public Ngrams() {
@@ -18,7 +22,7 @@ public class Ngrams {
     /**
      * Kerätään sanaparit listaan ja lasketaan niiden esiintyminen.
      *
-     * @param sana läpikäytävä teksti.
+     * @param teksti läpikäytävä teksti.
      * @return palauttaa listan n-grameista.
      */
     public HashMap<String, Integer> ngrams(String teksti) {
@@ -40,94 +44,35 @@ public class Ngrams {
         return nGrams;
     }
     /**
-     * Kerää merkkijonot listaan ja laskee niiden esiintymiskerrat.
-     * @param teksti lähdeaineisto.
-     * @return palauttaa listan n-grameista.
+     * kerätään kaksi peräkkäistä sanaa, ja annetan lista sanoista jotka voivat seurata niitä opetusmateriaalissa.
+     * @param teksti opetusmateriaali.
+     * @return lista.
      */
-    public HashMap<String, Integer> trigrams(String teksti) {
+    public HashMap<String, List<String>> sanaTrigram(String teksti) {
+        HashMap<String, List<String>> luettelo = new HashMap<String, List<String>>();
+        teksti.strip();
+        teksti.replace(",", "");
+        teksti.replace(".", "");
+        String[] sanat = teksti.split(" ");        
         
-        HashMap<String, Integer> cGrams = new HashMap<String, Integer>();   
-        for (int i = 0; i < teksti.length() - 2 ; i++) {
-                   
-            char m1 = teksti.charAt(i); 
-            char m2 = teksti.charAt(i + 1);
-            char m3 = teksti.charAt(i + 2);
+        for (int i = 0; i < sanat.length - 2; i++) {
             
-            String kirjaimet = String.valueOf(m1) + String.valueOf(m2) + String.valueOf(m3);
+            String sanapari = sanat[i] + " " + sanat[i + 1];  
+            String seuraava = sanat[i + 2];
             
-            if (cGrams.containsKey(kirjaimet)) {
-                int lukumaara = cGrams.get(kirjaimet);
-                cGrams.put(kirjaimet, lukumaara + 1);      
+            if (luettelo.containsKey(sanapari)) {
+                luettelo.get(sanapari).add(seuraava);
             } else {
-                cGrams.put(kirjaimet, 1);
-            }            
-        }
-        return cGrams;
-    }
-    
-    /**
-     * Koostaa listan jokaista merkkiä seuraavista merkeistä.
-     * @param teksti lähdeteksti.
-     * @return hashmap jossa avaimena merkki ja arvona lista seuraavista merkeistä.
-     */
-    public HashMap<Character, List<Character>> luetteloBigram(String teksti) {
-        HashMap<Character, List<Character>> luettelo = new HashMap<Character, List<Character>>();
-        
-        for (int i = 0; i < teksti.length() - 1 ; i++) {
-                   
-            char m1 = teksti.charAt(i); 
-            char m2 = teksti.charAt(i + 1);           
-            
-            if (luettelo.containsKey(m1)) {
-                luettelo.get(m1).add(m2);
-            } else {
-                List<Character> uusiLista = new ArrayList<Character>();
-                luettelo.put(m1, uusiLista);
-                luettelo.get(m1).add(m2);
+                List<String> uusiLista = new ArrayList<String>();
+                luettelo.put(sanapari, uusiLista);
+                luettelo.get(sanapari).add(seuraava);
             }
-        }
-        return luettelo;                  
+            
+        }  
+        return luettelo;
     }
     
-    /**
-     * Koostaa listan jokaista kahden kirjaimen yhdistelmää seuraavista merkeistä.
-     * @param teksti lähdeteksti.
-     * @return hashmap jossa avaimena string ja arvona lista seuraavista merkeistä.
-     */
-    public HashMap<String, List<Character>> luetteloTrigram(String teksti) {
-        HashMap<String, List<Character>> luettelo = new HashMap<String, List<Character>>();
-        
-        for (int i = 0; i < teksti.length() - 2 ; i++) {
-                   
-            char m1 = teksti.charAt(i); 
-            char m2 = teksti.charAt(i + 1);
-            char m3 = teksti.charAt(i + 2);
-            
-            String s = String.valueOf(m1) + String.valueOf(m2);
-            
-            if (luettelo.containsKey(s)) {
-                luettelo.get(s).add(m3);
-            } else {
-                List<Character> uusiLista = new ArrayList<Character>();
-                luettelo.put(s, uusiLista);
-                luettelo.get(s).add(m3);
-            }
-        }
-        return luettelo;                  
-    }
-    
+  
 }
 
-/*
-ideaa:
-1.arvotaan 2 ekaa merkkiä triestä, nämä ovat siis kaksi ensimmäistä tilaa. 
 
-2.Näiden perusteella valitaan ngramin avulla mahdollisista merkeistä seuraava, 
-eli Markovin ketjun mukainen seuraava tila.
-
-3. Vaihetta 2 toistetaan kunnes sana on valmis
-
-
-
-
-*/

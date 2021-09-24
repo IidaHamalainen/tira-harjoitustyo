@@ -3,6 +3,9 @@ package harjoitustyo.markovinketju;
 
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
+import harjoitustyo.markovinketju.Ngrams;
+import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -12,51 +15,56 @@ import harjoitustyo.tietorakenne.TrieSolmu;
 public class MarkovAlgoritmi {
     
     private Trie trie;
-<span class="fc" id="L15">    private String sana = &quot;&quot;;  </span>
+<span class="fc" id="L18">    private String sana = &quot;&quot;;  </span>
+    private Ngrams bigram;
     
-<span class="fc" id="L17">    public MarkovAlgoritmi() {</span>
+<span class="fc" id="L21">    public MarkovAlgoritmi() {</span>
         
-<span class="fc" id="L19">        this.trie = new Trie();</span>
+<span class="fc" id="L23">        this.trie = new Trie();</span>
+<span class="fc" id="L24">        this.bigram = new Ngrams();</span>
         
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L26">    }</span>
     
     /**
      * lisätään opetusmateriaali Triehen.
      */
     public void lueMateriaali(String opetusmateriaali) {
-                    
-<span class="fc" id="L28">        String sanat[] = opetusmateriaali.split(&quot; &quot;);</span>
-        
-<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (int i = 0; i &lt; sanat.length; i++) {</span>
-<span class="fc" id="L31">            sana = sanat[i];</span>
-<span class="fc" id="L32">            trie.lisaaSana(sana);</span>
-        }
-<span class="fc" id="L34">    }             </span>
+                           
+<span class="fc" id="L33">            trie.lisaaSanoja(opetusmateriaali);      </span>
+<span class="fc" id="L34">    }</span>
     
     /**
-     * generoidaan teksti.
-     * @return luotu teksi.
-     * @param sanamaara haluttu tekstin pituus sanoina.
-     */
+     * luodaan opetusmateriaalista trigram.
+     * @param opetusmateriaali 
+     *
+    */ 
+    public HashMap&lt;String, List&lt;String&gt;&gt; luetteloTrigram(String opetusmateriaali) {
+<span class="nc" id="L42">        HashMap&lt;String, List&lt;String&gt;&gt; lista = bigram.sanaTrigram(opetusmateriaali);</span>
+<span class="nc" id="L43">        return lista;</span>
+    }
+            
+    
+    
+    /*
     public String luoTeksti(int sanamaara) {
         
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if (sanamaara &lt; 0) {</span>
-<span class="nc" id="L44">            return null;</span>
-        }
+        if (sanamaara &lt; 0) {
+            return null;
+        }      
+        StringBuilder teksti = new StringBuilder();
+        teksti.append(&quot;&quot;);
         
-<span class="fc" id="L47">        StringBuilder teksti = new StringBuilder();</span>
-<span class="fc" id="L48">        teksti.append(&quot;&quot;);</span>
-        
-<span class="fc bfc" id="L50" title="All 2 branches covered.">        for (int i = 0; i &lt; sanamaara; i++) {</span>
-<span class="fc" id="L51">            String uusiSana = trie.satunnainenSana();</span>
-            
-<span class="fc" id="L53">            teksti.append(uusiSana + &quot; &quot;);               </span>
+        for (int i = 0; i &lt; sanamaara; i++) {
+            String uusiSana = trie.satunnainenSana();  //TO DO        
+            teksti.append(uusiSana + &quot; &quot;);               
         }       
-<span class="fc" id="L55">        return teksti.toString();</span>
+        return teksti.toString();
+    }
+    */
+    public Trie getTrie() {
+<span class="fc" id="L65">        return this.trie;</span>
     }
     
-    public Trie getTrie() {
-<span class="fc" id="L59">        return this.trie;</span>
-    }
+    
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

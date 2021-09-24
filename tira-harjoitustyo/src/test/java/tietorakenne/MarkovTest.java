@@ -28,22 +28,14 @@ public class MarkovTest {
     
     @Test
     public void materiaalinLukuToimii() {
-        String teksti = "Hullu työtä tekee, viisas elää vähemmälläkin. "
-                + "Mutta työ se sentään on hauskinta elämässä – ei siitä mihinkään pääse";
+        String teksti = "Hullu työtä tekee, viisas elää vähemmälläkin. ";
+               
         testiGeneraattori.lueMateriaali(teksti);
         
         Trie trie = testiGeneraattori.getTrie();
         
-        assertEquals(trie.haku("työ"), true);
+        assertEquals(trie.haku("Hullu työtä tekee, viisas elää vähemmälläkin. "), true);
     }
-    @Test
-    public void tekstinGenerointiToimii() {
-        String materiaali = "Emme voi ratkaista ongelmia ajattelemalla samalla tavalla kuin silloin, kun loimme ne";
-        testiGeneraattori.lueMateriaali(materiaali);
-        String teksti = testiGeneraattori.luoTeksti(4);
-        
-        assertNotNull(teksti);
     
-    }
     
 }

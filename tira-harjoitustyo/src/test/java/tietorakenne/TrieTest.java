@@ -23,24 +23,30 @@ public class TrieTest {
     public void setUp() {
         this.juuri = new TrieSolmu();
         this.testiTrie = new Trie();
-    }
-    
-    private void lisaaSanaTriehen() {
-        this.testiTrie.lisaaSana("chili");
-        this.testiTrie.lisaaSana("kardemumma");
-        
-    }
+    } 
     
     @Test
-    public void lisaaSanaToimii() {
-        this.testiTrie.lisaaSana("kaneli");
-        assertEquals(this.testiTrie.haku("kaneli"), true);
-    }
-     
+    public void lisaaSanojaToimii() {
+        this.testiTrie.lisaaSanoja("kaneli kuuluu pulliin");
+        assertEquals(this.testiTrie.haku("kaneli kuuluu pulliin"), true);
+    }  
     
     @Test
     public void olematonSanaEiLoydy() {
-        assertEquals(this.testiTrie.haku("anis"), false);
+        this.testiTrie.lisaaSanoja("hillo on marmeladia");
+        assertEquals(this.testiTrie.haku("marmeladi on hilloa"), false);     
+    }    
+    
+    @Test
+    public void tekstinMuokkausToimii() {
+        this.testiTrie.lisaaSanoja(" paprika on pahaa.");
+        assertEquals(this.testiTrie.haku("paprika on pahaa"), true);
+    }
+    
+    @Test
+    public void hakuOsallaLauseellaToimii() {
+        this.testiTrie.lisaaSanoja("korianteri jakaa mielipiteitä");
+        assertEquals(this.testiTrie.haku("korianteri"), true);
     }
     
     
