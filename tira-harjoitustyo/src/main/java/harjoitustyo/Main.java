@@ -25,9 +25,9 @@ public class Main {
                 + " Mitä suurempi vaiva, sitä suurempi ilo"
                 + " Mitä suurempi ilo, sitä suurempi vaiva";
         
-        String materiaali2 = "hai haikara hattara haituva haitari";
+        String materiaali2 = "hai valas ui, hai valas lohi, valas ui ohi";
         
-        Ngrams bigrams = new Ngrams();
+        //Ngrams bigrams = new Ngrams();
         
         //HashMap<String, Integer> testigrams = bigrams.trigrams("Mitä suurempi vaiva, sitä suurempi ilo sitä suurempi ilo");
         
@@ -40,9 +40,9 @@ public class Main {
         //MarkovAlgoritmi generaattori = new MarkovAlgoritmi();
         
         //generaattori.lueMateriaali(materiaali2);
-        //generaattori.luetteloBigram(materiaali);
+        //generaattori.luoTrigram(materiaali2);
         
-        //System.out.println(generaattori.luetteloTrigram(materiaali));
+        //System.out.println(generaattori.getTrigramLuettelo());
         
         //System.out.println(generaattori.luoTeksti(5));
         //System.out.println("");
@@ -52,33 +52,30 @@ public class Main {
         
         Trie trie = new Trie();    
         
-        trie.lisaaSanoja("Kissa vei kielen");
-        trie.lisaaSanoja("Kissa istui puussa");
-        trie.lisaaSanoja("Ken söi kesävoin");
+        trie.lisaaTeksti("Kissa vei kielen. Kissa maukuu. Kissa vei kalat");
+        //trie.lisaaSanoja("Kissa istui puussa");
       
         System.out.println("sanat lisätty");
         
-        if (trie.haku("Kissa vei kielen.") == true) {
-            System.out.println("sana löytyi");
+        if (trie.haku("Kissa vei kalat.") == true) {
+            System.out.println("lause löytyi");
         } else {
-            System.out.println("sanaa ei löydy");
+            System.out.println("lause ei löydy");
         }
-        if (trie.haku("Kissa vei") == true) {
-            System.out.println("sana löytyi");
+        if (trie.haku("Kissa maukuu") == true) {
+            System.out.println("lause löytyi");
         } else {
-            System.out.println("sanaa ei löydy");
+            System.out.println("lause ei löydy");
         }
         if (trie.haku("Kensöi") == true) {
-            System.out.println("sana löytyi");
+            System.out.println("lause löytyi");
         } else {
-            System.out.println("sanaa ei löydy");
+            System.out.println("lause ei löydy");
         }
         
      
         
-        
-        
-        
+      
        
         
     }

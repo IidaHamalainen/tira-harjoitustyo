@@ -1,3 +1,5 @@
+tietorakenne/TrigamTest.java
+ tietorakenne.TrigamTest
 tietorakenne/MarkovTest.java
  tietorakenne.MarkovTest
 tietorakenne/TrieTest.java

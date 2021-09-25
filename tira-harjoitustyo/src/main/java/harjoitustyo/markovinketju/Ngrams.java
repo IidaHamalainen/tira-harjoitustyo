@@ -15,16 +15,52 @@ import java.util.Map;
  */
 public class Ngrams {
     
+    private HashMap<String, List<String>> luettelo;
+    
     public Ngrams() {
         
+        luettelo = new HashMap<String, List<String>>();
     }
+    /**
+     * kerätään kaksi peräkkäistä sanaa, ja annetan lista sanoista jotka voivat seurata niitä opetusmateriaalissa.
+     * @param teksti opetusmateriaali.
+     * @param teksti 
+     */
+    public void luoTrigam(String teksti) {
+        teksti = teksti.strip();
+        teksti = teksti.replace(",", "");
+        teksti = teksti.replace(".", "");
+        String[] sanat = teksti.split(" ");        
+        
+        for (int i = 0; i < sanat.length - 2; i++) {
+            
+            String sanapari = sanat[i] + " " + sanat[i + 1];  
+            String seuraava = sanat[i + 2];
+            
+            if (luettelo.containsKey(sanapari)) {
+                luettelo.get(sanapari).add(seuraava);
+            } else {
+                List<String> uusiLista = new ArrayList<String>();
+                luettelo.put(sanapari, uusiLista);
+                luettelo.get(sanapari).add(seuraava);
+            }
+        }    
+    }
+    /**
+     * palauttaa trigarmin luoman luettelon.
+     * @return luettelo.
+     */
+    public HashMap<String, List<String>> haeTrigramLuettelo() {
+        return luettelo;
+    }
+      
     
     /**
      * Kerätään sanaparit listaan ja lasketaan niiden esiintyminen.
      *
      * @param teksti läpikäytävä teksti.
      * @return palauttaa listan n-grameista.
-     */
+     *
     public HashMap<String, Integer> ngrams(String teksti) {
         
         //tallennetaan sanapari ja esiintymiskerrat
@@ -43,36 +79,5 @@ public class Ngrams {
         }
         return nGrams;
     }
-    /**
-     * kerätään kaksi peräkkäistä sanaa, ja annetan lista sanoista jotka voivat seurata niitä opetusmateriaalissa.
-     * @param teksti opetusmateriaali.
-     * @return lista.
-     */
-    public HashMap<String, List<String>> sanaTrigram(String teksti) {
-        HashMap<String, List<String>> luettelo = new HashMap<String, List<String>>();
-        teksti.strip();
-        teksti.replace(",", "");
-        teksti.replace(".", "");
-        String[] sanat = teksti.split(" ");        
-        
-        for (int i = 0; i < sanat.length - 2; i++) {
-            
-            String sanapari = sanat[i] + " " + sanat[i + 1];  
-            String seuraava = sanat[i + 2];
-            
-            if (luettelo.containsKey(sanapari)) {
-                luettelo.get(sanapari).add(seuraava);
-            } else {
-                List<String> uusiLista = new ArrayList<String>();
-                luettelo.put(sanapari, uusiLista);
-                luettelo.get(sanapari).add(seuraava);
-            }
-            
-        }  
-        return luettelo;
-    }
-    
-  
+    */   
 }
-
-

@@ -14,14 +14,13 @@ import java.util.List;
  */
 public class MarkovAlgoritmi {
     
-    private Trie trie;
-    private String sana = "";  
-    private Ngrams bigram;
+    private Trie trie; 
+    private Ngrams trigram;
     
     public MarkovAlgoritmi() {
         
         this.trie = new Trie();
-        this.bigram = new Ngrams();
+        this.trigram = new Ngrams();
         
     }
     
@@ -30,22 +29,34 @@ public class MarkovAlgoritmi {
      */
     public void lueMateriaali(String opetusmateriaali) {
                            
-            trie.lisaaSanoja(opetusmateriaali);      
+            trie.lisaaTeksti(opetusmateriaali);      
     }
     
     /**
      * luodaan opetusmateriaalista trigram.
      * @param opetusmateriaali 
-     *
     */ 
-    public HashMap<String, List<String>> luetteloTrigram(String opetusmateriaali) {
-        HashMap<String, List<String>> lista = bigram.sanaTrigram(opetusmateriaali);
-        return lista;
+    public void luoTrigram(String opetusmateriaali) {
+        trigram.luoTrigam(opetusmateriaali);
     }
             
     
     
     /*
+    // ensin pitää arpoa sanapari josta aloittaa
+    String lause = "";
+    HashMap<String, List<String>> lista = sanaTrigram(opetusmateriaali)   //halutaan hashmap-luettelo
+    
+    *toistuva osa
+    ArrayList<String> seuraajat = lista.get(sanapari);  //sanaparin seuraajat
+    String random = seuraajat.get(random.nextInt(seuraajat.size())); joista arvotaan sana
+    lause = lause + random + " ";
+    String[] sanat = lause.split(" ");
+    sanapari = sanat[sanat.length - 2] + " " + sanat[sanat.length - 1];
+    *
+    jne
+    
+    
     public String luoTeksti(int sanamaara) {
         
         if (sanamaara < 0) {
@@ -60,9 +71,24 @@ public class MarkovAlgoritmi {
         }       
         return teksti.toString();
     }
-    */
+    /**
+     * hakee trien.
+     */
     public Trie getTrie() {
         return this.trie;
+    }
+    /**
+     * hakee trigramin.
+     */
+    public Ngrams getTrigam() {
+        return this.trigram;
+    }
+    
+    /**
+     *hakee trigamin muodostaman HashMap-rakenteen.
+     */
+    public HashMap<String, List<String>> getTrigramLuettelo() {
+        return this.trigram.haeTrigramLuettelo();
     }
     
     

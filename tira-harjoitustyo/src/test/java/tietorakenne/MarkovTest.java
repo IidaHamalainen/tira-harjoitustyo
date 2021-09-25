@@ -2,6 +2,7 @@
 package tietorakenne;
 
 import harjoitustyo.markovinketju.MarkovAlgoritmi;
+import harjoitustyo.markovinketju.Ngrams;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
 import static org.junit.Assert.*;
@@ -19,6 +20,7 @@ public class MarkovTest {
     
     private MarkovAlgoritmi testiGeneraattori;
     private Trie testiTrie;
+    private Ngrams trigram;
     
     
     @Before
@@ -32,9 +34,20 @@ public class MarkovTest {
                
         testiGeneraattori.lueMateriaali(teksti);
         
-        Trie trie = testiGeneraattori.getTrie();
+        testiTrie = testiGeneraattori.getTrie();
         
-        assertEquals(trie.haku("Hullu työtä tekee, viisas elää vähemmälläkin. "), true);
+        assertEquals(testiTrie.haku("Hullu työtä tekee, viisas elää vähemmälläkin. "), true);
+    }
+    @Test
+    public void trigraminLuontiToimii() {
+        String teksti = "hai valas ui, hai valas lohi, valas ui ohi";
+        testiGeneraattori.luoTrigram(teksti);
+        
+        trigram = testiGeneraattori.getTrigam();
+        
+        assertNotNull(trigram);
+        
+        
     }
     
     
