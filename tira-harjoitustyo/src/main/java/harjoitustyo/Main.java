@@ -8,6 +8,8 @@ import harjoitustyo.markovinketju.Ngrams;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.io.File;
+import java.util.Scanner;
 
 /**
  * 
@@ -16,13 +18,30 @@ import java.util.List;
 public class Main {
 
     
-    public static void main(String[] args) {
+
+
+    
+    public static void main(String[] args) throws Exception {
+        
+        MarkovAlgoritmi generaattori = new MarkovAlgoritmi();
+        StringBuilder teksti = new StringBuilder();
+        
+        try (Scanner tiedostonLukija = new Scanner(new File("sananlaskuja.txt"))) { 
+            
+            while (tiedostonLukija.hasNextLine()) { 
+            String rivi = tiedostonLukija.nextLine();
+            teksti.append(rivi);
+            
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Virhe: " + e.getMessage());
+        }
+        generaattori.lueMateriaali(teksti.toString());
+        
         
         String materiaali1 = " Yksinkertainen ja selvä ei tavallisesti tule ensimmäisenä vaan viimeisenä."
                 + " Yksinkertainen ja viisas kyllä tavallisesti tule ensimmäisenä vaan viimeisenä."
-                + " Viisas ihminen ei sure sitä, mitä hänellä ei ole vaan iloitsee siitä, mitä hänellä on."
-                + " Elämä vailla juhlia on kuin pitkä tie vailla lepotaukoja."
-                + " Joskus on pelkkä elokin uroteko."
                 + " Mitä suurempi vaiva, sitä suurempi ilo."
                 + " Mitä suurempi ilo, sitä suurempi vaiva.";
         
@@ -36,21 +55,13 @@ public class Main {
         
         //System.out.println(Arrays.asList(testi));
         
-       
-        
-        MarkovAlgoritmi generaattori = new MarkovAlgoritmi();
-        
-        generaattori.lueMateriaali(materiaali1);
-        
-        
         //System.out.println(generaattori.getTrigramLuettelo());
         
         System.out.println(generaattori.luoTeksti(5));
-        System.out.println(generaattori.luoTeksti(5));
-        System.out.println(generaattori.luoTeksti(5));
+        System.out.println(generaattori.luoTeksti(6));
+        System.out.println(generaattori.luoTeksti(7));
         //System.out.println("");
-        //System.out.println(generaattori.luoTeksti(7));
-        
+        //System.out.println(generaattori.luoTeksti(7)); 
        
         /*
         Trie trie = new Trie();    
@@ -76,11 +87,7 @@ public class Main {
             System.out.println("lause ei löydy");
         }
         */
-     
-        
-      
-       
-        
+ 
     }
     
 }

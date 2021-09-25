@@ -65,20 +65,8 @@ public class MarkovAlgoritmi {
     }
     
     /*
-    // ensin pitää arpoa sanapari josta aloittaa
-    String lause = "";
-    HashMap<String, List<String>> lista = sanaTrigram(opetusmateriaali)   //halutaan hashmap-luettelo
-    
-    *toistuva osa
-    ArrayList<String> seuraajat = lista.get(sanapari);  //sanaparin seuraajat
-    String random = seuraajat.get(random.nextInt(seuraajat.size())); joista arvotaan sana
-    lause = lause + random + " ";
-    String[] sanat = lause.split(" ");
-    sanapari = sanat[sanat.length - 2] + " " + sanat[sanat.length - 1];
-    *
-    jne
-    
-    
+
+
     public String luoTeksti(int sanamaara) {
         
         if (sanamaara < 0) {
