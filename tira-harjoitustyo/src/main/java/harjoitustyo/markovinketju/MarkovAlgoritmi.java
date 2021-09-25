@@ -39,7 +39,7 @@ public class MarkovAlgoritmi {
         Random random = new Random();
         HashMap<String, List<String>> lista = getTrigramLuettelo();
         String lause = "";
-        int tekstinPituus= sanamaara;
+        int tekstinPituus = sanamaara;
         
         if (sanamaara < 0) {
             return null;
@@ -50,7 +50,7 @@ public class MarkovAlgoritmi {
         while (true) {
             List<String> seuraajat = lista.get(sanapari);
             String randomSana = seuraajat.get(random.nextInt(seuraajat.size()));
-            lause = lause + " " +randomSana;
+            lause = lause + " " + randomSana;
             String[] sanat = lause.split(" ");
             
             if (sanat.length == tekstinPituus) {

@@ -131,6 +131,22 @@ public class Trie {
 <span class="fc" id="L131">            return false;</span>
         }    
     }
+    public String arvoAlkusanat() {
+<span class="nc" id="L135">        Random random = new Random();   </span>
+        
+<span class="nc" id="L137">        Map&lt;String, TrieSolmu&gt; lapset1 = juuri.haeLapset();               </span>
+<span class="nc" id="L138">        List&lt;String&gt; avaimet1 = new ArrayList&lt;String&gt;(lapset1.keySet()); </span>
+<span class="nc" id="L139">        String arvottuSana1 = avaimet1.get(random.nextInt(avaimet1.size()));</span>
+<span class="nc" id="L140">        TrieSolmu solmu = lapset1.get(arvottuSana1); </span>
+        
+<span class="nc" id="L142">        Map&lt;String, TrieSolmu&gt; lapset2 = solmu.haeLapset(); </span>
+<span class="nc" id="L143">        List&lt;String&gt; avaimet2 = new ArrayList&lt;String&gt;(lapset2.keySet());</span>
+<span class="nc" id="L144">        String arvottuSana2 = avaimet2.get(random.nextInt(avaimet2.size()));</span>
+        
+<span class="nc" id="L146">        String sanapari = arvottuSana1 + &quot; &quot; + arvottuSana2;</span>
+        
+<span class="nc" id="L148">        return sanapari;</span>
+    }
     
     /**
      * Arpoo satunnaisen sanan trien sisältä.
