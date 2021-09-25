@@ -24,7 +24,7 @@ public class Ngrams {
     /**
      * kerätään kaksi peräkkäistä sanaa, ja annetan lista sanoista jotka voivat seurata niitä opetusmateriaalissa.
      * @param teksti opetusmateriaali.
-     * @param teksti 
+     * 
      */
     public void luoTrigam(String teksti) {
         teksti = teksti.strip();
