@@ -52,7 +52,7 @@ public class Main {
         
         Trie trie = new Trie();    
         
-        trie.lisaaTeksti("Kissa vei kielen. Kissa maukuu. Kissa vei kalat");
+        trie.lisaaTeksti("Kissa vei kielen. Ässä maukuu. Kissa vei kalat");
         //trie.lisaaSanoja("Kissa istui puussa");
       
         System.out.println("sanat lisätty");
@@ -62,7 +62,7 @@ public class Main {
         } else {
             System.out.println("lause ei löydy");
         }
-        if (trie.haku("Kissa maukuu") == true) {
+        if (trie.haku("Ässä maukuu") == true) {
             System.out.println("lause löytyi");
         } else {
             System.out.println("lause ei löydy");

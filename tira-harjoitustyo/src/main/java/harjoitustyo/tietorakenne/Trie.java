@@ -36,7 +36,7 @@ public class Trie {
         return teksti;
     }
     /**
-     * Jakaa syötteenä annetin tekstin lauseiksi.
+     * Jakaa syötteenä annetin tekstin lauseiksi. Lause alkaa isolla alkukirjaimella.
      * @param teksti syöte.
      * @return lista lauseista.
      */
