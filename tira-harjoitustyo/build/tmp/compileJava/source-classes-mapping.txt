@@ -1,10 +1,10 @@
 harjoitustyo/tietorakenne/TrieSolmu.java
  harjoitustyo.tietorakenne.TrieSolmu
-harjoitustyo/tietorakenne/Trie.java
- harjoitustyo.tietorakenne.Trie
-harjoitustyo/Main.java
- harjoitustyo.Main
-harjoitustyo/markovinketju/MarkovAlgoritmi.java
- harjoitustyo.markovinketju.MarkovAlgoritmi
 harjoitustyo/markovinketju/Ngrams.java
  harjoitustyo.markovinketju.Ngrams
+harjoitustyo/tietorakenne/Trie.java
+ harjoitustyo.tietorakenne.Trie
+harjoitustyo/markovinketju/MarkovAlgoritmi.java
+ harjoitustyo.markovinketju.MarkovAlgoritmi
+harjoitustyo/Main.java
+ harjoitustyo.Main

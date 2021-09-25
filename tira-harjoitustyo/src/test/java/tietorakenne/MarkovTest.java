@@ -41,7 +41,7 @@ public class MarkovTest {
     @Test
     public void trigraminLuontiToimii() {
         String teksti = "hai valas ui, hai valas lohi, valas ui ohi";
-        testiGeneraattori.luoTrigram(teksti);
+        testiGeneraattori.lueMateriaali(teksti);
         
         trigram = testiGeneraattori.getTrigam();
         

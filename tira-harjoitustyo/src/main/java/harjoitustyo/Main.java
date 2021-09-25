@@ -18,12 +18,13 @@ public class Main {
     
     public static void main(String[] args) {
         
-        String materiaali1 = " Yksinkertainen ja selvä ei tavallisesti tule ensimmäisenä vaan viimeisenä" 
-                + " Viisas ihminen ei sure sitä, mitä hänellä ei ole vaan iloitsee siitä, mitä hänellä on"
-                + " Elämä vailla juhlia on kuin pitkä tie vailla lepotaukoja"
-                + " Joskus on pelkkä elokin uroteko"
-                + " Mitä suurempi vaiva, sitä suurempi ilo"
-                + " Mitä suurempi ilo, sitä suurempi vaiva";
+        String materiaali1 = " Yksinkertainen ja selvä ei tavallisesti tule ensimmäisenä vaan viimeisenä."
+                + " Yksinkertainen ja viisas kyllä tavallisesti tule ensimmäisenä vaan viimeisenä."
+                + " Viisas ihminen ei sure sitä, mitä hänellä ei ole vaan iloitsee siitä, mitä hänellä on."
+                + " Elämä vailla juhlia on kuin pitkä tie vailla lepotaukoja."
+                + " Joskus on pelkkä elokin uroteko."
+                + " Mitä suurempi vaiva, sitä suurempi ilo."
+                + " Mitä suurempi ilo, sitä suurempi vaiva.";
         
         String materiaali2 = "hai valas ui, hai valas lohi, valas ui ohi";
         
@@ -37,19 +38,21 @@ public class Main {
         
        
         
-        //MarkovAlgoritmi generaattori = new MarkovAlgoritmi();
+        MarkovAlgoritmi generaattori = new MarkovAlgoritmi();
         
-        //generaattori.lueMateriaali(materiaali2);
-        //generaattori.luoTrigram(materiaali2);
+        generaattori.lueMateriaali(materiaali1);
+        
         
         //System.out.println(generaattori.getTrigramLuettelo());
         
-        //System.out.println(generaattori.luoTeksti(5));
+        System.out.println(generaattori.luoTeksti(5));
+        System.out.println(generaattori.luoTeksti(5));
+        System.out.println(generaattori.luoTeksti(5));
         //System.out.println("");
         //System.out.println(generaattori.luoTeksti(7));
         
        
-        
+        /*
         Trie trie = new Trie();    
         
         trie.lisaaTeksti("Kissa vei kielen. Ässä maukuu. Kissa vei kalat");
@@ -72,7 +75,7 @@ public class Main {
         } else {
             System.out.println("lause ei löydy");
         }
-        
+        */
      
         
       

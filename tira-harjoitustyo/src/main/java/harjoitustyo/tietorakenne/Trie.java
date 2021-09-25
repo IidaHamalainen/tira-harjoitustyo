@@ -131,6 +131,22 @@ public class Trie {
             return false;
         }    
     }
+    public String arvoAlkusanat() {
+        Random random = new Random();   
+        
+        Map<String, TrieSolmu> lapset1 = juuri.haeLapset();               
+        List<String> avaimet1 = new ArrayList<String>(lapset1.keySet()); 
+        String arvottuSana1 = avaimet1.get(random.nextInt(avaimet1.size()));
+        TrieSolmu solmu = lapset1.get(arvottuSana1); 
+        
+        Map<String, TrieSolmu> lapset2 = solmu.haeLapset(); 
+        List<String> avaimet2 = new ArrayList<String>(lapset2.keySet());
+        String arvottuSana2 = avaimet2.get(random.nextInt(avaimet2.size()));
+        
+        String sanapari = arvottuSana1 + " " + arvottuSana2;
+        
+        return sanapari;
+    }
     
     /**
      * Arpoo satunnaisen sanan trien sisältä.

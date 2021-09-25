@@ -4,8 +4,10 @@ package harjoitustyo.markovinketju;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
 import harjoitustyo.markovinketju.Ngrams;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -25,22 +27,42 @@ public class MarkovAlgoritmi {
     }
     
     /**
-     * lisätään opetusmateriaali Triehen.
+     * lisätään opetusmateriaali Triehen ja luodaan trigram.
      */
     public void lueMateriaali(String opetusmateriaali) {
                            
-            trie.lisaaTeksti(opetusmateriaali);      
-    }
-    
-    /**
-     * luodaan opetusmateriaalista trigram.
-     * @param opetusmateriaali 
-    */ 
-    public void luoTrigram(String opetusmateriaali) {
-        trigram.luoTrigam(opetusmateriaali);
-    }
+            trie.lisaaTeksti(opetusmateriaali);   
+            trigram.luoTrigam(opetusmateriaali);
+    } 
             
-    
+    public String luoTeksti(int sanamaara) {
+        Random random = new Random();
+        HashMap<String, List<String>> lista = getTrigramLuettelo();
+        String lause = "";
+        int tekstinPituus= sanamaara;
+        
+        if (sanamaara < 0) {
+            return null;
+        }
+        String sanapari = trie.arvoAlkusanat();
+        lause = lause + sanapari;
+
+        while (true) {
+            List<String> seuraajat = lista.get(sanapari);
+            String randomSana = seuraajat.get(random.nextInt(seuraajat.size()));
+            lause = lause + " " +randomSana;
+            String[] sanat = lause.split(" ");
+            
+            if (sanat.length == tekstinPituus) {
+                break;
+            } else {
+               sanapari = sanat[sanat.length - 2] + " " + sanat[sanat.length - 1]; 
+            }
+               
+        }
+        return lause;
+        
+    }
     
     /*
     // ensin pitää arpoa sanapari josta aloittaa
