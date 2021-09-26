@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import harjoitustyo.tietorakenne.Trie;
+import harjoitustyo.tietorakenne.TrieSolmu;
+
 
 /**
  *
@@ -22,14 +25,13 @@ public class Ngrams {
         luettelo = new HashMap<String, List<String>>();
     }
     /**
-     * kerätään kaksi peräkkäistä sanaa, ja annetan lista sanoista jotka voivat seurata niitä opetusmateriaalissa.
+     * kerätään kaksi peräkkäistä sanaa, ja annetaan lista sanoista jotka voivat seurata niitä opetusmateriaalissa.
      * @param teksti opetusmateriaali.
      * 
      */
     public void luoTrigam(String teksti) {
-        teksti = teksti.strip();
-        teksti = teksti.replace(",", "");
-        teksti = teksti.replace(".", "");
+        
+        teksti = kasitteleTeksti(teksti);
         String[] sanat = teksti.split(" ");        
         
         for (int i = 0; i < sanat.length - 2; i++) {
@@ -47,13 +49,24 @@ public class Ngrams {
         }    
     }
     /**
-     * palauttaa trigarmin luoman luettelon.
+     * palauttaa trigramin luoman luettelon.
      * @return luettelo.
      */
     public HashMap<String, List<String>> haeTrigramLuettelo() {
         return luettelo;
     }
-      
+    
+    /**
+     * Muokkaa tekstiä niin että siitä poistetaan pisteet ja pilkut.
+     * @param teksti
+     * @return muokattu teksti.
+     */
+    public String kasitteleTeksti(String teksti) {
+        teksti = teksti.strip();
+        teksti = teksti.replace(",", "");
+        teksti = teksti.replace(".", "");
+        return teksti;
+    }  
     
     /**
      * Kerätään sanaparit listaan ja lasketaan niiden esiintyminen.

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<checkstyle version="8.17">
-<file name="/home/iida/Documents/Koulu/Tiralabra/tira-harjoitustyo/tira-harjoitustyo/src/test/java/tietorakenne/MarkovTest.java">
-</file>
-<file name="/home/iida/Documents/Koulu/Tiralabra/tira-harjoitustyo/tira-harjoitustyo/src/test/java/tietorakenne/TrieTest.java">
-</file>
-<file name="/home/iida/Documents/Koulu/Tiralabra/tira-harjoitustyo/tira-harjoitustyo/src/test/java/tietorakenne/TrigamTest.java">
-</file>
-</checkstyle>

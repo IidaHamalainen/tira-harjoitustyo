@@ -7,6 +7,7 @@ import harjoitustyo.markovinketju.Ngrams;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 
@@ -18,6 +19,7 @@ public class MarkovAlgoritmi {
     
     private Trie trie; 
     private Ngrams trigram;
+    private HashMap<String, List<String>> sanat;
     
     public MarkovAlgoritmi() {
         
@@ -27,46 +29,75 @@ public class MarkovAlgoritmi {
     }
     
     /**
-     * lisätään opetusmateriaali Triehen ja luodaan trigram.
+     * lisätään opetusmateriaali Trigramiin ja luodaan Trie.
      */
     public void lueMateriaali(String opetusmateriaali) {
-                           
-            trie.lisaaTeksti(opetusmateriaali);   
+                             
             trigram.luoTrigam(opetusmateriaali);
+            this.sanat = getTrigramLuettelo();
+            trie.lisaa(sanat);
     } 
-            
-    public String luoTeksti(int sanamaara) {
-        Random random = new Random();
-        HashMap<String, List<String>> lista = getTrigramLuettelo();
+    
+    /**
+     *hakee trigamin muodostaman HashMap-rakenteen.
+     */
+    public HashMap<String, List<String>> getTrigramLuettelo() {
+        return this.trigram.haeTrigramLuettelo();
+    }
+    
+    public String generoiTeksti(int sanamaara) {
+        
         String lause = "";
-        int tekstinPituus = sanamaara;
+        int tekstinPituus = 0;
         
         if (sanamaara < 0) {
             return null;
         }
-        String sanapari = trie.arvoAlkusanat();
-        lause = lause + sanapari;
-
-        while (true) {
-            List<String> seuraajat = lista.get(sanapari);
-            String randomSana = seuraajat.get(random.nextInt(seuraajat.size()));
-            lause = lause + " " + randomSana;
-            String[] sanat = lause.split(" ");
-            
-            if (sanat.length == tekstinPituus) {
-                break;
-            } else {
-               sanapari = sanat[sanat.length - 2] + " " + sanat[sanat.length - 1]; 
-            }
-               
+        if (sanamaara < 2) {
+            System.out.println("Anna suurempi sanamäärä");
+            return null;
         }
-        return lause;
+        String alkusanat = trie.arvoAlkusanat();
+        lause = lause + alkusanat + " ";
+        tekstinPituus = 2;
         
+        while (tekstinPituus < sanamaara) {
+            
+            String sanat[] = lause.split(" ");
+            String edelliset = sanat[sanat.length - 2] + " " + sanat[sanat.length - 1];
+            String sana = arvoSana(edelliset);
+            lause = lause + sana + " ";
+            tekstinPituus++;
+        }
+        return lause;     
+    }  
+
+    public String arvoSana(String edelliset) {
+        
+        Random random = new Random();
+        TrieSolmu juuri = trie.haeJuuri();
+        Map<String, TrieSolmu> lapset = trie.haeSeuraajat(juuri);
+        String arvottuSana = "";
+        
+            String sanat[] = edelliset.split(" "); 
+
+            TrieSolmu ensimmainen = lapset.get(sanat[0]);
+            lapset = trie.haeSeuraajat(ensimmainen);
+            TrieSolmu toinen = lapset.get(sanat[1]);
+            lapset = trie.haeSeuraajat(toinen);
+
+            List<String> avaimet = new ArrayList<String>(lapset.keySet());
+
+            if (avaimet.size() == 1) {
+                arvottuSana = avaimet.get(0);
+            } else {
+                arvottuSana = avaimet.get(random.nextInt(avaimet.size()));
+            
+            }
+            return arvottuSana;
     }
     
     /*
-
-
     public String luoTeksti(int sanamaara) {
         
         if (sanamaara < 0) {
@@ -94,12 +125,7 @@ public class MarkovAlgoritmi {
         return this.trigram;
     }
     
-    /**
-     *hakee trigamin muodostaman HashMap-rakenteen.
-     */
-    public HashMap<String, List<String>> getTrigramLuettelo() {
-        return this.trigram.haeTrigramLuettelo();
-    }
+    
     
     
 }

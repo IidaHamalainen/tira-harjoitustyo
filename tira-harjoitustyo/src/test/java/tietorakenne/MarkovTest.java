@@ -30,14 +30,15 @@ public class MarkovTest {
     
     @Test
     public void materiaalinLukuToimii() {
-        String teksti = "Hullu työtä tekee, viisas elää vähemmälläkin. ";
+        String teksti = "olipa kerran prinsessa. olipa kerran prinssi. kerran prinsessa lähti kaupunkiin.";
                
         testiGeneraattori.lueMateriaali(teksti);
         
         testiTrie = testiGeneraattori.getTrie();
         
-        assertEquals(testiTrie.haku("Hullu työtä tekee, viisas elää vähemmälläkin. "), true);
+        assertEquals(testiTrie.haeSanoja("olipa kerran"), true);
     }
+    
     @Test
     public void trigraminLuontiToimii() {
         String teksti = "hai valas ui, hai valas lohi, valas ui ohi";

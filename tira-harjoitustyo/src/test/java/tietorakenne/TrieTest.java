@@ -3,6 +3,9 @@ package tietorakenne;
 
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -18,40 +21,66 @@ public class TrieTest {
     
     private Trie testiTrie;
     private TrieSolmu juuri;
+    private HashMap<String, List<String>> sanat;
     
     @Before
     public void setUp() {
         this.juuri = new TrieSolmu();
         this.testiTrie = new Trie();
+        
+        sanat = new HashMap<String, List<String>>();
+         
     } 
     
     @Test
-    public void lisaaLauseToimii() {
-        this.testiTrie.lisaaLause("kaneli kuuluu pulliin");
-        assertEquals(this.testiTrie.haku("kaneli kuuluu pulliin"), true);
+    public void lisaaToimii() {
+        String avain1 = "Olipa kerran";
+        List<String> lista1 = new ArrayList<String>();
+        lista1.add("prinsessa");
+        lista1.add("prinssi");
+        sanat.put(avain1, lista1);
+        
+        this.testiTrie.lisaa(sanat);
+        
+        assertEquals(this.testiTrie.haeSanoja("Olipa kerran"), true);
+        assertEquals(this.testiTrie.haeSanoja("Olipa kerran prinssi"), true);
     }  
-    @Test
-    public void lisaaTekstiToimii() {
-        this.testiTrie.lisaaTeksti("Hillo on marmeladia. Marmeladi on hilloa");
-        assertEquals(this.testiTrie.haku("Marmeladi on hilloa"), true); 
-    }
     
     @Test
     public void olematonSanaEiLoydy() {
-        this.testiTrie.lisaaTeksti("omenahillo on parasta");
-        assertEquals(this.testiTrie.haku("omnahillo on parasta"), false);     
-    }    
-    
+        String avain1 = "Avain1 Avain2";
+        List<String> lista1 = new ArrayList<String>();
+        lista1.add("Yksi");
+        lista1.add("Kaksi");
+        sanat.put(avain1, lista1);
+        
+        this.testiTrie.lisaa(sanat);
+        
+        assertEquals(this.testiTrie.haeSanoja("Avain3"), false);  
+        assertEquals(this.testiTrie.haeSanoja("Avain1 Avain2 Kolme"), false); 
+    }  
     @Test
-    public void tekstinMuokkausToimii() {
-        this.testiTrie.lisaaTeksti(" paprika on pahaa.");
-        assertEquals(this.testiTrie.haku("paprika on pahaa"), true);
+    public void arvoSanaToimii() {
+        String avain1 = "Olipa kerran";
+        List<String> lista1 = new ArrayList<String>();
+        lista1.add("prinsessa");
+        lista1.add("prinssi");
+        sanat.put(avain1, lista1);
+        
+        String avain2 = "Avain1 Avain2";
+        List<String> lista2 = new ArrayList<String>();
+        lista1.add("Yksi");
+        lista1.add("Kaksi");
+        sanat.put(avain2, lista2);
+        
+        this.testiTrie.lisaa(sanat);
+              
+        String sana = testiTrie.arvoAlkusanat();
+        String[] taulukko = sana.split(" ");
+        assertEquals(taulukko.length, 2);
+        
+        
     }
     
-    @Test
-    public void hakuOsallaLauseellaToimii() {
-        this.testiTrie.lisaaTeksti("korianteri jakaa mielipiteitä");
-        assertEquals(this.testiTrie.haku("korianteri"), true);
-    }
           
 }

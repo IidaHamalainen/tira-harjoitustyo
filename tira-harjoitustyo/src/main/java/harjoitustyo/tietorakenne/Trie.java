@@ -22,99 +22,94 @@ public class Trie {
     
     public Trie() {
         juuri = new TrieSolmu();
-    } 
+    }
     
-    /**
-     * Poistetaan tekstistä turhat välilyönnit ja pilkut & pisteet.
-     * @param teksti
-     * @return muokattu teksti.
-     */
-    public String kasitteleTeksti(String teksti) {
-        teksti = teksti.strip();
-        teksti = teksti.replace(",", "");
-        teksti = teksti.replace(".", "");
-        return teksti;
+    public TrieSolmu haeJuuri() {
+        return this.juuri;
     }
-    /**
-     * Jakaa syötteenä annetin tekstin lauseiksi. Lause alkaa isolla alkukirjaimella.
-     * @param teksti syöte.
-     * @return lista lauseista.
-     */
-    public ArrayList<String> jaaTekstiLauseiksi(String teksti) {
-        ArrayList<String> lauseet = new ArrayList<String>();
-                
-        BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
-        iterator.setText(teksti);
-        int loppu = iterator.first();
+    
+    public Map<String, TrieSolmu> haeSeuraajat(TrieSolmu juuri) {
+        Map<String, TrieSolmu> seuraajat = juuri.haeLapset();
         
-        while (loppu != BreakIterator.DONE) {
-            int alku = loppu;
-            loppu = iterator.next();
-            
-            if (loppu != BreakIterator.DONE) {
-                String lause = teksti.substring(alku, loppu);
-                lauseet.add(lause);
-            }   
-        }
-        return lauseet;
-    }
-    /**
-     * lisää trieen annetun tekstin.
-     * @param teksti 
-     */
-    public void lisaaTeksti(String teksti) {
-        ArrayList<String> lauseet = new ArrayList<String>();
-        lauseet = jaaTekstiLauseiksi(teksti);
-        
-        for (int i = 0; i < lauseet.size(); i++) {
-            String lisattava = lauseet.get(i);   
-            
-            lisaaLause(lisattava);
-        }
+        return seuraajat;
     }
     
     /**
-    * 
-    * lisaa lauseen trie-puuhun.
-    */
-    public void lisaaLause(String teksti) {
+     * lisätään trie-rakenteeseen n-gramilla tuotetut sanaparit ja niiden seuraajat.
+     * @param sanat 
+     */
+    public void lisaa(HashMap<String, List<String>> sanat) {
         Map<String, TrieSolmu> lapset = juuri.haeLapset();
-        TrieSolmu nykyinen;
-        teksti = kasitteleTeksti(teksti);
-  
-        String[] sanat = teksti.split(" ");
-                    
-        for (int j = 0; j < sanat.length; j++) {
-            String sana = sanat[j];
-                //System.out.println(sana);
-                
-            if (lapset.containsKey(sana)) {
-                nykyinen = lapset.get(sana);
+        TrieSolmu nykyinen = juuri;
+       
+        //tallennetaan sanaparit eli avaimet listaan
+        List<String> avaimet = new ArrayList<String>(sanat.keySet()); 
+        
+        for (int i = 0; i < avaimet.size(); i++) {
+            String avain = avaimet.get(i);
+            String[] sanapari = avain.split(" ");
+            String ekaSana = sanapari[0];
+            String tokaSana = sanapari[1];   
+            
+            //tallennetaan sanaparin 1 sana juuren lapseksi
+            if (lapset.containsKey(ekaSana)) {
+                nykyinen = lapset.get(ekaSana);
             } else {
                 nykyinen = new TrieSolmu();
-                lapset.put(sana, nykyinen);
+                lapset.put(ekaSana, nykyinen);
+                
             }
-            lapset = nykyinen.haeLapset();
-           
-        }
+            lapset = nykyinen.haeLapset();  //1.sanan lapset
             
+            //tallennetaan parin 2 sana äskeisen lapseksi
+            if (lapset.containsKey(tokaSana)) {
+                nykyinen = lapset.get(tokaSana);
+            } else {
+                nykyinen = new TrieSolmu();
+                lapset.put(tokaSana, nykyinen);
+                
+            }
+            lapset = nykyinen.haeLapset(); //2.sanan lapset
+            
+            List<String> seuraajat = sanat.get(avain);
+            //tallennetaan tämän jälkeen 2. sanan seuraajat 2. lapsiksi
+            
+            if (seuraajat.size() == 1) {
+                String seuraaja = seuraajat.get(0);
+                if (lapset.containsKey(seuraaja)) {
+                nykyinen = lapset.get(seuraaja);
+                } else {
+                nykyinen = new TrieSolmu();
+                lapset.put(seuraaja, nykyinen);
+                }
+            }
+            for (int j = 0; j < seuraajat.size(); j++) {
+                String seuraaja = seuraajat.get(j);
+                
+                if (lapset.containsKey(seuraaja)) {
+                nykyinen = lapset.get(seuraaja);
+                } else {
+                nykyinen = new TrieSolmu();
+                lapset.put(seuraaja, nykyinen);
+                }
+            }
+            lapset = juuri.haeLapset();
+            
+        }
     }
-      
     /**
-     * 
-     * haetaan lausetta trie-puusta. Jos lause tai sen alkuosa löytyy, palautetaan true, muuten false.
-     *  
-     */   
-    public boolean haku(String teksti) {
+     * haetaan triestä sanoja.
+     * @param sanat
+     * @return 
+     */
+    public boolean haeSanoja(String sanat) {
         Map<String, TrieSolmu> lapset = juuri.haeLapset();
 
         TrieSolmu nykyinen = null;  
 
-        teksti = kasitteleTeksti(teksti);
-        
-        String[] sanat = teksti.split(" ");
-        for (int i = 0; i < sanat.length; i++) {
-            String sana = sanat[i];
+        String[] yksittaisetSanat = sanat.split(" ");
+        for (int i = 0; i < yksittaisetSanat.length; i++) {
+            String sana = yksittaisetSanat[i];
             
             if (lapset.containsKey(sana)) {
                 nykyinen = lapset.get(sana);
@@ -123,14 +118,17 @@ public class Trie {
                 nykyinen = null;
                 break;
             }                 
-        } 
-        
+        }   
         if (nykyinen != null) {
             return true;
         } else {
             return false;
         }    
     }
+
+    /**
+     * arpoo kaksi sanaa.
+     */ 
     public String arvoAlkusanat() {
         Random random = new Random();   
         
@@ -148,35 +146,6 @@ public class Trie {
         return sanapari;
     }
     
-    /**
-     * Arpoo satunnaisen sanan trien sisältä.
-     * @return palauttaa sanan.
-     *
-    public String satunnainenSana() {
-        Random random = new Random();         
-        Map<Character, TrieSolmu> lapset = juuri.haeLapset();
-        String sana = "";    
-         
-        while (true) {
-            //haetaan lapsisolmujen avaimet
-            List<Character> keys = new ArrayList<Character>(lapset.keySet()); 
-            //arvotaan yksi niistä
-            char randomMerkki = keys.get(random.nextInt(keys.size()));
-            //lisätään sanaan
-            sana = sana + randomMerkki;
-            //otetaan uusi solmu arvotusta avaimesta
-            TrieSolmu solmu = lapset.get(randomMerkki); 
-            //jos kokonainen sana, lopetetana arpominen
-            if (solmu.onSana()) {
-                break;
-            }
-            lapset = solmu.haeLapset();          
-        }      
-        return sana;
-    }
-    */
-
-
 }
     
 
