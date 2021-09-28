@@ -1,7 +1,7 @@
 
 package harjoitustyo;
 
-import harjoitustyo.markovinketju.MarkovAlgoritmi;
+import harjoitustyo.markovinketju.TekstiGeneraattori;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
 import harjoitustyo.markovinketju.Ngrams;
@@ -23,23 +23,24 @@ public class Main {
     
     public static void main(String[] args) throws Exception {
         
-        MarkovAlgoritmi generaattori = new MarkovAlgoritmi();
+        TekstiGeneraattori generaattori = new TekstiGeneraattori();
         Trie trie = new Trie();  
-        StringBuilder teksti = new StringBuilder();
+        String teksti = "";
         
-        try (Scanner tiedostonLukija = new Scanner(new File("sananlaskuja.txt"))) { 
+        try (Scanner tiedostonLukija = new Scanner(new File("testi.txt"))) { 
             
             while (tiedostonLukija.hasNextLine()) { 
             String rivi = tiedostonLukija.nextLine();
-            teksti.append(rivi);
+            teksti = teksti + " "+ rivi;
             
             }
             
         } catch (Exception e) {
             System.out.println("Virhe: " + e.getMessage());
         }
-        //generaattori.lueMateriaali(teksti.toString());
-        //TO DO: selvitä miksi ei toimi
+        //generaattori.lueMateriaali(teksti);       
+        
+        //TO DO: selvitä miksi ei toimi toisella tiedostolla vaan törmää IndexOutOfBounds-herjaan?
         
         String materiaali1 = " Yksinkertainen ja selvä ei tavallisesti tule ensimmäisenä vaan viimeisenä."
                 + " Yksinkertainen ja viisas kyllä tavallisesti tulee ensimmäisenä vaan ei viimeisenä."
@@ -74,7 +75,7 @@ public class Main {
         
         trie = generaattori.getTrie();
         
-        System.out.println(generaattori.generoiTeksti(10));
+        System.out.println(generaattori.generoiTeksti(5));
         
         /*
         if (trie.haeSanoja("ui hai valas") == true) {

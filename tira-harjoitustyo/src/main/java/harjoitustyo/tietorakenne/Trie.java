@@ -7,8 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import harjoitustyo.markovinketju.Ngrams;
-import java.text.BreakIterator;
-import java.util.Locale;
+
 
 
 /**
@@ -54,6 +53,7 @@ public class Trie {
             //tallennetaan sanaparin 1 sana juuren lapseksi
             if (lapset.containsKey(ekaSana)) {
                 nykyinen = lapset.get(ekaSana);
+                nykyinen.lisaaEsiintymiskerta();
             } else {
                 nykyinen = new TrieSolmu();
                 lapset.put(ekaSana, nykyinen);
@@ -64,6 +64,7 @@ public class Trie {
             //tallennetaan parin 2 sana äskeisen lapseksi
             if (lapset.containsKey(tokaSana)) {
                 nykyinen = lapset.get(tokaSana);
+                nykyinen.lisaaEsiintymiskerta();
             } else {
                 nykyinen = new TrieSolmu();
                 lapset.put(tokaSana, nykyinen);
@@ -76,8 +77,11 @@ public class Trie {
             
             if (seuraajat.size() == 1) {
                 String seuraaja = seuraajat.get(0);
+                
                 if (lapset.containsKey(seuraaja)) {
                 nykyinen = lapset.get(seuraaja);
+                nykyinen.lisaaEsiintymiskerta();
+                
                 } else {
                 nykyinen = new TrieSolmu();
                 lapset.put(seuraaja, nykyinen);
@@ -88,6 +92,8 @@ public class Trie {
                 
                 if (lapset.containsKey(seuraaja)) {
                 nykyinen = lapset.get(seuraaja);
+                nykyinen.lisaaEsiintymiskerta();
+                
                 } else {
                 nykyinen = new TrieSolmu();
                 lapset.put(seuraaja, nykyinen);

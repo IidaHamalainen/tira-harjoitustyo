@@ -14,7 +14,11 @@ public class TrieSolmu {
     
     private final Map<String, TrieSolmu> lapset = new HashMap<>();
     private boolean onSana;
+    private int laskuri;
 
+    public TrieSolmu() {
+        this.laskuri = 1;
+    }
     
     /**
      * Hakee solmun lapsisolmut.
@@ -23,23 +27,21 @@ public class TrieSolmu {
     Map<String, TrieSolmu> haeLapset() {
         return lapset;
     }
-    
     /**
-     * 
-     * palauttaa tiedon onko solmuun paattyvä sana olemassa.
+     * laskuri kuinka monta kerta sana esiintyy tekstissä
      */
-    public boolean onSana() {
-        return onSana;
+    public void lisaaEsiintymiskerta() {
+        this.laskuri  = laskuri + 1;
     }
+    
     /**
-     * 
-     * asettaa tiedon onko sana joka päättyy tähän kirjaimeen/solmuun.
-     */    
-    public void asetaSana(boolean onSana) {
-        this.onSana = onSana;
+     * palauttaa askurin esiintymiskerroista
+     * @return luku
+     */
+    public int haeLaskuri() {
+        return this.laskuri;
     }
-    
-    
+      
     
    
 }

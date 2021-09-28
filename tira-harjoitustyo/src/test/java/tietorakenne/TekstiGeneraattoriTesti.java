@@ -1,7 +1,7 @@
 
 package tietorakenne;
 
-import harjoitustyo.markovinketju.MarkovAlgoritmi;
+import harjoitustyo.markovinketju.TekstiGeneraattori;
 import harjoitustyo.markovinketju.Ngrams;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
@@ -16,16 +16,16 @@ import org.junit.Test;
  * Testiluokka Markovin ketjulle.
  * @author iida
  */
-public class MarkovTest {
+public class TekstiGeneraattoriTesti {
     
-    private MarkovAlgoritmi testiGeneraattori;
+    private TekstiGeneraattori testiGeneraattori;
     private Trie testiTrie;
     private Ngrams trigram;
     
     
     @Before
     public void setUp() {
-        this.testiGeneraattori = new MarkovAlgoritmi();            
+        this.testiGeneraattori = new TekstiGeneraattori();            
     }
     
     @Test

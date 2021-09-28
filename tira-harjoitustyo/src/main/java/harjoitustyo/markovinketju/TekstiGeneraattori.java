@@ -10,18 +10,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-
 /**
  *
  * @author iida
  */
-public class MarkovAlgoritmi {
+public class TekstiGeneraattori {
     
     private Trie trie; 
     private Ngrams trigram;
     private HashMap<String, List<String>> sanat;
     
-    public MarkovAlgoritmi() {
+    public TekstiGeneraattori() {
         
         this.trie = new Trie();
         this.trigram = new Ngrams();
@@ -45,6 +44,12 @@ public class MarkovAlgoritmi {
         return this.trigram.haeTrigramLuettelo();
     }
     
+    /**
+     * generoi halutun mittaisen tekstin.
+     * Ensimmäinen sanapari arvotaan Triestä, ja sen jälkeen aina kahden edellisen sanan perusteella arvotaan seuraava.
+     * @param sanamaara
+     * @return muodostettu teksti.
+     */
     public String generoiTeksti(int sanamaara) {
         
         String lause = "";
@@ -72,6 +77,11 @@ public class MarkovAlgoritmi {
         return lause;     
     }  
 
+    /**
+     * Arvotaan sana kahden edellisen sanan perusteella mahdollisista seuraajista.
+     * @param edelliset edelliset sanat.
+     * @return arvottu sana.
+     */
     public String arvoSana(String edelliset) {
         
         Random random = new Random();
@@ -82,39 +92,36 @@ public class MarkovAlgoritmi {
             String sanat[] = edelliset.split(" "); 
 
             TrieSolmu ensimmainen = lapset.get(sanat[0]);
-            lapset = trie.haeSeuraajat(ensimmainen);
+            
+            if (trie.haeSeuraajat(ensimmainen) == null) {  //jos arvotulle sanalle ei löydy seuraajia, arvotaan uudet sanat
+                System.out.println("kohta 1");
+                String uudetSanat = trie.arvoAlkusanat();
+                arvoSana(uudetSanat);
+            } else {
+                lapset = trie.haeSeuraajat(ensimmainen);
+            }           
             TrieSolmu toinen = lapset.get(sanat[1]);
-            lapset = trie.haeSeuraajat(toinen);
-
+            
+            if (trie.haeSeuraajat(toinen) == null) {
+                System.out.println("kohta 2 - keksi korjaus");
+                String uudetSanat = trie.arvoAlkusanat();
+                arvoSana(uudetSanat);
+            } else {
+                lapset = trie.haeSeuraajat(toinen);
+            }
+            
             List<String> avaimet = new ArrayList<String>(lapset.keySet());
 
             if (avaimet.size() == 1) {
                 arvottuSana = avaimet.get(0);
+              
             } else {
-                arvottuSana = avaimet.get(random.nextInt(avaimet.size()));
+                arvottuSana = avaimet.get(random.nextInt(avaimet.size()));              
             
             }
             return arvottuSana;
     }
-    
-    /*
-    public String luoTeksti(int sanamaara) {
-        
-        if (sanamaara < 0) {
-            return null;
-        }      
-        StringBuilder teksti = new StringBuilder();
-        teksti.append("");
-        
-        for (int i = 0; i < sanamaara; i++) {
-            String uusiSana = trie.satunnainenSana();  //TO DO        
-            teksti.append(uusiSana + " ");               
-        }       
-        return teksti.toString();
-    }
-    /**
-     * hakee trien.
-     */
+   
     public Trie getTrie() {
         return this.trie;
     }

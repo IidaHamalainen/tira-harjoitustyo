@@ -1,7 +1,7 @@
 harjoitustyo/tietorakenne/TrieSolmu.java
  harjoitustyo.tietorakenne.TrieSolmu
-harjoitustyo/markovinketju/MarkovAlgoritmi.java
- harjoitustyo.markovinketju.MarkovAlgoritmi
+harjoitustyo/markovinketju/TekstiGeneraattori.java
+ harjoitustyo.markovinketju.TekstiGeneraattori
 harjoitustyo/markovinketju/Ngrams.java
  harjoitustyo.markovinketju.Ngrams
 harjoitustyo/tietorakenne/Trie.java
