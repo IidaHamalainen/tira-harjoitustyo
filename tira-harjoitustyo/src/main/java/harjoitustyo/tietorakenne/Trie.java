@@ -48,18 +48,18 @@ public class Trie {
             String avain = avaimet.get(i);
             String[] sanapari = avain.split(" ");
             String ekaSana = sanapari[0];
-            String tokaSana = sanapari[1];   
-            
+            String tokaSana = sanapari[1];      
+                        
             //tallennetaan sanaparin 1 sana juuren lapseksi
             if (lapset.containsKey(ekaSana)) {
                 nykyinen = lapset.get(ekaSana);
                 nykyinen.lisaaEsiintymiskerta();
             } else {
                 nykyinen = new TrieSolmu();
-                lapset.put(ekaSana, nykyinen);
-                
+                lapset.put(ekaSana, nykyinen);  
             }
             lapset = nykyinen.haeLapset();  //1.sanan lapset
+            
             
             //tallennetaan parin 2 sana äskeisen lapseksi
             if (lapset.containsKey(tokaSana)) {
@@ -77,7 +77,7 @@ public class Trie {
             
             if (seuraajat.size() == 1) {
                 String seuraaja = seuraajat.get(0);
-                
+                              
                 if (lapset.containsKey(seuraaja)) {
                 nykyinen = lapset.get(seuraaja);
                 nykyinen.lisaaEsiintymiskerta();
@@ -103,6 +103,7 @@ public class Trie {
             
         }
     }
+    
     /**
      * haetaan triestä sanoja.
      * @param sanat
@@ -136,21 +137,87 @@ public class Trie {
      * arpoo kaksi sanaa.
      */ 
     public String arvoAlkusanat() {
-        Random random = new Random();   
+        Random random = new Random(); 
+        int laskurinArvo = 0;
         
-        Map<String, TrieSolmu> lapset1 = juuri.haeLapset();               
+        Map<String, TrieSolmu> lapset1 = juuri.haeLapset();        
         List<String> avaimet1 = new ArrayList<String>(lapset1.keySet()); 
+        
         String arvottuSana1 = avaimet1.get(random.nextInt(avaimet1.size()));
         TrieSolmu solmu = lapset1.get(arvottuSana1); 
-        
+ 
         Map<String, TrieSolmu> lapset2 = solmu.haeLapset(); 
         List<String> avaimet2 = new ArrayList<String>(lapset2.keySet());
         String arvottuSana2 = avaimet2.get(random.nextInt(avaimet2.size()));
         
+        /*
+        //lasketaan yhteen sanojen esiintymiskerrat
+        for (int i = 0; i < avaimet1.size(); i++) {
+            String avain = avaimet1.get(i);
+            TrieSolmu solmu1 = lapset1.get(avain);
+            laskurinArvo += solmu1.haeLaskuri();           
+        }
+        int arvottuIndeksi = satunnainenValilta(0, laskurinArvo);
+        int solmunArvo = 0;
+        int j = 0;
+        String arvottuAvain = "";
+        //etsitään arvottu sana
+        while(arvottuIndeksi > solmunArvo) {
+            
+            arvottuAvain = avaimet1.get(j);
+            TrieSolmu solmu = lapset1.get(arvottuAvain);
+            solmunArvo = solmu.haeLaskuri();
+            arvottuIndeksi -= solmunArvo;
+            j++;
+        }  
+        
+        String arvottuSana1 = arvottuAvain;
+        TrieSolmu ekasolmu = lapset1.get(arvottuSana1); 
+        
+        Map<String, TrieSolmu> lapset2 = ekasolmu.haeLapset(); 
+        List<String> avaimet2 = new ArrayList<String>(lapset2.keySet());
+        
+        laskurinArvo = 0;
+        //lasketaan yhteen sanojen esiintymiskerrat
+        for (int i = 0; i < avaimet2.size(); i++) {
+            String avain = avaimet2.get(i);
+            TrieSolmu solmu2 = lapset2.get(avain);
+            laskurinArvo += solmu2.haeLaskuri();           
+        }
+        arvottuIndeksi = satunnainenValilta(0, laskurinArvo);
+        solmunArvo = 0;
+        j = 0;
+        
+        while(arvottuIndeksi > solmunArvo) {
+            
+            arvottuAvain = avaimet2.get(j);
+            TrieSolmu solmu = lapset2.get(arvottuAvain);
+            solmunArvo = solmu.haeLaskuri();
+            arvottuIndeksi -= solmunArvo;
+            j++;
+        }
+        String arvottuSana2 = arvottuAvain;
+        /*
+        String arvottuSana1 = avaimet1.get(random.nextInt(avaimet1.size()));
+        TrieSolmu solmu = lapset1.get(arvottuSana1); 
+        
+        
+        Map<String, TrieSolmu> lapset2 = solmu.haeLapset(); 
+        List<String> avaimet2 = new ArrayList<String>(lapset2.keySet());
+        String arvottuSana2 = avaimet2.get(random.nextInt(avaimet2.size()));
+        */
         String sanapari = arvottuSana1 + " " + arvottuSana2;
         
         return sanapari;
-    }
+        
+    } 
+    /*
+    public int satunnainenValilta(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min) + min;
+    }*/
+   
+
     
 }
     

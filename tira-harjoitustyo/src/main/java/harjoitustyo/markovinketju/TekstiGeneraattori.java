@@ -89,37 +89,39 @@ public class TekstiGeneraattori {
         Map<String, TrieSolmu> lapset = trie.haeSeuraajat(juuri);
         String arvottuSana = "";
         
-            String sanat[] = edelliset.split(" "); 
+        String sanat[] = edelliset.split(" "); 
 
-            TrieSolmu ensimmainen = lapset.get(sanat[0]);
+        TrieSolmu ensimmainen = lapset.get(sanat[0]);
             
-            if (trie.haeSeuraajat(ensimmainen) == null) {  //jos arvotulle sanalle ei löydy seuraajia, arvotaan uudet sanat
-                System.out.println("kohta 1");
-                String uudetSanat = trie.arvoAlkusanat();
-                arvoSana(uudetSanat);
-            } else {
-                lapset = trie.haeSeuraajat(ensimmainen);
-            }           
-            TrieSolmu toinen = lapset.get(sanat[1]);
+        if (trie.haeSeuraajat(ensimmainen) == null) {  //jos arvotulle sanalle ei löydy seuraajia, arvotaan uudet sanat
+           
+            String uudetSanat = trie.arvoAlkusanat();
+            arvoSana(uudetSanat);
+                  
+        } else {
+            lapset = trie.haeSeuraajat(ensimmainen);
+        }
+        
+        TrieSolmu toinen = lapset.get(sanat[1]);
+         
+        if (trie.haeSeuraajat(toinen) == null) {
+ 
+            String uudetSanat = trie.arvoAlkusanat();
+            arvoSana(uudetSanat);
+        } else {
+            lapset = trie.haeSeuraajat(toinen);
+        }
             
-            if (trie.haeSeuraajat(toinen) == null) {
-                System.out.println("kohta 2 - keksi korjaus");
-                String uudetSanat = trie.arvoAlkusanat();
-                arvoSana(uudetSanat);
-            } else {
-                lapset = trie.haeSeuraajat(toinen);
-            }
-            
-            List<String> avaimet = new ArrayList<String>(lapset.keySet());
+        List<String> avaimet = new ArrayList<String>(lapset.keySet());
 
-            if (avaimet.size() == 1) {
-                arvottuSana = avaimet.get(0);
+        if (avaimet.size() == 1) {
+            arvottuSana = avaimet.get(0);
               
-            } else {
-                arvottuSana = avaimet.get(random.nextInt(avaimet.size()));              
+        } else {
+            arvottuSana = avaimet.get(random.nextInt(avaimet.size()));              
             
-            }
-            return arvottuSana;
+        }
+        return arvottuSana;
     }
    
     public Trie getTrie() {

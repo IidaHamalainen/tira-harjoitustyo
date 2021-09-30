@@ -18,29 +18,26 @@ import java.util.Scanner;
 public class Main {
 
     
-
-
-    
     public static void main(String[] args) throws Exception {
         
         TekstiGeneraattori generaattori = new TekstiGeneraattori();
         Trie trie = new Trie();  
         String teksti = "";
         
-        try (Scanner tiedostonLukija = new Scanner(new File("testi.txt"))) { 
+        try (Scanner tiedostonLukija = new Scanner(new File("markov.txt"))) { 
             
             while (tiedostonLukija.hasNextLine()) { 
             String rivi = tiedostonLukija.nextLine();
-            teksti = teksti + " "+ rivi;
+            teksti = teksti + " " + rivi;
             
             }
             
         } catch (Exception e) {
             System.out.println("Virhe: " + e.getMessage());
         }
-        //generaattori.lueMateriaali(teksti);       
+        generaattori.lueMateriaali(teksti);       
         
-        //TO DO: selvitä miksi ei toimi toisella tiedostolla vaan törmää IndexOutOfBounds-herjaan?
+        //TO DO: selvitä mikä tekstitiedostoissa vaikuttaa siihen että väliiä tulee index out of bounds
         
         String materiaali1 = " Yksinkertainen ja selvä ei tavallisesti tule ensimmäisenä vaan viimeisenä."
                 + " Yksinkertainen ja viisas kyllä tavallisesti tulee ensimmäisenä vaan ei viimeisenä."
@@ -71,11 +68,11 @@ public class Main {
                 + " kuulin unessain leopardin huudon vain ja kosketin sua uudestaan";
         
                 
-        generaattori.lueMateriaali(materiaali3);
+        //generaattori.lueMateriaali(materiaali3);
         
         trie = generaattori.getTrie();
         
-        System.out.println(generaattori.generoiTeksti(5));
+        System.out.println(generaattori.generoiTeksti(20));
         
         /*
         if (trie.haeSanoja("ui hai valas") == true) {

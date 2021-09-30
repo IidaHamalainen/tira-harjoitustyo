@@ -47,8 +47,28 @@ public class TekstiGeneraattoriTesti {
         trigram = testiGeneraattori.getTrigam();
         
         assertNotNull(trigram);
+            
+    }
+    
+    @Test
+    public void arvoSanaToimii() {
+       String teksti = "olipa kerran prinsessa";
+       testiGeneraattori.lueMateriaali(teksti);
+       
+       String sana = testiGeneraattori.arvoSana("olipa kerran");
+       assertEquals("prinsessa", sana);
+       
+    }
+    
+    @Test
+    public void tekstinGenerointiToimii() {
+        String teksti = "olipa kerran prinsessa. olipa kerran prinssi. kerran prinsessa lähti kaupunkiin.";
+        testiGeneraattori.lueMateriaali(teksti);
         
-        
+        String generoitu = testiGeneraattori.generoiTeksti(4);
+        String[] sanat = generoitu.split(" ");
+        assertEquals(4, sanat.length);
+  
     }
     
     

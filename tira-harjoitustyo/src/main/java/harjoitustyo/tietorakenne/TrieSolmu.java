@@ -28,14 +28,14 @@ public class TrieSolmu {
         return lapset;
     }
     /**
-     * laskuri kuinka monta kerta sana esiintyy tekstissä
+     * laskuri kuinka monta kerta sana esiintyy tekstissä.
      */
     public void lisaaEsiintymiskerta() {
         this.laskuri  = laskuri + 1;
     }
     
     /**
-     * palauttaa askurin esiintymiskerroista
+     * palauttaa askurin esiintymiskerroista.
      * @return luku
      */
     public int haeLaskuri() {
