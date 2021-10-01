@@ -3,7 +3,7 @@ package harjoitustyo.markovinketju;
 
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
-import harjoitustyo.markovinketju.Ngrams;
+import harjoitustyo.markovinketju.Trigram;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,13 +17,13 @@ import java.util.Random;
 public class TekstiGeneraattori {
     
     private Trie trie; 
-    private Ngrams trigram;
+    private Trigram trigram;
     private HashMap<String, List<String>> sanat;
     
     public TekstiGeneraattori() {
         
         this.trie = new Trie();
-        this.trigram = new Ngrams();
+        this.trigram = new Trigram();
         
     }
     
@@ -86,30 +86,29 @@ public class TekstiGeneraattori {
         
         Random random = new Random();
         TrieSolmu juuri = trie.haeJuuri();
-        Map<String, TrieSolmu> lapset = trie.haeSeuraajat(juuri);
+        Map<String, TrieSolmu> lapset = juuri.haeLapset();
         String arvottuSana = "";
         
         String sanat[] = edelliset.split(" "); 
 
-        TrieSolmu ensimmainen = lapset.get(sanat[0]);
+        TrieSolmu ensimmainen = lapset.get(sanat[0]);    
             
-        if (trie.haeSeuraajat(ensimmainen) == null) {  //jos arvotulle sanalle ei löydy seuraajia, arvotaan uudet sanat
-           
+        if (ensimmainen == null) {  //jos arvotulle sanalle ei löydy seuraajia, arvotaan uudet sanat
             String uudetSanat = trie.arvoAlkusanat();
             arvoSana(uudetSanat);
                   
-        } else {
-            lapset = trie.haeSeuraajat(ensimmainen);
+        } else {   
+            lapset = ensimmainen.haeLapset();
         }
         
         TrieSolmu toinen = lapset.get(sanat[1]);
          
-        if (trie.haeSeuraajat(toinen) == null) {
- 
+        if (toinen == null) {
             String uudetSanat = trie.arvoAlkusanat();
             arvoSana(uudetSanat);
+            
         } else {
-            lapset = trie.haeSeuraajat(toinen);
+            lapset = toinen.haeLapset();
         }
             
         List<String> avaimet = new ArrayList<String>(lapset.keySet());
@@ -130,7 +129,7 @@ public class TekstiGeneraattori {
     /**
      * hakee trigramin.
      */
-    public Ngrams getTrigam() {
+    public Trigram getTrigam() {
         return this.trigram;
     }
     

@@ -16,11 +16,11 @@ import harjoitustyo.tietorakenne.TrieSolmu;
  * @author iida
  * Tässä luokassa luodaan Markovin ketjuun tarvitava n-gram rakenne. Toisen asteen Markovin ketjuun tarvitaan trigram.
  */
-public class Ngrams {
+public class Trigram {
     
     private HashMap<String, List<String>> luettelo;
     
-    public Ngrams() {
+    public Trigram() {
         
         luettelo = new HashMap<String, List<String>>();
     }
@@ -63,6 +63,7 @@ public class Ngrams {
      */
     public String kasitteleTeksti(String teksti) {
         teksti = teksti.strip();
+        
         teksti = teksti.toLowerCase();
         teksti = teksti.replace(",", "");
         teksti = teksti.replace(".", "");

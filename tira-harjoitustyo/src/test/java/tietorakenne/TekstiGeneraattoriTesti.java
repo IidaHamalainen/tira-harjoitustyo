@@ -2,7 +2,7 @@
 package tietorakenne;
 
 import harjoitustyo.markovinketju.TekstiGeneraattori;
-import harjoitustyo.markovinketju.Ngrams;
+import harjoitustyo.markovinketju.Trigram;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
 import static org.junit.Assert.*;
@@ -20,7 +20,7 @@ public class TekstiGeneraattoriTesti {
     
     private TekstiGeneraattori testiGeneraattori;
     private Trie testiTrie;
-    private Ngrams trigram;
+    private Trigram trigram;
     
     
     @Before

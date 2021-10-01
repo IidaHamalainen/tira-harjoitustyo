@@ -24,7 +24,7 @@ public class TrieSolmu {
      * Hakee solmun lapsisolmut.
      * @return palauttaa hashMapin lapsista.
      */
-    Map<String, TrieSolmu> haeLapset() {
+    public Map<String, TrieSolmu> haeLapset() {
         return lapset;
     }
     /**

@@ -4,7 +4,7 @@ package harjoitustyo;
 import harjoitustyo.markovinketju.TekstiGeneraattori;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
-import harjoitustyo.markovinketju.Ngrams;
+import harjoitustyo.markovinketju.Trigram;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -35,7 +35,7 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Virhe: " + e.getMessage());
         }
-        generaattori.lueMateriaali(teksti);       
+        //generaattori.lueMateriaali(teksti);       
         
         //TO DO: selvitä mikä tekstitiedostoissa vaikuttaa siihen että väliiä tulee index out of bounds
         
@@ -68,11 +68,11 @@ public class Main {
                 + " kuulin unessain leopardin huudon vain ja kosketin sua uudestaan";
         
                 
-        //generaattori.lueMateriaali(materiaali3);
+        generaattori.lueMateriaali(materiaali3);
         
         trie = generaattori.getTrie();
         
-        System.out.println(generaattori.generoiTeksti(20));
+        System.out.println(generaattori.generoiTeksti(10));
         
         /*
         if (trie.haeSanoja("ui hai valas") == true) {
