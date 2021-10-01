@@ -5,6 +5,7 @@ import harjoitustyo.markovinketju.TekstiGeneraattori;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
 import harjoitustyo.markovinketju.Trigram;
+import suorituskykytestaus.Suorituskykytestit;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -68,11 +69,11 @@ public class Main {
                 + " kuulin unessain leopardin huudon vain ja kosketin sua uudestaan";
         
                 
-        generaattori.lueMateriaali(materiaali3);
+        //generaattori.lueMateriaali(materiaali3);
         
-        trie = generaattori.getTrie();
+        //trie = generaattori.getTrie();
         
-        System.out.println(generaattori.generoiTeksti(10));
+        //System.out.println(generaattori.generoiTeksti(10));
         
         /*
         if (trie.haeSanoja("ui hai valas") == true) {
@@ -117,6 +118,13 @@ public class Main {
         }
         */
        
+        
+        //suorituskyky
+        Suorituskykytestit stestit = new Suorituskykytestit();
+        
+        stestit.trieSuoritus();
+        System.out.println("");
+        stestit.generoinninTestaus();
  
     }
     
