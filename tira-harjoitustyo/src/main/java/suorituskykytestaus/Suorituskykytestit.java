@@ -22,14 +22,14 @@ public class Suorituskykytestit {
     private final double[] generointi = new double[arraynKoko.length];
     
     /**
-     * Suorituskykytesti Trielle
-     * rakennetaan trie 100 kertaa ja otetaan mediaani
+     * Suorituskykytesti Trielle.
+     * rakennetaan trie 100 kertaa ja otetaan mediaani.
      */
     public void trieSuoritus() {
        
         int n = 100;
         
-        for (int i = 0; i < arraynKoko.length; i ++) {
+        for (int i = 0; i < arraynKoko.length; i++) {
             long[] suoritusajat = new long[n];
             long t;
             HashMap<String, List<String>> sanat = new HashMap<String, List<String>>();
@@ -65,13 +65,18 @@ public class Suorituskykytestit {
         
         
     }
+    /**
+     * Testi tekstin generoinnille.
+     * Generoidaan 7 sanan mittainen teksti 50 kertaa.
+     */
+    
     public void generoinninTestaus() {
         
         int n = 50;
         
         TekstiGeneraattori generaattori = new TekstiGeneraattori(); 
         
-        for (int i = 0; i < arraynKoko.length; i ++) {
+        for (int i = 0; i < arraynKoko.length; i++) {
             long[] suoritusajat = new long[n];
             long t;
         
