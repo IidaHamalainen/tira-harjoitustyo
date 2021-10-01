@@ -9,3 +9,11 @@ Loppuviikosta pääsin vähän paremmin vauhtiin ja aloitin suorituskykytestien 
 Käyttöliittymän aloitus. Lisää suorituskykytestejä.
 En vieläkään ole päättänyt mitä haluan tuottaa generaattorilla, joten aiheen lopullinen valitseminen ja opetusmateriaalin valinta täytyy myös tehdä pian.
 Tällä on tietysti vielä vaikutusta tekstin generoinnin toimintaankin ja tekstin muotoiluun.
+
+## Ajankäyttö:
+* su 6,5 h
+* ti 3 h 
+* to 4 h
+* pe 3 h
+
+yht n.16,5 h
