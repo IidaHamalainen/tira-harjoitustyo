@@ -3,7 +3,7 @@
 ## Yksikkötestit
 Yksikkötesteillä on testattu Trie, Trigram ja MarkovinAlgoritmi-luokkien perustoiminnot.
 Testit suoritetaan komennolla ./gradlew test. Kattavuusraportoinnissa käytän Jacocoa.
-Yksikkötestien kattavuusraportti tässä linkissä: [kattavuusraportti] https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/Kuvat/testikattavuus01102021.png) (perjantai 1.10.2021 tilanne)
+Yksikkötestien kattavuusraportti tässä: ![kattavuusraportti](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/Kuvat/testikattavuus01102021.png) (perjantai 1.10.2021 tilanne). Ylin "harjoitustyo" sisältää ainoastaan main-luokan jota varten en kirjoita testejä.
 
 
 
