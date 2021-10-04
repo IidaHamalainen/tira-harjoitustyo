@@ -34,46 +34,28 @@ public class TrieTest {
     
     @Test
     public void lisaaToimii() {
-        String avain1 = "Olipa kerran";
-        List<String> lista1 = new ArrayList<String>();
-        lista1.add("prinsessa");
-        lista1.add("prinssi");
-        sanat.put(avain1, lista1);
+        String teksti = "Olipa kerran prinssi. Prinssi asui linnassa";
         
-        this.testiTrie.lisaa(sanat);
+        this.testiTrie.lisaa(teksti);
         
         assertEquals(this.testiTrie.haeSanoja("Olipa kerran"), true);
-        assertEquals(this.testiTrie.haeSanoja("Olipa kerran prinssi"), true);
+        assertEquals(this.testiTrie.haeSanoja("Prinssi asui linnassa"), true);
     }  
     
     @Test
     public void olematonSanaEiLoydy() {
-        String avain1 = "Avain1 Avain2";
-        List<String> lista1 = new ArrayList<String>();
-        lista1.add("Yksi");
-        lista1.add("Kaksi");
-        sanat.put(avain1, lista1);
+        String teksti = "Olipa kerran prinssi. Prinssi asui linnassa";
         
-        this.testiTrie.lisaa(sanat);
+        this.testiTrie.lisaa(teksti);
         
-        assertEquals(this.testiTrie.haeSanoja("Avain3"), false);  
-        assertEquals(this.testiTrie.haeSanoja("Avain1 Avain2 Kolme"), false); 
+        assertEquals(this.testiTrie.haeSanoja("Prinsessa"), false);  
+        assertEquals(this.testiTrie.haeSanoja("Olipa kerran peikko"), false); 
     }  
     @Test
     public void arvoSanaToimii() {
-        String avain1 = "Olipa kerran";
-        List<String> lista1 = new ArrayList<String>();
-        lista1.add("prinsessa");
-        lista1.add("prinssi");
-        sanat.put(avain1, lista1);
+        String teksti = "Olipa kerran prinssi. Prinssi asui linnassa";
         
-        String avain2 = "Avain1 Avain2";
-        List<String> lista2 = new ArrayList<String>();
-        lista1.add("Yksi");
-        lista1.add("Kaksi");
-        sanat.put(avain2, lista2);
-        
-        this.testiTrie.lisaa(sanat);
+        this.testiTrie.lisaa(teksti);
               
         String sana = testiTrie.arvoAlkusanat();
         String[] taulukko = sana.split(" ");

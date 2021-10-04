@@ -2,7 +2,6 @@
 package tietorakenne;
 
 import harjoitustyo.markovinketju.TekstiGeneraattori;
-import harjoitustyo.markovinketju.Trigram;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
 import static org.junit.Assert.*;
@@ -20,7 +19,6 @@ public class TekstiGeneraattoriTesti {
     
     private TekstiGeneraattori testiGeneraattori;
     private Trie testiTrie;
-    private Trigram trigram;
     
     
     @Before
@@ -39,16 +37,7 @@ public class TekstiGeneraattoriTesti {
         assertEquals(testiTrie.haeSanoja("olipa kerran"), true);
     }
     
-    @Test
-    public void trigraminLuontiToimii() {
-        String teksti = "hai valas ui, hai valas lohi, valas ui ohi";
-        testiGeneraattori.lueMateriaali(teksti);
-        
-        trigram = testiGeneraattori.getTrigam();
-        
-        assertNotNull(trigram);
             
-    }
     
     @Test
     public void arvoSanaToimii() {

@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import harjoitustyo.markovinketju.Trigram;
 
 
 /**
@@ -30,74 +29,52 @@ public class Trie {
     }
     
     /**
-     * lisätään trie-rakenteeseen n-gramilla tuotetut sanaparit ja niiden seuraajat.
-     * @param sanat 
-     */
-    public void lisaa(HashMap<String, List<String>> sanat) {
+     * lisätään trie-rakenteeseen tekstin.
+     * isot kirjaimet ja välimerkit merkitsee!
+     * @param teksti
+     */ 
+    public void lisaa(String teksti) {
         Map<String, TrieSolmu> lapset = juuri.haeLapset();
         TrieSolmu nykyinen = juuri;
-       
-        //tallennetaan sanaparit eli avaimet listaan
-        List<String> avaimet = new ArrayList<String>(sanat.keySet()); 
         
-        for (int i = 0; i < avaimet.size(); i++) {
-            String avain = avaimet.get(i);
-            String[] sanapari = avain.split(" ");
-            String ekaSana = sanapari[0];
-            String tokaSana = sanapari[1];      
-                        
-            //tallennetaan sanaparin 1 sana juuren lapseksi
-            if (lapset.containsKey(ekaSana)) {
-                nykyinen = lapset.get(ekaSana);
-                nykyinen.lisaaEsiintymiskerta();
+        String[] sanat = teksti.split(" ");
+    
+        for (int i = 0; i < sanat.length - 2; i++) {
+            String sana1 = sanat[i];
+            String sana2 = sanat[i + 1];
+            String sana3 = sanat[i + 2];
+            
+            // kolmikon eka sana juuren lapseksi
+            if (lapset.containsKey(sana1)) {
+                nykyinen = lapset.get(sana1);
             } else {
                 nykyinen = new TrieSolmu();
-                lapset.put(ekaSana, nykyinen);  
+                lapset.put(sana1, nykyinen);
             }
-            lapset = nykyinen.haeLapset();  //1.sanan lapset
+            lapset = nykyinen.haeLapset();
             
-            
-            //tallennetaan parin 2 sana äskeisen lapseksi
-            if (lapset.containsKey(tokaSana)) {
-                nykyinen = lapset.get(tokaSana);
-                nykyinen.lisaaEsiintymiskerta();
+            // kolmikon toinen sana 1. lapseksi
+            if (lapset.containsKey(sana2)) {
+                nykyinen = lapset.get(sana2);
             } else {
                 nykyinen = new TrieSolmu();
-                lapset.put(tokaSana, nykyinen);
-                
+                lapset.put(sana2, nykyinen);
             }
-            lapset = nykyinen.haeLapset(); //2.sanan lapset
+            lapset = nykyinen.haeLapset();
             
-            List<String> seuraajat = sanat.get(avain);
-            //tallennetaan tämän jälkeen 2. sanan seuraajat 2. lapsiksi
+            // kolmikon viimeinen sana 
+            if (lapset.containsKey(sana3)) {
+                nykyinen = lapset.get(sana3);
+            } else {
+                nykyinen = new TrieSolmu();
+                lapset.put(sana3, nykyinen);
+            }
             
-            if (seuraajat.size() == 1) {
-                String seuraaja = seuraajat.get(0);
-                              
-                if (lapset.containsKey(seuraaja)) {
-                nykyinen = lapset.get(seuraaja);
-                nykyinen.lisaaEsiintymiskerta();
-                
-                } else {
-                nykyinen = new TrieSolmu();
-                lapset.put(seuraaja, nykyinen);
-                }
-            }
-            for (int j = 0; j < seuraajat.size(); j++) {
-                String seuraaja = seuraajat.get(j);
-                
-                if (lapset.containsKey(seuraaja)) {
-                nykyinen = lapset.get(seuraaja);
-                nykyinen.lisaaEsiintymiskerta();
-                
-                } else {
-                nykyinen = new TrieSolmu();
-                lapset.put(seuraaja, nykyinen);
-                }
-            }
+            //palataan juureen seuraavan kolmikon tallentamiseksi
             lapset = juuri.haeLapset();
             
-        }
+        }       
+        
     }
     
     /**
@@ -150,6 +127,19 @@ public class Trie {
         
         return sanapari;
         
+    } 
+    /**
+     * Muokkaa tekstiä niin että siitä poistetaan pisteet ja pilkut.
+     * @param teksti
+     * @return muokattu teksti.
+     */
+    public String kasitteleTeksti(String teksti) {
+        teksti = teksti.strip();
+        
+        teksti = teksti.toLowerCase();
+        teksti = teksti.replace(",", "");
+        teksti = teksti.replace(".", "");
+        return teksti;
     } 
     
     

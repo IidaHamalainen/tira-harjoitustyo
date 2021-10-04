@@ -3,7 +3,6 @@ package harjoitustyo.markovinketju;
 
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
-import harjoitustyo.markovinketju.Trigram;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,13 +16,11 @@ import java.util.Random;
 public class TekstiGeneraattori {
     
     private Trie trie; 
-    private Trigram trigram;
     private HashMap<String, List<String>> sanat;
     
     public TekstiGeneraattori() {
         
-        this.trie = new Trie();
-        this.trigram = new Trigram();
+        this.trie = new Trie();;
         
     }
     
@@ -32,17 +29,9 @@ public class TekstiGeneraattori {
      */
     public void lueMateriaali(String opetusmateriaali) {
                              
-            trigram.luoTrigam(opetusmateriaali);
-            this.sanat = getTrigramLuettelo();
-            trie.lisaa(sanat);
+            trie.lisaa(opetusmateriaali);
     } 
     
-    /**
-     *hakee trigamin muodostaman HashMap-rakenteen.
-     */
-    public HashMap<String, List<String>> getTrigramLuettelo() {
-        return this.trigram.haeTrigramLuettelo();
-    }
     
     /**
      * generoi halutun mittaisen tekstin.
@@ -95,8 +84,7 @@ public class TekstiGeneraattori {
             
         if (ensimmainen == null) {  //jos arvotulle sanalle ei löydy seuraajia, arvotaan uudet sanat
             String uudetSanat = trie.arvoAlkusanat();
-            arvoSana(uudetSanat);
-                  
+            arvoSana(uudetSanat);               
         } else {   
             lapset = ensimmainen.haeLapset();
         }
@@ -105,8 +93,7 @@ public class TekstiGeneraattori {
          
         if (toinen == null) {
             String uudetSanat = trie.arvoAlkusanat();
-            arvoSana(uudetSanat);
-            
+            arvoSana(uudetSanat);          
         } else {
             lapset = toinen.haeLapset();
         }
@@ -114,23 +101,15 @@ public class TekstiGeneraattori {
         List<String> avaimet = new ArrayList<String>(lapset.keySet());
 
         if (avaimet.size() == 1) {
-            arvottuSana = avaimet.get(0);
-              
+            arvottuSana = avaimet.get(0);             
         } else {
-            arvottuSana = avaimet.get(random.nextInt(avaimet.size()));              
-            
+            arvottuSana = avaimet.get(random.nextInt(avaimet.size()));                         
         }
         return arvottuSana;
     }
    
     public Trie getTrie() {
         return this.trie;
-    }
-    /**
-     * hakee trigramin.
-     */
-    public Trigram getTrigam() {
-        return this.trigram;
     }
     
     

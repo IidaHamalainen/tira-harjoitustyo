@@ -4,7 +4,6 @@ package harjoitustyo;
 import harjoitustyo.markovinketju.TekstiGeneraattori;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
-import harjoitustyo.markovinketju.Trigram;
 import suorituskykytestaus.Suorituskykytestit;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -69,11 +68,11 @@ public class Main {
                 + " kuulin unessain leopardin huudon vain ja kosketin sua uudestaan";
         
                 
-        //generaattori.lueMateriaali(materiaali3);
+        generaattori.lueMateriaali(materiaali3);
         
         //trie = generaattori.getTrie();
         
-        //System.out.println(generaattori.generoiTeksti(10));
+        System.out.println(generaattori.generoiTeksti(10));
         
         /*
         if (trie.haeSanoja("ui hai valas") == true) {
@@ -93,38 +92,30 @@ public class Main {
         //System.out.println("");
         //System.out.println(generaattori.luoTeksti(7)); 
        
-        /*
-        Trie trie = new Trie();    
         
-        trie.lisaaTeksti("Kissa vei kielen. Ässä maukuu. Kissa vei kalat");
+        //Trie trie = new Trie();    
+        
+        //trie.lisaa("Kissa vei kielen. Ässä maukuu. Kissa vei kalat");
         //trie.lisaaSanoja("Kissa istui puussa");
-      
+        /*
         System.out.println("sanat lisätty");
         
-        if (trie.haku("Kissa vei kalat.") == true) {
-            System.out.println("lause löytyi");
-        } else {
-            System.out.println("lause ei löydy");
-        }
-        if (trie.haku("Ässä maukuu") == true) {
-            System.out.println("lause löytyi");
-        } else {
-            System.out.println("lause ei löydy");
-        }
-        if (trie.haku("Kensöi") == true) {
+        if (trie.haeSanoja("Kissa vei kalat") == true) {
             System.out.println("lause löytyi");
         } else {
             System.out.println("lause ei löydy");
         }
         */
+        
        
         
-        //suorituskyky
+        /*suorituskyky
         Suorituskykytestit stestit = new Suorituskykytestit();
         
         stestit.trieSuoritus();
         System.out.println("");
         stestit.generoinninTestaus();
+        */
  
     }
     
