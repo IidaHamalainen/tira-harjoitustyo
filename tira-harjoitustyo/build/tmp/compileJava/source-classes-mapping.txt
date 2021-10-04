@@ -6,5 +6,7 @@ harjoitustyo/markovinketju/TekstiGeneraattori.java
  harjoitustyo.markovinketju.TekstiGeneraattori
 harjoitustyo/tietorakenne/Trie.java
  harjoitustyo.tietorakenne.Trie
+harjoitustyo/kayttoliittyma/Kayttoliittyma.java
+ harjoitustyo.kayttoliittyma.Kayttoliittyma
 harjoitustyo/Main.java
  harjoitustyo.Main

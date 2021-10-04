@@ -1,6 +1,7 @@
 
 package harjoitustyo;
 
+import harjoitustyo.kayttoliittyma.Kayttoliittyma;
 import harjoitustyo.markovinketju.TekstiGeneraattori;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
@@ -20,6 +21,12 @@ public class Main {
     
     public static void main(String[] args) throws Exception {
         
+        Scanner lukija = new Scanner(System.in);
+        
+        Kayttoliittyma kayttis = new Kayttoliittyma(lukija);
+        kayttis.kaynnista();
+        
+        /*
         TekstiGeneraattori generaattori = new TekstiGeneraattori();
         Trie trie = new Trie();  
         String teksti = "";
@@ -35,7 +42,7 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Virhe: " + e.getMessage());
         }
-        //generaattori.lueMateriaali(teksti);       
+        generaattori.lueMateriaali(teksti);       
         
         //TO DO: selvitä mikä tekstitiedostoissa vaikuttaa siihen että väliiä tulee index out of bounds
         
@@ -68,7 +75,7 @@ public class Main {
                 + " kuulin unessain leopardin huudon vain ja kosketin sua uudestaan";
         
                 
-        generaattori.lueMateriaali(materiaali3);
+        //generaattori.lueMateriaali(materiaali3);
         
         //trie = generaattori.getTrie();
         
@@ -109,7 +116,8 @@ public class Main {
         
        
         
-        /*suorituskyky
+        //suorituskyky
+        /*
         Suorituskykytestit stestit = new Suorituskykytestit();
         
         stestit.trieSuoritus();

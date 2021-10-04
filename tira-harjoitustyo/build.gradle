@@ -41,4 +41,8 @@ jacocoTestReport {
         }))
     }
 }
+run {
+    standardInput = System.in
+    standardOutput = System.out
+}
 check.dependsOn jacocoTestReport
