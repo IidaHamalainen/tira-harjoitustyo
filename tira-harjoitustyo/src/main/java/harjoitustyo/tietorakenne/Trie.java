@@ -128,19 +128,7 @@ public class Trie {
         return sanapari;
         
     } 
-    /**
-     * Muokkaa tekstiä niin että siitä poistetaan pisteet ja pilkut.
-     * @param teksti
-     * @return muokattu teksti.
-     */
-    public String kasitteleTeksti(String teksti) {
-        teksti = teksti.strip();
-        
-        teksti = teksti.toLowerCase();
-        teksti = teksti.replace(",", "");
-        teksti = teksti.replace(".", "");
-        return teksti;
-    } 
+    
     
     
 }

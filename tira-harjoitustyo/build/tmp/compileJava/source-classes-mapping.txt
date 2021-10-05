@@ -1,12 +1,12 @@
 harjoitustyo/tietorakenne/TrieSolmu.java
  harjoitustyo.tietorakenne.TrieSolmu
-suorituskykytestaus/Suorituskykytestit.java
- suorituskykytestaus.Suorituskykytestit
-harjoitustyo/markovinketju/TekstiGeneraattori.java
- harjoitustyo.markovinketju.TekstiGeneraattori
 harjoitustyo/tietorakenne/Trie.java
  harjoitustyo.tietorakenne.Trie
-harjoitustyo/kayttoliittyma/Kayttoliittyma.java
- harjoitustyo.kayttoliittyma.Kayttoliittyma
+harjoitustyo/markovinketju/TekstiGeneraattori.java
+ harjoitustyo.markovinketju.TekstiGeneraattori
 harjoitustyo/Main.java
  harjoitustyo.Main
+suorituskykytestaus/Suorituskykytestit.java
+ suorituskykytestaus.Suorituskykytestit
+harjoitustyo/kayttoliittyma/Kayttoliittyma.java
+ harjoitustyo.kayttoliittyma.Kayttoliittyma

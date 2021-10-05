@@ -1,5 +1,5 @@
 
-package tietorakenne;
+
 
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;

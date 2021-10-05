@@ -32,21 +32,19 @@ public class Kayttoliittyma {
         System.out.println("");
         
         String toiminto = lukija.nextLine();
-
         
         if (toiminto.equals("1")) {
             generointi();
-        } else if(toiminto.equals("2")) {
+        } else if (toiminto.equals("2")) {
             suorituskykytestit();
         } else if (toiminto.equals("Q")) {
             return;
         }
     }
-    
-    
+     
     private void generointi() {
         int tekstinPituus = 0;
-        System.out.println("generoidaan teksti: ");
+        System.out.println("Generoidaan teksti: ");
         System.out.println("");
         
         System.out.println("Kuinka pitkä teksti generoidaan?");
@@ -74,17 +72,25 @@ public class Kayttoliittyma {
     private String lueTiedosto() {
   
         String teksti = "";
-        try (Scanner tiedostonLukija = new Scanner(new File("markov.txt"))) { 
-                       
-            while (tiedostonLukija.hasNextLine()) { 
-            String rivi = tiedostonLukija.nextLine();
-            teksti = teksti + " " + rivi; 
-            }
+        
+        Scanner tiedostonlukija;
+             
+        try {
+            tiedostonlukija = new Scanner(new File("sherlock.txt"));
+            
+            while (tiedostonlukija.hasNext()) { 
+                String rivi = tiedostonlukija.nextLine();
+                if (!rivi.isEmpty()) {
+                    teksti = teksti + rivi + " ";
+                }
+            }    
+            tiedostonlukija.close();            
             
         } catch (Exception e) {
             System.out.println("Virhe: " + e.getMessage());
         }
         return teksti;
+        
     }
      
     

@@ -1,5 +1,5 @@
 
-package tietorakenne;
+
 
 import harjoitustyo.markovinketju.TekstiGeneraattori;
 import harjoitustyo.tietorakenne.Trie;
@@ -47,6 +47,12 @@ public class TekstiGeneraattoriTesti {
        String sana = testiGeneraattori.arvoSana("olipa kerran");
        assertEquals("prinsessa", sana);
        
+    }
+    @Test
+    public void tekstinkasittelyToimii() {
+        String teksti = "Olipa, kerran prinsessa.";
+        String kasiteltyTeksti = testiGeneraattori.kasitteleTeksti(teksti);
+        assertEquals("olipa kerran prinsessa", kasiteltyTeksti);
     }
     
     @Test

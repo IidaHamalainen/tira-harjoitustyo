@@ -28,8 +28,21 @@ public class TekstiGeneraattori {
      * lisätään opetusmateriaali Trigramiin ja luodaan Trie.
      */
     public void lueMateriaali(String opetusmateriaali) {
-                             
+            //String teksti = kasitteleTeksti(opetusmateriaali);                 
             trie.lisaa(opetusmateriaali);
+    }
+    /**
+     * Muokkaa tekstiä niin että siitä poistetaan pisteet ja pilkut.
+     * @param teksti
+     * @return muokattu teksti.
+     */
+    public String kasitteleTeksti(String teksti) {
+        teksti = teksti.strip();
+        
+        teksti = teksti.toLowerCase();
+        teksti = teksti.replace(",", "");
+        teksti = teksti.replace(".", "");
+        return teksti;
     } 
     
     
