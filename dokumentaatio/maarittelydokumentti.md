@@ -1,7 +1,7 @@
 ### Opinto-ohjelmani on tietojenkäsittelytieteen kandidaatti.
 
 ### Aihe
-Projektin aiheena on luoda ohjelma, joka Markovin ketjua käyttäen luo lauseita. Ohjelmalle annetaan sana, ja se arpoo seuraavan sanan. Ajatuksena on luoda parodioiva "quote generator" eli aforismi -tai mietelausegeneraattosi, joka luo oikealta vaikuttavia lyhyita lauseita jostakin aiheesta. Tarkoituksena olisi myös, että loppuun ohjelma arpoo henkilön, joka muka olisi kyseisen aforismin sanonut.
+Projektin aiheena on luoda ohjelma, joka Markovin ketjua käyttäen luo lauseita. Ohjelmalle annetaan teksti jonka perusteella generoidaan halutun mittainen uusi teksti.
 
 ### Ohjelmointikieli
 Käytän javaa projektini koodaamiseen. Javan lisäksi olen aiemmin kurssilla käyttänyt pythonia, joten uskoisin pystyväni arvioimaan sillä tehtyjä töitä. 
