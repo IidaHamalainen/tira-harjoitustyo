@@ -19,6 +19,7 @@ public class Suorituskykytestit {
     
     private final int[] arraynKoko = {10, 100, 1000, 10000, 100000}; //1000000 vie todella kauan koneellani, joten en aja sitä usein
     private final double[] lisayksetTriehen = new double[arraynKoko.length];
+    private final double[] hakuTriesta = new double[arraynKoko.length];
     private final double[] generointi = new double[arraynKoko.length];
     private final Random random;
     
@@ -63,10 +64,38 @@ public class Suorituskykytestit {
             //lasketaan mediaani
             Arrays.sort(suoritusajat);
             lisayksetTriehen[i] = suoritusajat[suoritusajat.length / 2] / 1000000.0;
+        
+            
+            //testataan triestä hakua
+            for (int h = 0; h < n; h++) {
+                t = System.nanoTime();
+                
+                for (int k = 0; k < sanamaara; k++) {
+                    String sana = "";
+                    Integer eka = random.nextInt();
+                    Integer toka = random.nextInt();
+                    Integer kolmas = random.nextInt();
+                    
+                    sana = sana + eka.toString() + " " + toka.toString() + " " + kolmas.toString();
+                    
+                    trie.haeSanoja(sana);
+                }
+                t = System.nanoTime() - t;
+                suoritusajat[h] = t;    
+            }
+            Arrays.sort(suoritusajat);
+            hakuTriesta[i] = suoritusajat[suoritusajat.length / 2] / 1000000.0;
+            
+        
         }
         System.out.println("Lisäys triehen");
         for (int i = 0; i < arraynKoko.length; i++) {
            System.out.println(arraynKoko[i] + ": " + lisayksetTriehen[i] + "ms");
+        }
+        System.out.println("");
+        System.out.println("Haku triestä");
+        for (int i = 0; i < arraynKoko.length; i++) {
+           System.out.println(arraynKoko[i] + ": " + hakuTriesta[i] + "ms");
         }
         
         
