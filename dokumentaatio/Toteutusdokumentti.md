@@ -1,6 +1,6 @@
 ## Ohjelman yleisrakenne
 
-Ohjelma koostuu Trie-rakenteesta, johon sanat tallennetaan Trigram-luokan mukaisesti. Trigram käsittelee teksin Markovin ketjun toisen asteen mukaiseksi.
+Ohjelma koostuu Trie-rakenteesta, johon sanat tallennetaan Markovin ketjun toisen asteen mukaisesti.
 Teksti jaetaan kahden sanan pareiksi, joista ensimmäinen tallennetaan juuren lapsisolmuksi, ja soinen tämän lapsisolmuksi. 
 Loput sanat jotka voivat seurata kyseistä kahden sanan paria tallennetaan edelleen 2. sanan lapsisolmuiksi.
 Generaattori-luokassa arvotaan ensin kaksi aloitussanaa. Näiden perusteella arvotaan uusia sanoja haluttu määrä.
