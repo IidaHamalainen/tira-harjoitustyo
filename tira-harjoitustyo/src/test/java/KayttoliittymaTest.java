@@ -24,21 +24,21 @@ public class KayttoliittymaTest {
     }
     
     @Test
-    public void kayttoliittymaValikkoToimii1() throws Exception{
-        Scanner lukija = new Scanner("1\n5");
+    public void kayttoliittymaValikkoToimii1() throws Exception {
+        Scanner lukija = new Scanner("1\n5\nQ");
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(lukija);
         kayttoliittyma.kaynnista(); 
         String[] syote = tulostus.toString().split("\n");
-        assertTrue(syote[0].startsWith("Tekstigeneraattori"));
+        assertTrue(syote[0].startsWith("Tervetuloa"));
         assertTrue(syote[7].startsWith("Generoidaan"));
     } 
     @Test
-    public void kayttoliittymaValikkoToimii2() throws Exception{
-        Scanner lukija = new Scanner("2\n");
+    public void kayttoliittymaValikkoToimii2() throws Exception {
+        Scanner lukija = new Scanner("2\nQ");
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(lukija);
         kayttoliittyma.kaynnista(); 
         String[] syote = tulostus.toString().split("\n");
-        assertTrue(syote[0].startsWith("Tekstigeneraattori"));
+        assertTrue(syote[0].startsWith("Tervetuloa"));
         assertTrue(syote[7].startsWith("Ajetaan"));
     } 
        

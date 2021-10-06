@@ -51,18 +51,7 @@ public class TrieTest {
         assertEquals(this.testiTrie.haeSanoja("Prinsessa"), false);  
         assertEquals(this.testiTrie.haeSanoja("Olipa kerran peikko"), false); 
     }  
-    @Test
-    public void arvoSanaToimii() {
-        String teksti = "Olipa kerran prinssi. Prinssi asui linnassa";
-        
-        this.testiTrie.lisaa(teksti);
-              
-        String sana = testiTrie.arvoAlkusanat();
-        String[] taulukko = sana.split(" ");
-        assertEquals(taulukko.length, 2);
-        
-        
-    }
+    
     
           
 }

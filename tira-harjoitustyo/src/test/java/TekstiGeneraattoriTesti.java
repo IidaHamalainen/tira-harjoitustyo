@@ -30,10 +30,8 @@ public class TekstiGeneraattoriTesti {
     public void materiaalinLukuToimii() {
         String teksti = "olipa kerran prinsessa. olipa kerran prinssi. kerran prinsessa lähti kaupunkiin.";
                
-        testiGeneraattori.lueMateriaali(teksti);
-        
-        testiTrie = testiGeneraattori.getTrie();
-        
+        testiGeneraattori.lueMateriaali(teksti);       
+        testiTrie = testiGeneraattori.getTrie();       
         assertEquals(testiTrie.haeSanoja("olipa kerran"), true);
     }
     
@@ -47,6 +45,18 @@ public class TekstiGeneraattoriTesti {
        String sana = testiGeneraattori.arvoSana("olipa kerran");
        assertEquals("prinsessa", sana);
        
+    }
+    @Test
+    public void arvoAlkuSanaToimii() {
+        String teksti = "Olipa kerran prinssi. Prinssi asui linnassa";
+        
+        testiGeneraattori.lueMateriaali(teksti); 
+        
+        String sana = testiGeneraattori.arvoAlkusanat();
+        String[] taulukko = sana.split(" ");
+        assertEquals(taulukko.length, 2);
+        
+        
     }
     @Test
     public void tekstinkasittelyToimii() {

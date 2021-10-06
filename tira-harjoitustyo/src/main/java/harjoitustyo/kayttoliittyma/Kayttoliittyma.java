@@ -20,28 +20,37 @@ public class Kayttoliittyma {
     public Kayttoliittyma(Scanner lukija) {
         this.lukija = lukija;
     }
-    
+    /**
+     * ohjelman käynnistys.
+     */
     public void kaynnista() {
+              
+        System.out.println("Tervetuloa Tekstigeneraattoriin!");
         
-        System.out.println("Tekstigeneraattori");
-        System.out.println("");
-        System.out.println("Valitse: ");
-        System.out.println("1. generoi teksti");
-        System.out.println("2. Aja suorituskykytestit");
-        System.out.println("[Q] lopeta");
-        System.out.println("");
+        while (true) {           
+            
+            System.out.println("");
+            System.out.println("Valitse: ");
+            System.out.println("1. Generoi teksti");
+            System.out.println("2. Aja suorituskykytestit");
+            System.out.println("[Q] lopeta");
+            System.out.println("");
         
         String toiminto = lukija.nextLine();
-        
-        if (toiminto.equals("1")) {
-            generointi();
-        } else if (toiminto.equals("2")) {
+            
+            if (toiminto.equals("Q")) {
+                break;
+            } else if (toiminto.equals("1")) {
+                generointi();
+            } else if (toiminto.equals("2")) {
             suorituskykytestit();
-        } else if (toiminto.equals("Q")) {
-            return;
+            }
         }
+        
     }
-     
+    /**
+     * Teksti lisätään triehen ja sen jälkeen generoidaan halutun pituinen sanajono.
+     */ 
     private void generointi() {
         int tekstinPituus = 0;
         System.out.println("Generoidaan teksti: ");
@@ -58,7 +67,9 @@ public class Kayttoliittyma {
         System.out.println(generaattori.generoiTeksti(tekstinPituus));
         
     }
-    
+    /**
+     * Suorituskykytestien ajaminen. Testit tulostetaan näkyviin.
+     */
     private void suorituskykytestit() {
        
         Suorituskykytestit testit = new Suorituskykytestit();
@@ -68,11 +79,13 @@ public class Kayttoliittyma {
         System.out.println("");
         testit.generoinninTestaus();
     }
-    
+    /**
+     * Tiedon lukeminen tekstitiedostosta.
+     * @return String-muotoinen tiedosto ilman tyhjiä rivejä.
+     */
     private String lueTiedosto() {
   
-        String teksti = "";
-        
+        String teksti = "";       
         Scanner tiedostonlukija;
              
         try {
@@ -89,8 +102,7 @@ public class Kayttoliittyma {
         } catch (Exception e) {
             System.out.println("Virhe: " + e.getMessage());
         }
-        return teksti;
-        
+        return teksti;       
     }
      
     
