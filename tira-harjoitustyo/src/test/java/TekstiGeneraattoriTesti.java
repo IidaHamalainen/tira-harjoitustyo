@@ -33,9 +33,7 @@ public class TekstiGeneraattoriTesti {
         testiGeneraattori.lueMateriaali(teksti);       
         testiTrie = testiGeneraattori.getTrie();       
         assertEquals(testiTrie.haeSanoja("olipa kerran"), true);
-    }
-    
-            
+    }           
     
     @Test
     public void arvoSanaToimii() {
