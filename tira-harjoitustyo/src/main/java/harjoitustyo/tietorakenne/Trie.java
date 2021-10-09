@@ -1,11 +1,7 @@
 
 package harjoitustyo.tietorakenne;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 
 /**
@@ -22,7 +18,7 @@ public class Trie {
     }
     /**
      * palauttaa juurisolmun.
-     * @return solmu
+     * @return solmu joka on juurisolmu
      */
     public TrieSolmu haeJuuri() {
         return this.juuri;
@@ -31,7 +27,8 @@ public class Trie {
     /**
      * lisätään trie-rakenteeseen tekstin.
      * isot kirjaimet ja välimerkit merkitsee!
-     * @param teksti
+     * Solmuihin tallennetaan esiintymiskerrat arvontaa varten (kesken)
+     * @param teksti joka lisätään Trieen.
      */ 
     public void lisaa(String teksti) {
         Map<String, TrieSolmu> lapset = juuri.haeLapset();
@@ -47,6 +44,7 @@ public class Trie {
             // kolmikon eka sana juuren lapseksi
             if (lapset.containsKey(sana1)) {
                 nykyinen = lapset.get(sana1);
+                nykyinen.lisaaEsiintymiskerta();
             } else {
                 nykyinen = new TrieSolmu();
                 lapset.put(sana1, nykyinen);
@@ -56,6 +54,7 @@ public class Trie {
             // kolmikon toinen sana 1. lapseksi
             if (lapset.containsKey(sana2)) {
                 nykyinen = lapset.get(sana2);
+                nykyinen.lisaaEsiintymiskerta();
             } else {
                 nykyinen = new TrieSolmu();
                 lapset.put(sana2, nykyinen);
@@ -65,6 +64,7 @@ public class Trie {
             // kolmikon viimeinen sana 
             if (lapset.containsKey(sana3)) {
                 nykyinen = lapset.get(sana3);
+                nykyinen.lisaaEsiintymiskerta();
             } else {
                 nykyinen = new TrieSolmu();
                 lapset.put(sana3, nykyinen);
@@ -78,8 +78,8 @@ public class Trie {
     
     /**
      * haetaan triestä sanoja.
-     * @param sanat
-     * @return 
+     * @param sanat teksti jota haetaan.
+     * @return true, jos sanat löytyy, muuten false.
      */
     public boolean haeSanoja(String sanat) {
         Map<String, TrieSolmu> lapset = juuri.haeLapset();
@@ -104,10 +104,7 @@ public class Trie {
             return false;
         }    
     }
-
-    
-    
-    
+   
     
 }
     

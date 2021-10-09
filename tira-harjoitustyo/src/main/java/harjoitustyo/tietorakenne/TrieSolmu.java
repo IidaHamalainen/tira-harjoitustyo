@@ -3,7 +3,6 @@ package harjoitustyo.tietorakenne;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 
 /**
@@ -13,7 +12,6 @@ import java.util.Random;
 public class TrieSolmu {
     
     private final Map<String, TrieSolmu> lapset = new HashMap<>();
-    private boolean onSana;
     private int laskuri;
 
     public TrieSolmu() {
@@ -28,14 +26,14 @@ public class TrieSolmu {
         return lapset;
     }
     /**
-     * laskuri kuinka monta kerta sana esiintyy tekstissä.
+     * Laskuri kuinka monta kerta sana esiintyy tekstissä.
      */
     public void lisaaEsiintymiskerta() {
         this.laskuri  = laskuri + 1;
     }
     
     /**
-     * palauttaa askurin esiintymiskerroista.
+     * Palauttaa askurin esiintymiskerroista.
      * @return luku
      */
     public int haeLaskuri() {

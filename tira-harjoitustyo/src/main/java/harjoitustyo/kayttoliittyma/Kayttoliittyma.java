@@ -31,13 +31,17 @@ public class Kayttoliittyma {
             
             System.out.println("");
             System.out.println("Valitse: ");
-            System.out.println("1. Generoi teksti");
-            System.out.println("2. Aja suorituskykytestit");
+            System.out.println("[1]. Generoi teksti");
+            System.out.println("[2]. Aja suorituskykytestit");
             System.out.println("[Q] lopeta");
             System.out.println("");
         
         String toiminto = lukija.nextLine();
             
+            if (!(toiminto.equals("1") || toiminto.equals("2") || toiminto.equals("Q"))) {
+                System.out.println("virheellinen syöte");
+                continue;
+            }
             if (toiminto.equals("Q")) {
                 break;
             } else if (toiminto.equals("1")) {
@@ -54,10 +58,22 @@ public class Kayttoliittyma {
     private void generointi() {
         int tekstinPituus = 0;
         System.out.println("Generoidaan teksti: ");
-        System.out.println("");
+        System.out.println("");       
         
-        System.out.println("Kuinka pitkä teksti generoidaan?");
-        tekstinPituus = Integer.parseInt(lukija.nextLine());
+        System.out.println("Kuinka pitkä teksti generoidaan?");        
+        
+        try {
+           tekstinPituus = Integer.parseInt(lukija.nextLine());
+           
+           if (tekstinPituus < 2) {
+            System.out.println("Anna suurempi luku");
+            return;
+            }
+           
+        } catch (NumberFormatException ex) {
+            System.out.println("Virheellinen syöte. Anna numero");
+            return;
+        }                    
         
         TekstiGeneraattori generaattori = new TekstiGeneraattori();
         String opetusmateriaali = lueTiedosto();

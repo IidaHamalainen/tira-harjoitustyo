@@ -4,7 +4,6 @@ package harjoitustyo.markovinketju;
 import harjoitustyo.tietorakenne.Trie;
 import harjoitustyo.tietorakenne.TrieSolmu;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -16,16 +15,15 @@ import java.util.Random;
 public class TekstiGeneraattori {
     
     private Trie trie; 
-    private HashMap<String, List<String>> sanat;
     
     public TekstiGeneraattori() {
         
-        this.trie = new Trie();;
-        
+        this.trie = new Trie();;       
     }
     
     /**
-     * lisätään opetusmateriaali Trigramiin ja luodaan Trie.
+     * Luetaan opetusmateriaali, joka lisätään Trieen.
+     * @param opetusmateriaali lisättävä teksti.
      */
     public void lueMateriaali(String opetusmateriaali) {
             //String teksti = kasitteleTeksti(opetusmateriaali);                 
@@ -33,7 +31,7 @@ public class TekstiGeneraattori {
     }
     /**
      * Muokkaa tekstiä niin että siitä poistetaan pisteet ja pilkut.
-     * @param teksti
+     * @param teksti muokattava teksti.
      * @return muokattu teksti.
      */
     public String kasitteleTeksti(String teksti) {
@@ -49,24 +47,16 @@ public class TekstiGeneraattori {
     /**
      * generoi halutun mittaisen tekstin.
      * Ensimmäinen sanapari arvotaan Triestä, ja sen jälkeen aina kahden edellisen sanan perusteella arvotaan seuraava.
-     * @param sanamaara
+     * @param sanamaara haluttu tekstin pituus sanoina.
      * @return muodostettu teksti.
      */
     public String generoiTeksti(int sanamaara) {
         
         String lause = "";
-        int tekstinPituus = 0;
         
-        if (sanamaara < 0) {
-            return null;
-        }
-        if (sanamaara < 2) {
-            System.out.println("Anna suurempi sanamäärä");
-            return null;
-        }
         String alkusanat = arvoAlkusanat();
         lause = lause + alkusanat + " ";
-        tekstinPituus = 2;
+        int tekstinPituus = 2;
         
         while (tekstinPituus < sanamaara) {
             
@@ -104,6 +94,7 @@ public class TekstiGeneraattori {
     } 
     /**
      * Arvotaan sana kahden edellisen sanan perusteella mahdollisista seuraajista.
+     * To do: arvonta todennäköisyyteen perustuen.
      * @param edelliset edelliset sanat.
      * @return arvottu sana.
      */
@@ -112,7 +103,7 @@ public class TekstiGeneraattori {
         Random random = new Random();
         TrieSolmu juuri = trie.haeJuuri();
         Map<String, TrieSolmu> lapset = juuri.haeLapset();
-        String arvottuSana = "";
+        String arvottuSana;
         
         String sanat[] = edelliset.split(" "); 
 
@@ -139,16 +130,17 @@ public class TekstiGeneraattori {
         if (avaimet.size() == 1) {
             arvottuSana = avaimet.get(0);             
         } else {
+            // to do: arvonta todennäköisyyteen perustuen
             arvottuSana = avaimet.get(random.nextInt(avaimet.size()));                         
         }
         return arvottuSana;
     }
-   
+    /**
+     * Palauttaa trien. Tarvitaan testeissä.
+     * @return trie.
+     */
     public Trie getTrie() {
         return this.trie;
-    }
-    
-    
-    
+    }    
     
 }
