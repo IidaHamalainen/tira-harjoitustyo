@@ -22,6 +22,7 @@ public class Kayttoliittyma {
     }
     /**
      * ohjelman käynnistys.
+     * Tulostaa valikon.
      */
     public void kaynnista() {
               
@@ -38,6 +39,7 @@ public class Kayttoliittyma {
         
         String toiminto = lukija.nextLine();
             
+        //jos syötetty toiminto ei ole 1, 2 tai Q ilmoitetaan käyttäjälle virheestä
             if (!(toiminto.equals("1") || toiminto.equals("2") || toiminto.equals("Q"))) {
                 System.out.println("virheellinen syöte");
                 continue;
@@ -54,6 +56,7 @@ public class Kayttoliittyma {
     }
     /**
      * Teksti lisätään triehen ja sen jälkeen generoidaan halutun pituinen sanajono.
+     * Jos annettu sanamaarä on alle 2 tai ei luku, palataan edelliseen valintakohtaan.
      */ 
     private void generointi() {
         int tekstinPituus = 0;
@@ -64,17 +67,18 @@ public class Kayttoliittyma {
         
         try {
            tekstinPituus = Integer.parseInt(lukija.nextLine());
-           
+           //jos tekstin pituu on alle 2, ilmoitetaan käyttäjälle ja palataan valikkoon.
            if (tekstinPituus < 2) {
             System.out.println("Anna suurempi luku");
             return;
             }
-           
+         
+        //jos syöte ei ole Integer-numero, ilmoitetaan käytäjälle ja palataan valikkoon   
         } catch (NumberFormatException ex) {
             System.out.println("Virheellinen syöte. Anna numero");
             return;
         }                    
-        
+        //luodaan trie ja generoidaan tekstiGeneraattorissa halutun mittainen teksti
         TekstiGeneraattori generaattori = new TekstiGeneraattori();
         String opetusmateriaali = lueTiedosto();
         generaattori.lueMateriaali(opetusmateriaali);

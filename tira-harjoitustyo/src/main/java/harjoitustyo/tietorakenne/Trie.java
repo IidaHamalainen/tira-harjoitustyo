@@ -34,14 +34,16 @@ public class Trie {
         Map<String, TrieSolmu> lapset = juuri.haeLapset();
         TrieSolmu nykyinen = juuri;
         
+        //teksti jaetaan yksittäisiksi sanoiksi
         String[] sanat = teksti.split(" ");
     
+        //Otetaan aina kolme peräkkäistä sanaa Markovin toisen asteen mukaisesti
         for (int i = 0; i < sanat.length - 2; i++) {
             String sana1 = sanat[i];
             String sana2 = sanat[i + 1];
             String sana3 = sanat[i + 2];
             
-            // kolmikon eka sana juuren lapseksi
+            // Ensimmäinen sana juuren lapseksi. Jos sana löytyy jo, kasvatetaan esiintymiskertoja, muuten luodaan uusi solmu.
             if (lapset.containsKey(sana1)) {
                 nykyinen = lapset.get(sana1);
                 nykyinen.lisaaEsiintymiskerta();
@@ -51,7 +53,7 @@ public class Trie {
             }
             lapset = nykyinen.haeLapset();
             
-            // kolmikon toinen sana 1. lapseksi
+            // Toinen sana ensimmäisen lapseksi. Jos sana löytyy jo, kasvatetaan esiintymiskertoja, muuten luodaan uusi solmu.
             if (lapset.containsKey(sana2)) {
                 nykyinen = lapset.get(sana2);
                 nykyinen.lisaaEsiintymiskerta();
@@ -61,7 +63,7 @@ public class Trie {
             }
             lapset = nykyinen.haeLapset();
             
-            // kolmikon viimeinen sana 
+            // Kolmikon viimeinen sana. Jos sana löytyy jo, kasvatetaan esiintymiskertoja, muuten luodaan uusi solmu.
             if (lapset.containsKey(sana3)) {
                 nykyinen = lapset.get(sana3);
                 nykyinen.lisaaEsiintymiskerta();
@@ -69,7 +71,7 @@ public class Trie {
                 nykyinen = new TrieSolmu();
                 lapset.put(sana3, nykyinen);
             }          
-            //palataan juureen seuraavan kolmikon tallentamiseksi
+            //Palataan juureen seuraavan kolmikon tallentamiseksi
             lapset = juuri.haeLapset();
             
         }       
@@ -85,14 +87,16 @@ public class Trie {
         Map<String, TrieSolmu> lapset = juuri.haeLapset();
 
         TrieSolmu nykyinen = null;  
-
+        //jaetaan haettava tekstiyksittäisiksi sanoiksi
         String[] yksittaisetSanat = sanat.split(" ");
+        //tarkastetaan löytyykö haettava sana solmun lapsista
         for (int i = 0; i < yksittaisetSanat.length; i++) {
             String sana = yksittaisetSanat[i];
-            
+            //jos sana löytyy, siirrytään siihen solmuun
             if (lapset.containsKey(sana)) {
                 nykyinen = lapset.get(sana);
                 lapset = nykyinen.haeLapset();
+            //jos ei löydy, palautetaan null
             } else {
                 nykyinen = null;
                 break;

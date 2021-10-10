@@ -13,11 +13,12 @@ public class TrieSolmu {
     
     private final Map<String, TrieSolmu> lapset = new HashMap<>();
     private int laskuri;
+   
 
     public TrieSolmu() {
         this.laskuri = 1;
+        
     }
-    
     /**
      * Hakee solmun lapsisolmut.
      * @return palauttaa hashMapin lapsista.
@@ -26,7 +27,8 @@ public class TrieSolmu {
         return lapset;
     }
     /**
-     * Laskuri kuinka monta kerta sana esiintyy tekstissä.
+     * Laskuri kuinka monta kerta sana esiintyy tekstissä samojen sanojen jälkeen. 
+     * Aina kun sana esiintyy kasvatetaan arvoa.
      */
     public void lisaaEsiintymiskerta() {
         this.laskuri  = laskuri + 1;
