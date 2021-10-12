@@ -2,8 +2,9 @@
 
 Ohjelma koostuu Trie-rakenteesta ja TekstiGeneraattoriluokasta. Triehen sanat tallennetaan Markovin ketjun toisen asteen mukaisesti eli kolmen sanan jonoissa.
 Teksti jaetaan lisäysvaiheessa kolmen sanan jonoiksi, joista ensimmäinen tallennetaan juuren lapsisolmuksi, ja toinen tämän lapsisolmuksi. 
-Loput sanat jotka voivat seurata kyseistä kahden sanan paria tallennetaan edelleen 2. sanan lapsisolmuiksi.
-TekstiGeneraattori-luokassa arvotaan ensin kaksi aloitussanaa. Näiden perusteella arvotaan uusia sanoja haluttu määrä, niin että uusin sana perustuu aina kahteen edelliseen.
+Loput sanat jotka voivat seurata kyseistä kahden sanan paria tallennetaan edelleen 2. sanan lapsisolmuiksi. Sanoja lisättäessä tallennetaan tieto siitä kuinka monta kertaa sana on esiintynyt kyseiseten sanojen jälkeen.
+
+TekstiGeneraattori-luokassa arvotaan ensin kaksi aloitussanaa. Näiden perusteella arvotaan uusia sanoja haluttu määrä, niin että uusin sana perustuu aina kahteen edelliseen ja todennäköisyyteen millä sana esiintyy niiden perässä.
 
 Käyttöliittymä luo tekstimuotoisen valikon, jossa voi valita haluaako generoida tekstin vai ajaa suorituskykytestit.
 
