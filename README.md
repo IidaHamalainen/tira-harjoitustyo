@@ -6,6 +6,8 @@
 
 [Toteutusdokumentti](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/Toteutusdokumentti.md)
 
+[Käyttöohje](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/Kayttoohje.md)
+
 
 
 ### Linkit viikkoraportteihin
