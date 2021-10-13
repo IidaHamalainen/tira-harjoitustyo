@@ -54,12 +54,10 @@ public class TekstiGeneraattori {
     public String generoiTeksti(int sanamaara) {
         
         String lause = "";
-        //arvotaan ensin alkusanat ja lisätään lauseeseen
         String alkusanat = arvoAlkusanat();
         lause = lause + alkusanat + " ";
         int tekstinPituus = 2;
         
-        //arvotaan sitten haluttu määrä sanoja
         while (tekstinPituus < sanamaara) {
             //tähän mennessä luotu lause jaetaan yksittäisiksi sanoiksi
             String sanat[] = lause.split(" ");
@@ -79,7 +77,6 @@ public class TekstiGeneraattori {
         Random random = new Random(); 
         TrieSolmu juuri = trie.haeJuuri();
         
-        //haetaan juuren lapset
         Map<String, TrieSolmu> lapset1 = juuri.haeLapset();        
         List<String> avaimet1 = new ArrayList<String>(lapset1.keySet()); 
         //arvotaan ensimmäinen sana juuren lapsista
@@ -98,18 +95,15 @@ public class TekstiGeneraattori {
     } 
     /**
      * Arvotaan sana kahden edellisen sanan perusteella mahdollisista seuraajista.
-     * To do: arvonta todennäköisyyteen perustuen.
      * @param edelliset edelliset sanat.
      * @return arvottu sana.
      */
     public String arvoSana(String edelliset) {
         
-        Random random = new Random();
         TrieSolmu juuri = trie.haeJuuri();
         Map<String, TrieSolmu> lapset = juuri.haeLapset();
         String arvottuSana;
         
-        //jaetaan sanapari yksittäisiksi sanoiksi
         String sanat[] = edelliset.split(" "); 
         //haetaan ensimmäisen lapsisolmut
         TrieSolmu ensimmainen = lapset.get(sanat[0]);  
@@ -128,44 +122,52 @@ public class TekstiGeneraattori {
             String uudetSanat = arvoAlkusanat();
             arvoSana(uudetSanat);          
         } else {
-            //lapset on nyt toisen sanan lapset, eli potentiaaliset seuraavat
+            
             lapset = toinen.haeLapset();
         }
-        //lista mahdollisista seuraavista sanoista    
+        //lapset on nyt toisen sanan lapset, eli potentiaaliset seuraavat  
+        arvottuSana = arvoSeuraajista(lapset);
+               
+        return arvottuSana;
+    }
+    /**
+     * Arpoo esiintymistodennäköisyyten perustuen seuraavan sanan.
+     * Ensin lasketaan esiintymiskertojen summa, jota käytetään arvotun sanan etsimiseen.
+     * @param lapset arvontaan käytetyn anaparin toisen sanan lapset.
+     * @return arvottu sana.
+     */
+    public String arvoSeuraajista(Map<String, TrieSolmu> lapset) {
         List<String> avaimet = new ArrayList<String>(lapset.keySet());
-        //jos on vain yksi seuraaja, valitaan se suoraan
+        
         if (avaimet.size() == 1) {
-            arvottuSana = avaimet.get(0);             
+            String arvottuSana = avaimet.get(0);   
+            return arvottuSana;
+            
         } else {
-            
-            //arvottuSana = avaimet.get(random.nextInt(avaimet.size()));  //satunnainen arvonta ilman laskuria
-            
-            //lasketaan mahdollisten seuraajien yhteenlasketut esiintymiskerrat 
             int kokonaissumma = 0;
             for (int i = 0; i < avaimet.size(); i++) {
                 String avain = avaimet.get(i);
                 TrieSolmu solmu = lapset.get(avain);
                 kokonaissumma += solmu.haeLaskuri();
             }
-            //arvotaan luku 1 ja esiintymiskertojen kokonaissumman väliltä
+
             int arvottuIndeksi = satunnainenValilta(1, kokonaissumma);
             int summa = 0;
             int j = 0;
-            String arvottuAvain = "";
+            //alustetaan sana. Joissain harvinaisissa tapauksissa sanan arvonta epäonnistuu, jolloin palautetaan tämä.
+            String arvottuAvain = "...";
             //etsitään arvottu sana
-            while(summa < arvottuIndeksi) {
+            while (summa < arvottuIndeksi) {
 
                 arvottuAvain = avaimet.get(j);
                 TrieSolmu solmu = lapset.get(arvottuAvain);
                 summa += solmu.haeLaskuri();
                 j++;
             }  
-            arvottuSana = arvottuAvain;  
-            
+            return arvottuAvain;   
         }
-        return arvottuSana;
-    }
-   
+                 
+    }  
     /**
      * Arpoo satunnaisen luvun annetulta väliltä.
      * @param min minimiarvo.

@@ -25,16 +25,15 @@ public class Trie {
     }
     
     /**
-     * lisätään trie-rakenteeseen tekstin.
-     * isot kirjaimet ja välimerkit merkitsee!
-     * Solmuihin tallennetaan esiintymiskerrat arvontaa varten (kesken)
+     * lisätään trie-rakenteeseen tekstin Markovin toisen asteen mukaisesti.
+     * Tutkitaan aina kolmea peräkkäistä sana kerrallaan.
+     * Solmuihin tallennetaan esiintymiskerrat arvontaa varten.
      * @param teksti joka lisätään Trieen.
      */ 
     public void lisaa(String teksti) {
         Map<String, TrieSolmu> lapset = juuri.haeLapset();
         TrieSolmu nykyinen = juuri;
         
-        //teksti jaetaan yksittäisiksi sanoiksi
         String[] sanat = teksti.split(" ");
     
         //Otetaan aina kolme peräkkäistä sanaa Markovin toisen asteen mukaisesti
@@ -42,40 +41,36 @@ public class Trie {
             String sana1 = sanat[i];
             String sana2 = sanat[i + 1];
             String sana3 = sanat[i + 2];
-            
-            // Ensimmäinen sana juuren lapseksi. Jos sana löytyy jo, kasvatetaan esiintymiskertoja, muuten luodaan uusi solmu.
-            if (lapset.containsKey(sana1)) {
-                nykyinen = lapset.get(sana1);
-                nykyinen.lisaaEsiintymiskerta();
-            } else {
-                nykyinen = new TrieSolmu();
-                lapset.put(sana1, nykyinen);
-            }
+                       
+            nykyinen = haeTaiLisaaSolmu(lapset, sana1);            
             lapset = nykyinen.haeLapset();
             
-            // Toinen sana ensimmäisen lapseksi. Jos sana löytyy jo, kasvatetaan esiintymiskertoja, muuten luodaan uusi solmu.
-            if (lapset.containsKey(sana2)) {
-                nykyinen = lapset.get(sana2);
-                nykyinen.lisaaEsiintymiskerta();
-            } else {
-                nykyinen = new TrieSolmu();
-                lapset.put(sana2, nykyinen);
-            }
+            nykyinen = haeTaiLisaaSolmu(lapset, sana2);           
             lapset = nykyinen.haeLapset();
             
-            // Kolmikon viimeinen sana. Jos sana löytyy jo, kasvatetaan esiintymiskertoja, muuten luodaan uusi solmu.
-            if (lapset.containsKey(sana3)) {
-                nykyinen = lapset.get(sana3);
-                nykyinen.lisaaEsiintymiskerta();
-            } else {
-                nykyinen = new TrieSolmu();
-                lapset.put(sana3, nykyinen);
-            }          
+            nykyinen = haeTaiLisaaSolmu(lapset, sana3);                     
             //Palataan juureen seuraavan kolmikon tallentamiseksi
-            lapset = juuri.haeLapset();
-            
-        }       
+            lapset = juuri.haeLapset();           
+        }              
+    }
+    
+    /**
+     * Tutkitaan, löytyykö sanan sisältävä solmu lapsista. Jos löytyy, siirrytään solmuun. Jos ei löydy, luodaan uusi solmu.
+     * @param lapset nykyisen solmun lapset.
+     * @param sana lisättävä sana.
+     * @return solmu johon siirryttiin tai joka luotiin.
+     */
+    public TrieSolmu haeTaiLisaaSolmu(Map<String, TrieSolmu> lapset, String sana) {
+        TrieSolmu nykyinen;
         
+        if (lapset.containsKey(sana)) {
+            nykyinen = lapset.get(sana);
+            nykyinen.lisaaEsiintymiskerta();
+        } else {
+            nykyinen = new TrieSolmu();
+            lapset.put(sana, nykyinen);
+        }          
+        return nykyinen;   
     }
     
     /**
@@ -87,7 +82,6 @@ public class Trie {
         Map<String, TrieSolmu> lapset = juuri.haeLapset();
 
         TrieSolmu nykyinen = null;  
-        //jaetaan haettava tekstiyksittäisiksi sanoiksi
         String[] yksittaisetSanat = sanat.split(" ");
         //tarkastetaan löytyykö haettava sana solmun lapsista
         for (int i = 0; i < yksittaisetSanat.length; i++) {
@@ -108,8 +102,7 @@ public class Trie {
             return false;
         }    
     }
-   
-    
+       
 }
     
 
