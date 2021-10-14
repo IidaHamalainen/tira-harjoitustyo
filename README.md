@@ -21,3 +21,5 @@
 [viikko 4](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/viikkoraportti4.md)
 
 [viikko 5](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/viikkoraportti5.md)
+
+[viikko6](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/viikkoraportti6.md)
