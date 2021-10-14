@@ -14,7 +14,7 @@ Suorituskykytesteissä 1000000 kokoisella Arraylla oma koneeni pyörittää test
 täydentyy myöhemmin
 
 ## Työn mahdolliset puutteet ja parannusehdotukset
-Tekstin generoinnissa käy välillä jokin virhe, ja sanamäärä ei täsmää haluttuun. Tämä tapahtuu kuitenkin hyvin harvoin omien kokeilujeni perusteella.
+Tekstin generoinnissa käy välillä jokin virhe, ja sanamäärä ei täsmää haluttuun. Tämä tapahtuu aika harvoin omien kokeilujeni perusteella.
 
 ## Lähteet
 
