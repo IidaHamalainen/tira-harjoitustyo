@@ -1,14 +1,8 @@
 
-
-
 import harjoitustyo.markovinketju.TekstiGeneraattori;
 import harjoitustyo.tietorakenne.Trie;
-import harjoitustyo.tietorakenne.TrieSolmu;
 import static org.junit.Assert.*;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -41,9 +35,9 @@ public class TekstiGeneraattoriTesti {
        testiGeneraattori.lueMateriaali(teksti);
        
        String sana = testiGeneraattori.arvoSana("olipa kerran");
-       assertEquals("prinsessa", sana);
-       
+       assertEquals("prinsessa", sana);     
     }
+    
     @Test
     public void arvoAlkuSanaToimii() {
         String teksti = "Olipa kerran prinssi. Prinssi asui linnassa";
@@ -52,10 +46,9 @@ public class TekstiGeneraattoriTesti {
         
         String sana = testiGeneraattori.arvoAlkusanat();
         String[] taulukko = sana.split(" ");
-        assertEquals(taulukko.length, 2);
-        
-        
+        assertEquals(taulukko.length, 2);    
     }
+    
     @Test
     public void tekstinkasittelyToimii() {
         String teksti = "Olipa, kerran prinsessa.";
@@ -71,8 +64,6 @@ public class TekstiGeneraattoriTesti {
         String generoitu = testiGeneraattori.generoiTeksti(4);
         String[] sanat = generoitu.split(" ");
         assertEquals(4, sanat.length);
-  
     }
-    
-    
+      
 }

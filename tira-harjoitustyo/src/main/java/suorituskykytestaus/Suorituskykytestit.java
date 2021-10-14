@@ -3,14 +3,9 @@ package suorituskykytestaus;
 
 import harjoitustyo.markovinketju.TekstiGeneraattori;
 import harjoitustyo.tietorakenne.Trie;
-import harjoitustyo.tietorakenne.TrieSolmu;
-import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
+
 /**
  *
  * @author iida

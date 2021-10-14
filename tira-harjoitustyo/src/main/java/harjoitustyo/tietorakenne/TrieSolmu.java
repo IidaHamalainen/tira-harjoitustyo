@@ -4,7 +4,6 @@ package harjoitustyo.tietorakenne;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
  *
  * @author iida
@@ -16,9 +15,9 @@ public class TrieSolmu {
    
 
     public TrieSolmu() {
-        this.laskuri = 1;
-        
+        this.laskuri = 1;      
     }
+    
     /**
      * Hakee solmun lapsisolmut.
      * @return palauttaa hashMapin lapsista.
@@ -26,6 +25,7 @@ public class TrieSolmu {
     public Map<String, TrieSolmu> haeLapset() {
         return lapset;
     }
+    
     /**
      * Laskuri kuinka monta kerta sana esiintyy tekstissä samojen sanojen jälkeen. 
      * Aina kun sana esiintyy kasvatetaan arvoa.
@@ -35,13 +35,11 @@ public class TrieSolmu {
     }
     
     /**
-     * Palauttaa askurin esiintymiskerroista.
-     * @return luku
+     * Palauttaa laskurin esiintymiskerroista.
+     * @return laskurin arvo.
      */
     public int haeLaskuri() {
         return this.laskuri;
-    }
-      
-    
-   
+    }    
+       
 }

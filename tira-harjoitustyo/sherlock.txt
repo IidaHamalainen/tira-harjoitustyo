@@ -1112,7 +1112,7 @@ häväistysjuttu ja kun naisen äly teki tyhjäksi suunnitelman, joka oli
 Sherlock Holmesin nerokkaimpia. Ennen hän aina pilkkasi naisen
 oveluutta, mutta viime aikoina en ole enää kuullut mitään sellaista.
 Puhuessaan Irene Adlerista tai näyttäessään hänen kuvaansa hän tosin
-aina käyttää sanaa _nainen_, mutta erittäin kunnioittavasti.
+aina käyttää sanaa nainen, mutta erittäin kunnioittavasti.
 
 PUNATUKKAISTEN SÄÄTIÖ.
 
@@ -1256,7 +1256,7 @@ alkunsa. Lukekaa se itse, herra."
 
 Minä otin lehden ja luin:
 
-"_Punatukkaisten säätiö_. Sen mukaisesti, mitä nyttemmin kuollut
+"Punatukkaisten säätiö. Sen mukaisesti, mitä nyttemmin kuollut
 Ezekiah Hopkins, Lebanon, Penn., U.S.A., on testamentissaan määrännyt,
 on Punatukkaisien säätiössä jälleen paikka vapaana, jonka haltija,
 säätiön jäseneksi hyväksytty henkilö, on oikeutettu saamaan neljä
@@ -1276,7 +1276,7 @@ toimeentulostanne ja kotioloistanne ja millä tavalla tämä ilmoitus
 vaikutti elämäänne. Mutta tohtori merkitköön ensin muistiin lehden
 nimen ja päiväyksen."
 
-"_The Morning Chronicle_ huhtikuun 27 päivältä 1890. Täsmälleen kaksi
+"The Morning Chronicle huhtikuun 27 päivältä 1890. Täsmälleen kaksi
 kuukautta vanha."
 
 "Hyvä on. No, herra Wilson?"
@@ -1740,7 +1740,7 @@ näyttivät yhtä likaisilta. Keskelle oli aidattu rikkaruohoa kasvava
 nurmikko, jonka reunoilla kitukasvuiset laakeripensaat kävivät
 savuisessa ja ummehtuneessa ilmassa kovaa taistelua olemassaolostaan.
 Kolme kullattua palloa ja ruskea kilpi, johon oli maalattu valkoisilla
-kirjaimilla: _Jabez Wilson_, ilmaisivat, missä punatukkainen ystävämme
+kirjaimilla: Jabez Wilson, ilmaisivat, missä punatukkainen ystävämme
 harjoitti liikettään. Holmes pysähtyi talon eteen ja tarkasteli sitä
 kiinteästi pää kallellaan ja silmät puolittain ummessa. Sitten hän
 käveli hitaasti katua ylös kulmaan saakka ja palasi samaa tietä
@@ -2200,7 +2200,7 @@ tehtävät ovat siinä suurena apuna."
 "Sinä olet ihmiskunnan hyväntekijä", sanoin siihen.
 
 Hän kohautti olkapäitään. "Niin, voihan minusta olla jolloinkin hiukan
-hyötyäkin", hän myönsi. "_Ihminen ei ole mitään -- teot ovat kaikki_,
+hyötyäkin", hän myönsi. "Ihminen ei ole mitään -- teot ovat kaikki,
 kuten Gustave Flaubert kirjoitti Georges Sandille."
 
 KADONNUT SULHANEN.
@@ -3849,7 +3849,7 @@ Bristolista." Hän peitti erään kohdan kädellään. "Mitä näet tuossa?"
 
 "Niin. Juuri sen sanan kuoleva lausui pojan erottamatta siitä enempää
 kuin kaksi viimeistä tavua. Hän koetti sanoa, kuka hänet tappoi. Se ja
-se _Ballarat'ista_."
+se Ballarat'ista."
 
 "Ihmeellistä!"
 
@@ -4145,11 +4145,11 @@ selitystä.
 
 Vuonna 1887 meillä oli joukoittain enemmän tai vähemmän mielenkiintoisia
 tapauksia, joista kaikista tein tarkat muistiinpanot. Silloin
-kirjoittamistani otsakkeista ovat huomattavimmat: _Paradol-kammion
-seikkailu, Amatöörikerjäläisten seura_, jolla oli upea kerhohuoneisto
-erään tavaratalon varastoholveissa, _Fregatti Sophy Andersonin
-katoaminen, Grice Patersonin kummalliset seikkailut Uffan saarella_ ja
-_Camberwellin myrkytysjuttu_. Viimeksimainitussa tapauksessa Holmes,
+kirjoittamistani otsakkeista ovat huomattavimmat: Paradol-kammion
+seikkailu, Amatöörikerjäläisten seura, jolla oli upea kerhohuoneisto
+erään tavaratalon varastoholveissa, Fregatti Sophy Andersonin
+katoaminen, Grice Patersonin kummalliset seikkailut Uffan saarella ja
+Camberwellin myrkytysjuttu. Viimeksimainitussa tapauksessa Holmes,
 kuten muistettaneen, määritteli ajan, jolloin kuollut oli mennyt
 levolle, ja sai sen myös todistetuksi. Heti paikalle saavuttuaan hän
 veti vainajan kellon ja totesi, että edellisestä vetämisestä oli
@@ -4841,8 +4841,8 @@ mikä sai sydämeni melkein seisahtumaan.
 siinä sanotaan?" Hän puhui rauhallisesti, mutta minä näin, että hän oli
 syvästi järkyttynyt.
 
-"Silmiini osui nimi Openshaw ja otsake _Murhenäytelmä Waterloon sillan
-luona_. Uutinen kuuluu näin: -- 'Eilen illalla yhdeksän ja kymmenen
+"Silmiini osui nimi Openshaw ja otsake Murhenäytelmä Waterloon sillan
+luona. Uutinen kuuluu näin: -- 'Eilen illalla yhdeksän ja kymmenen
 välillä kuuli Waterloon sillan luona päivystävä konstaapeli Cook
 avunhuutoja ja sen jälkeen äänekkään loiskahduksen. Ilta oli kuitenkin
 niin pimeä ja myrskyinen, ettei veteen suistunutta saatu ylös useiden
@@ -4913,7 +4913,7 @@ Oivallinen ajatus."
 Hän otti kaapista appelsiinin, leikkasi sen halki ja puristi siemenet
 ulos. Niistä hän otti viisi, pani ne kirjekuoreen ja kirjoitti kuoren
 sisäpuolelle: "J.O:n puolesta S.H." Sitten hän sulki kuoren ja kirjoitti
-osoitteeksi: "Kapteeni James Calhoun, Parkki _Lone Star_, Savannah,
+osoitteeksi: "Kapteeni James Calhoun, Parkki Lone Star, Savannah,
 Georgia."
 
 "Tämän hän saa heti sinne saavuttuaan", Holmes sanoi ja naurahti
@@ -4935,7 +4935,7 @@ ja otin selville, mitkä laivat olivat poikenneet Pondicherryyn
 tammi- ja helmikuussa 1883, ja minne ne olivat sitten purjehtineet.
 Merkintöjen mukaan siellä oli käynyt mainittuna aikana
 kolmekymmentäkuusi suurempaa laivaa. Huomioni kohdistui heti erääseen
-_Lone Star_-nimiseen parkkiin, jonka kotisatamaksi oli ilmoitettu
+Lone Star-nimiseen parkkiin, jonka kotisatamaksi oli ilmoitettu
 Lontoo, mutta joka siitä huolimatta lienee amerikkalainen, koska
 varmasti muistan kuulleeni tuon nimen jostakin Yhdysvaltojen valtioista
 puhuttaessa."
@@ -4948,13 +4948,13 @@ todellisuudessa amerikkalainen."
 "Ja sitten?"
 
 "Sitten tutkin Dundeeta koskevat merkinnät ja tiedonannot, ja kun
-totesin, että parkki _Lone Star_ oli ollut siellä tammikuussa 1885,
+totesin, että parkki Lone Star oli ollut siellä tammikuussa 1885,
 niin epäluuloni syvenivät varmuudeksi. Otin heti selkoa, mitä laivoja
 oli parhaillaan Lontoon satamassa."
 
 "Niin?"
 
-"_Lone Star_ oli saapunut viime viikolla. Kiiruhdin Albertin telakoille
+"Lone Star oli saapunut viime viikolla. Kiiruhdin Albertin telakoille
 ja sain tietää, että se oli lähtenyt varhain tänä aamuna ja oli nyt
 matkalla Savannahiin. Sähkötin Gravesendiin, josta ilmoitettiin sen
 sivuuttaneen pari tuntia sitten. Nyt se lienee jo Goodwinien toisella
@@ -4976,11 +4976,11 @@ John Openshawin murhaajat eivät saaneet milloinkaan appelsiinin
 siemeniä, joiden piti ilmaista heille, että heidän jälkiään seurasi nyt
 mies, joka oli aivan yhtä ovela ja päättäväinen kuin hekin. Syksy oli
 sinä vuonna harvinaisen myrskyinen ja pitkä. Odotimme kauan
-Savannahista ilmoitusta, että _Lone Star_ oli saapunut sinne, mutta
+Savannahista ilmoitusta, että Lone Star oli saapunut sinne, mutta
 turhaan. Jonkin ajan kuluttua luimme sanomalehdestä, että kaukana
 Atlantilla oli löydetty aalloilla ajelehtimasta laivan pirstoutunut
 perävannas, jossa oli ollut, syvään leikattuina, kirjaimet "L.S." Sen
-enempää emme ole milloinkaan kuulleet _Lone Starin_ kohtalosta.
+enempää emme ole milloinkaan kuulleet Lone Starin kohtalosta.
 
 
 
@@ -5125,7 +5125,7 @@ hermo riekaleina. "Mitä kello on, Watson?"
 "Perjantai."
 
 "Ja minä kun laskin, että tänään on keskiviikko. Miksi minua raukkaa
-suotta säikyttelet? Tänään _on_ keskiviikko! Täytyy olla!" Hän painoi
+suotta säikyttelet? Tänään on keskiviikko! Täytyy olla!" Hän painoi
 kasvonsa käsiinsä ja alkoi itkeä lohduttomasti ja avuttomasti kuin
 lapsi.
 

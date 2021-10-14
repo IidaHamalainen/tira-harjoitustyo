@@ -3,21 +3,20 @@ package harjoitustyo.tietorakenne;
 
 import java.util.Map;
 
-
 /**
  *
  * @author iida
  */
 public class Trie {
     
-    private TrieSolmu juuri;
-    
+    private TrieSolmu juuri;   
     
     public Trie() {
         juuri = new TrieSolmu();
     }
+    
     /**
-     * palauttaa juurisolmun.
+     * Palauttaa juurisolmun.
      * @return solmu joka on juurisolmu
      */
     public TrieSolmu haeJuuri() {
@@ -25,7 +24,7 @@ public class Trie {
     }
     
     /**
-     * lisätään trie-rakenteeseen tekstin Markovin toisen asteen mukaisesti.
+     * Lisätään trie-rakenteeseen tekstin Markovin toisen asteen mukaisesti.
      * Tutkitaan aina kolmea peräkkäistä sana kerrallaan.
      * Solmuihin tallennetaan esiintymiskerrat arvontaa varten.
      * @param teksti joka lisätään Trieen.
@@ -55,7 +54,8 @@ public class Trie {
     }
     
     /**
-     * Tutkitaan, löytyykö sanan sisältävä solmu lapsista. Jos löytyy, siirrytään solmuun. Jos ei löydy, luodaan uusi solmu.
+     * Tutkitaan, löytyykö sanan sisältävä solmu lapsista. Jos löytyy, siirrytään solmuun ja lisätään esiintymiskerta. 
+     * Jos ei löydy, luodaan uusi solmu.
      * @param lapset nykyisen solmun lapset.
      * @param sana lisättävä sana.
      * @return solmu johon siirryttiin tai joka luotiin.
@@ -74,7 +74,7 @@ public class Trie {
     }
     
     /**
-     * haetaan triestä sanoja.
+     * Haetaan triestä sanoja. Tarpeellinen yksikkötesteissä.
      * @param sanat teksti jota haetaan.
      * @return true, jos sanat löytyy, muuten false.
      */
@@ -83,14 +83,14 @@ public class Trie {
 
         TrieSolmu nykyinen = null;  
         String[] yksittaisetSanat = sanat.split(" ");
-        //tarkastetaan löytyykö haettava sana solmun lapsista
+    
         for (int i = 0; i < yksittaisetSanat.length; i++) {
             String sana = yksittaisetSanat[i];
-            //jos sana löytyy, siirrytään siihen solmuun
+
             if (lapset.containsKey(sana)) {
                 nykyinen = lapset.get(sana);
                 lapset = nykyinen.haeLapset();
-            //jos ei löydy, palautetaan null
+            
             } else {
                 nykyinen = null;
                 break;
