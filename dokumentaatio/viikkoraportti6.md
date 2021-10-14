@@ -7,6 +7,6 @@ Lisäsin Sherlock Holmesin seikkailujen vaihtoehdoksi opetusmateriaaliksi Ylpeys
 Oli kiinnostavaa huomata että näissä kahdessa kirjassa generointi tuottaa hiukan erilaisia tuloksia siinä miten paljon alkuperäinen teksi toistuu generoidussa tekstissä.
 Ilmeisesti Jane Austen käytti laajempaa sanavalikoimaa kuin Arthur Conan Doyle, jolloin teksti toistuu enemmän samana.
 
-Tulevaa tehtävää parille seuraavalle viikolle ennen loppupalautusta on dokumentaation ja käyttöohjeen viimeistely, demon valmistelu ja koodin lopullinen viilailu.
+Tulevaa tehtävää parille seuraavalle viikolle ennen loppupalautusta on dokumentaation ja käyttöohjeen viimeistely, demon valmistelu ja koodin lopullinen viilailu ja mahdolliset vertaisarvioinnista nuosevat huomiot.
 
 Ajankäyttö: yht n. 8h tällä viikolla
