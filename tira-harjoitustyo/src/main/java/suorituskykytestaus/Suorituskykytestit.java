@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class Suorituskykytestit {
     
-    private final int[] arraynKoko = {10, 100, 1000, 10000, 100000}; //1000000 vie todella kauan koneellani, joten en aja sitä usein
+    private final int[] arraynKoko = {10, 100, 1000, 10000, 100000}; //1000000 vie todella kauan joten sitä ei lähtökohtaisesti ajeta
     private final double[] lisayksetTriehen = new double[arraynKoko.length];
     private final double[] hakuTriesta = new double[arraynKoko.length];
     private final double[] generointi = new double[arraynKoko.length];
@@ -24,9 +24,9 @@ public class Suorituskykytestit {
     } 
     /**
      * Suorituskykytesti Trielle.
-     * rakennetaan trie 100 kertaa ja otetaan mediaani.
-     */        
-            
+     * Rakennetaan trie 100 kertaa ja otetaan mediaani.
+     * Arpomisen takia käytetään Integeriä joka tallennetaan merkkijonona niin että luku edustaa sanaa.
+     */                 
     public void trieSuoritus() {
        
         int n = 100;       
@@ -39,8 +39,7 @@ public class Suorituskykytestit {
  
             int sanamaara = arraynKoko[i];
             
-            //luodaan halutun mittainen teksti.
-            //arpomisen takia käytetään Integeriä joka tallennetaan merkkijonona niin että luku edustaa sanaa
+            //luodaan halutun mittainen teksti.     
             for (int s = 0; s < sanamaara; s++) {
                 Integer luku = random.nextInt();
                 String lisattava = luku.toString() + " ";
@@ -54,9 +53,7 @@ public class Suorituskykytestit {
                 trie.lisaa(teksti);
                 t = System.nanoTime() - t;
                 suoritusajat[j] = t;
-            }
-            
-            //lasketaan mediaani
+            }                   
             Arrays.sort(suoritusajat);
             lisayksetTriehen[i] = suoritusajat[suoritusajat.length / 2] / 1000000.0;
         
@@ -80,8 +77,7 @@ public class Suorituskykytestit {
             }
             Arrays.sort(suoritusajat);
             hakuTriesta[i] = suoritusajat[suoritusajat.length / 2] / 1000000.0;
-            
-        
+
         }
         System.out.println("Lisäys triehen");
         for (int i = 0; i < arraynKoko.length; i++) {
@@ -92,19 +88,17 @@ public class Suorituskykytestit {
         for (int i = 0; i < arraynKoko.length; i++) {
            System.out.println(arraynKoko[i] + ": " + hakuTriesta[i] + "ms");
         }
-        
-        
-        
+            
     }
     /**
      * Testi tekstin generoinnille.
-     * Generoidaan 7 sanan mittainen teksti 50 kertaa.
+     * Generoidaan 20 sanan mittainen teksti 50 kertaa.
+     * Arpomisen takia käytetään Integeriä joka tallennetaan merkkijonona niin että luku edustaa sanaa.
      */
     
     public void generoinninTestaus() {
         
-        int n = 50;
-        
+        int n = 50;      
         TekstiGeneraattori generaattori = new TekstiGeneraattori(); 
         
         for (int i = 0; i < arraynKoko.length; i++) {
@@ -113,8 +107,6 @@ public class Suorituskykytestit {
             String teksti = "";
             int sanamaara = arraynKoko[i];
             
-            //luodaan halutun mittainen teksti.
-            //arpomisen takia käytetään Integeriä joka tallennetaan merkkijonona niin että luku edustaa sanaa
             for (int s = 0; s < sanamaara; s++) {
                 Integer luku = random.nextInt();
                 String lisattava = luku.toString() + " ";
@@ -130,7 +122,7 @@ public class Suorituskykytestit {
                 t = System.nanoTime() - t; 
                 suoritusajat[j] = t;
             }
-            //lasketaan mediaani
+            
             Arrays.sort(suoritusajat);
             generointi[i]  = suoritusajat[suoritusajat.length / 2] / 1000000.0;    
         }
@@ -138,8 +130,7 @@ public class Suorituskykytestit {
         for (int i = 0; i < arraynKoko.length; i++) {
             System.out.println(arraynKoko[i] + ": " + generointi[i] + "ms");
         }  
-        
-        
+    
     }
     
 }
