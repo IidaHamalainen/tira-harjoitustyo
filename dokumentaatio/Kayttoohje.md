@@ -8,4 +8,4 @@ Ohjelman saa käynnistettyä juurikansiossa komennolla `./gradlew run` tai `./gr
 Avautuvassa valikossa käyttäjä voi valita haluaako generoida tekstin, ajaa suorituskykytestit tai poistua ohjelmasta.
 (kuva)
 
-Kun käyttäjä valitsee tekstin generoinnin, kysytään kuinka pitkä teksti generoidaan. Jos syöte on alle 2 tai ei numero, palataan valintatilanteeseen.
+Kun käyttäjä valitsee tekstin generoinnin, kysytään valitaanko lähdemateriaaliksi Sherlock Holmesin seikkaulut vai Ylpeys ja ennakkoluulo. Tämä valinnan jälkeen kysytään kuinka pitkä teksti generoidaan. Jos syöte on alle 2 tai ei numero, palataan valintatilanteeseen. Virheellisillä syötteillä käyttäjälle ilmoitetaan virheestä ja palataan ensimmäiseen valikkoon.
