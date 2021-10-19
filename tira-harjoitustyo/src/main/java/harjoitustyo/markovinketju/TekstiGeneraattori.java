@@ -119,52 +119,52 @@ public class TekstiGeneraattori {
         if (toinen == null) {
             String uudetSanat = arvoAlkusanat();
             arvoSana(uudetSanat);          
-        } else {
-            
+        } else {            
             lapset = toinen.haeLapset();
         }
+        List<String> avaimet = new ArrayList<String>(lapset.keySet());
         
-        arvottuSana = arvoSeuraajista(lapset);
-               
+        if (avaimet.size() == 1) {
+            arvottuSana = avaimet.get(0);   
+            return arvottuSana;
+        } else {
+            arvottuSana = arvoSeuraajista(lapset);
+        }
+     
         return arvottuSana;
     }
     
     /**
-     * Arpoo esiintymistodennäköisyyten perustuen seuraavan sanan.
+     * Arpoo esiintymistodennäköisyyteen perustuen seuraavan sanan.
      * Ensin lasketaan esiintymiskertojen summa, jota käytetään arvotun sanan etsimiseen.
      * @param lapset arvontaan käytetyn sanaparin toisen sanan lapset.
      * @return arvottu sana.
      */
     public String arvoSeuraajista(Map<String, TrieSolmu> lapset) {
-        List<String> avaimet = new ArrayList<String>(lapset.keySet());
         
-        if (avaimet.size() == 1) {
-            String arvottuSana = avaimet.get(0);   
-            return arvottuSana;
-            
-        } else {
-            int kokonaissumma = 0;
-            for (int i = 0; i < avaimet.size(); i++) {
-                String avain = avaimet.get(i);
-                TrieSolmu solmu = lapset.get(avain);
-                kokonaissumma += solmu.haeLaskuri();
-            }
-
-            int arvottuIndeksi = satunnainenValilta(1, kokonaissumma);
-            int summa = 0;
-            int j = 0;
-            String arvottuAvain = "...";
-            
-            while (summa < arvottuIndeksi) {
-
-                arvottuAvain = avaimet.get(j);
-                TrieSolmu solmu = lapset.get(arvottuAvain);
-                summa += solmu.haeLaskuri();
-                j++;
-            }  
-            return arvottuAvain;   
+        List<String> avaimet = new ArrayList<String>(lapset.keySet());
+        int kokonaissumma = 0;
+        
+        for (int i = 0; i < avaimet.size(); i++) {
+            String avain = avaimet.get(i);
+            TrieSolmu solmu = lapset.get(avain);
+            kokonaissumma += solmu.haeLaskuri();
         }
-                 
+
+        int arvottuIndeksi = satunnainenValilta(1, kokonaissumma);
+        int summa = 0;
+        int j = 0;
+        String arvottuAvain = "...";
+            
+        while (summa < arvottuIndeksi) {
+
+            arvottuAvain = avaimet.get(j);
+            TrieSolmu solmu = lapset.get(arvottuAvain);
+            summa += solmu.haeLaskuri();
+            j++;
+        }  
+        return arvottuAvain;   
+                       
     } 
     
     /**

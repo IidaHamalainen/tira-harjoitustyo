@@ -4,9 +4,9 @@ harjoitustyo/tietorakenne/TrieSolmu.java
  harjoitustyo.tietorakenne.TrieSolmu
 harjoitustyo/tietorakenne/Trie.java
  harjoitustyo.tietorakenne.Trie
-harjoitustyo/markovinketju/TekstiGeneraattori.java
- harjoitustyo.markovinketju.TekstiGeneraattori
 suorituskykytestaus/Suorituskykytestit.java
  suorituskykytestaus.Suorituskykytestit
+harjoitustyo/markovinketju/TekstiGeneraattori.java
+ harjoitustyo.markovinketju.TekstiGeneraattori
 harjoitustyo/kayttoliittyma/Kayttoliittyma.java
  harjoitustyo.kayttoliittyma.Kayttoliittyma
