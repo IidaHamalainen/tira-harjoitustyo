@@ -1,17 +1,21 @@
-## Ohjelman yleisrakenne
+# Ohjelman yleisrakenne
 
-Ohjelma koostuu Trie-rakenteesta ja TekstiGeneraattoriluokasta. Triehen sanat tallennetaan Markovin ketjun toisen asteen mukaisesti eli kolmen sanan jonoissa.
+## Trie ja TrieSolmu
+Triehen sanat tallennetaan Markovin ketjun toisen asteen mukaisesti eli kolmen sanan jonoissa.
 Teksti jaetaan lisäysvaiheessa kolmen sanan jonoiksi, joista ensimmäinen tallennetaan juuren lapsisolmuksi, ja toinen tämän lapsisolmuksi. 
-Loput sanat jotka voivat seurata kyseistä kahden sanan paria tallennetaan edelleen 2. sanan lapsisolmuiksi. Sanoja lisättäessä tallennetaan tieto siitä kuinka monta kertaa sana on esiintynyt kyseiseten sanojen jälkeen.
+Loput sanat jotka voivat seurata kyseistä kahden sanan paria tallennetaan edelleen 2. sanan lapsisolmuiksi. Sanoja lisättäessä tallennetaan tieto TrieSolmu-luokan avulla siitä kuinka monta kertaa sana on esiintynyt kyseiseten sanojen jälkeen.
 
+## TekstiGeneraattori
 TekstiGeneraattori-luokassa arvotaan ensin kaksi aloitussanaa. Näiden perusteella arvotaan uusia sanoja haluttu määrä, niin että uusin sana perustuu aina kahteen edelliseen ja todennäköisyyteen millä sana esiintyy niiden perässä.
 
+## Käyttöliittymä
 Käyttöliittymä luo tekstimuotoisen valikon, jossa voi valita haluaako generoida tekstin vai ajaa suorituskykytestit. Teksi on mahdollista generoida kahden eri kirjan pohjalta.
 
-## Saavutetut aika- ja tilavaativuudet (m.m. O-analyysit pseudokoodista)
-Suorituskykytesteissä 1000000 kokoisella Arraylla oma koneeni pyörittää testejä yli 20 min.
+## Saavutetut aika- ja tilavaativuudet
+Trien tallennuksen aikavaatimus on O(n*m), jossa n on alkioiden määrä ja m on Markovin aste.
+Triestä haun aikavaatimus O(n), missä n on hakuavaimen pituus. Koska sanat tallennetaan triehen kolmen sarjoissa, on kolme suurin pituus mitä voidaan hakea ja haku siten nopeaa.
 
-täydentyy myöhemmin
+Tilavaatimus on myös O(n * m), koska tekstin jokainen voi pahimmassa tapauksessa olla juuren lapsi ja sillä taas mia lapsia.
 
 ## Työn mahdolliset puutteet ja parannusehdotukset
 Tekstin generoinnissa käy välillä jokin virhe, ja sanamäärä ei täsmää haluttuun. Tämä tapahtuu aika harvoin omien kokeilujeni perusteella.
