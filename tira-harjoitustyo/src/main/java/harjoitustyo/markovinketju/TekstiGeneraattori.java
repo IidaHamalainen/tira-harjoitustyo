@@ -93,7 +93,7 @@ public class TekstiGeneraattori {
     } 
     
     /**
-     * Arvotaan sana kahden edellisen sanan perusteella mahdollisista seuraajista.
+     * Arvotaan sana kahden edellisen sanan perusteella mahdollisista seuraajista. Mahdolliset seuraajat ovat toisen sanan lapset.
      * @param edelliset edelliset sanat.
      * @return arvottu sana.
      */
@@ -104,18 +104,18 @@ public class TekstiGeneraattori {
         String arvottuSana;
         
         String sanat[] = edelliset.split(" "); 
-        //haetaan ensimmäisen lapsisolmut
+
         TrieSolmu ensimmainen = lapset.get(sanat[0]);         
-        //jos ensimmäistä sanaa ei löydy, arvotaan uudet   
+          
         if (ensimmainen == null) {  
             String uudetSanat = arvoAlkusanat();
             arvoSana(uudetSanat);               
         } else {   
             lapset = ensimmainen.haeLapset();
         }
-        //haetaan toisen sanan lapset
+   
         TrieSolmu toinen = lapset.get(sanat[1]);
-        //jos sanaa ei löydy, arvotaan uudet
+       
         if (toinen == null) {
             String uudetSanat = arvoAlkusanat();
             arvoSana(uudetSanat);          
@@ -123,7 +123,7 @@ public class TekstiGeneraattori {
             
             lapset = toinen.haeLapset();
         }
-        //lapset on nyt toisen sanan lapset, eli potentiaaliset seuraavat sanat  
+        
         arvottuSana = arvoSeuraajista(lapset);
                
         return arvottuSana;
@@ -153,9 +153,8 @@ public class TekstiGeneraattori {
             int arvottuIndeksi = satunnainenValilta(1, kokonaissumma);
             int summa = 0;
             int j = 0;
-            //alustetaan sana. Joissain harvinaisissa tapauksissa sanan arvonta epäonnistuu, jolloin palautetaan tämä.
             String arvottuAvain = "...";
-            //etsitään arvottu sana
+            
             while (summa < arvottuIndeksi) {
 
                 arvottuAvain = avaimet.get(j);

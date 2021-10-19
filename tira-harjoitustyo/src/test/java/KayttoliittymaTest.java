@@ -59,5 +59,15 @@ public class KayttoliittymaTest {
         assertTrue(syote[7].startsWith("Generoidaan"));
         assertTrue(syote[11].startsWith("virheellinen"));
     }
-       
+    @Test
+    public void kayttoliittymaValikkoToimiiVirheellinenSanamaara() throws Exception {
+        Scanner lukija = new Scanner("1\n2\nr\nQ");
+        Kayttoliittyma kayttoliittyma = new Kayttoliittyma(lukija);
+        kayttoliittyma.kaynnista(); 
+        String[] syote = tulostus.toString().split("\n");
+        assertTrue(syote[0].startsWith("Tervetuloa"));
+        assertTrue(syote[7].startsWith("Generoidaan"));
+        assertTrue(syote[12].startsWith("Virheellinen"));
+    }
+      
 }

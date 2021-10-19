@@ -45,6 +45,14 @@ public class TrieTest {
         
         assertEquals(this.testiTrie.haeSanoja("Prinsessa"), false);  
         assertEquals(this.testiTrie.haeSanoja("Olipa kerran peikko"), false); 
-    }    
+    } 
+    @Test
+    public void solmunLaskuriToimii() {
+        TrieSolmu solmu = new TrieSolmu();
+        assertEquals(1, solmu.haeLaskuri());
+        
+        solmu.lisaaEsiintymiskerta();
+        assertEquals(2, solmu.haeLaskuri());
+    }
           
 }
