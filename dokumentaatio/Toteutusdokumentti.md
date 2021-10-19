@@ -18,7 +18,7 @@ Triestä haun aikavaatimus O(n), missä n on hakuavaimen pituus. Koska sanat tal
 Tilavaatimus on myös O(n * m), koska tekstin jokainen voi pahimmassa tapauksessa olla juuren lapsi ja sillä taas mia lapsia.
 
 ## Työn mahdolliset puutteet ja parannusehdotukset
-Tekstin generoinnissa käy välillä jokin virhe, ja sanamäärä ei täsmää haluttuun. Tämä tapahtuu aika harvoin omien kokeilujeni perusteella.
+Tekstin generoinnissa käy välillä jokin virhe, ja sanamäärä ei täsmää haluttuun. Tämä alkoi ilmetä vasta lisättyäni seuraavan sanan generointiin todennäköisyyden mukaan. Arvelen että liittyy jotenkin tekstissä esiintyviin välilyönteighin, koska tulostetussa tekstissä on välillä selvästi usea välilyönti peräkkäin näissä tapauksissa kun sanamäärä ei täsmää.
 
 ## Lähteet
 
