@@ -3,11 +3,11 @@
 # Yksikkötestit
 Yksikkötesteillä on testattu Trie, TekstiGeneraattori ja Kayttoliittyma-luokkien perustoiminnot.
 Testit suoritetaan komennolla ./gradlew test. Kattavuusraportoinnissa käytän Jacocoa.
-Kokonaiskuva testikattavuudesta: ![kuva](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/Kuvat/testikattavus_kaikki_19102021.png)
+Kokonaiskuva testikattavuudesta: ![kuva](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/Kuvat/testikattavuus_kaikki_26102021.png)
 Ylin "harjoitustyo" sisältää ainoastaan main-luokan jota varten en kirjoita testejä.
 
 Alla vielä eri packagien testikattavuus. Käyttöliittymän testit nostavat jonkin  verran kokonaisuutta generaattorissa, joten kuvissa testikattavuus ilman käyttäliittymätestejä:
-![käyttöliittymä](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/Kuvat/testikattavuus_kayttoliityma_19102021.png)
+![käyttöliittymä](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/Kuvat/testikattavuus_kayttoliittyma26102021.png)
 ![generaattori](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/Kuvat/testikattavuus_tekstigeneraattori_19102021.png)
 ![tietorakenne](https://github.com/IidaHamalainen/tira-harjoitustyo/blob/main/dokumentaatio/Kuvat/testikattavuus_tietorakenne_19102021.png)
  
