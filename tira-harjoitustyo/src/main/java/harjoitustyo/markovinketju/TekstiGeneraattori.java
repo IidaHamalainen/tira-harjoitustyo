@@ -129,8 +129,7 @@ public class TekstiGeneraattori {
             return arvottuSana;
         } else {
             arvottuSana = arvoSeuraajista(lapset);
-        }
-     
+        }     
         return arvottuSana;
     }
     

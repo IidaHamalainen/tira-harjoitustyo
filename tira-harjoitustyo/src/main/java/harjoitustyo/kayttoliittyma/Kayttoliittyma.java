@@ -101,7 +101,14 @@ public class Kayttoliittyma {
         generaattori.lueMateriaali(opetusmateriaali);
         System.out.println("generoitu teksti on:");  
         System.out.println("");
-        System.out.println(generaattori.generoiTeksti(tekstinPituus));
+        String teksti = generaattori.generoiTeksti(tekstinPituus);
+        
+        //tekstin pituuden tarkistus virheen välttämiseksi
+        String[] tarkistus = teksti.split(" ");
+        if (tarkistus.length != tekstinPituus) {
+            teksti = generaattori.generoiTeksti(tekstinPituus);
+        }
+        System.out.println(teksti);
         
     }
     
