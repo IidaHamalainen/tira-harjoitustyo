@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa jar-tiedosto generaattori.jar Releaseista ja aja se komennolla `java -jar tira-harjoitustyo-all.jar`. Tällöin käytössä täytyy olla JDK11. Vaihtoehtoisesti voit kloonata projektin komennolla 
+Lataa jar-tiedosto tira-harjoitustyo-all.jar Releaseista ja aja se komennolla `java -jar tira-harjoitustyo-all.jar`. Tällöin käytössä täytyy olla JDK11 jotta projektin ajaminen onnistuu. Vaihtoehtoisesti voit kloonata projektin komennolla 
 ```git clone https://github.com/IidaHamalainen/tira-harjoitustyo.git``` ja siirtyä sitten kloonatun projektin sisältävään kansioon.
 
 Ohjelman saa käynnistettyä juurikansiossa komennolla `./gradlew run` tai `./gradlew -q --console=plain run` jolloin konsoliin ei tulostu ylimääräisiä rivejä väliin.
