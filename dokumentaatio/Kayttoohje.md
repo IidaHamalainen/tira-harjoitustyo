@@ -1,7 +1,7 @@
 # Käyttöohje
 
-Lataa jar-tiedosto tira-harjoitustyo-all.jar Releaseista ja aja se komennolla `java -jar tira-harjoitustyo-all.jar`. Tällöin käytössä täytyy olla JDK11 jotta projektin ajaminen onnistuu. Vaihtoehtoisesti voit kloonata projektin komennolla 
-```git clone https://github.com/IidaHamalainen/tira-harjoitustyo.git``` ja siirtyä sitten kloonatun projektin sisältävään kansioon.
+Lataa jar-tiedosto tira-harjoitustyo-all.jar Releaseista ja aja se komennolla `java -jar tira-harjoitustyo-all.jar`. Tällöin käytössä täytyy olla JDK11 jotta projektin ajaminen onnistuu. Vaihtoehtoisesti voit myös ladata zip-tiedoston Releaseista ja purkaa sen haluamaasi kansioon tai kloonata projektin komennolla 
+```git clone https://github.com/IidaHamalainen/tira-harjoitustyo.git``` haluamassai kansiossa ja siirtyä sitten projektin sisältävään kansioon.
 
 Ohjelman saa käynnistettyä juurikansiossa komennolla `./gradlew run` tai `./gradlew -q --console=plain run` jolloin konsoliin ei tulostu ylimääräisiä rivejä väliin.
 `./gradlew build` rakentaa ohjelman ja esimerkiksi luo CheckStyle-tiedostot, kun taas `./gradlew test` suorittaa yksikkötestit.
