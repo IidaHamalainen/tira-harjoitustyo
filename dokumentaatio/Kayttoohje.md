@@ -1,7 +1,7 @@
 # Käyttöohje
 
-Lataa jar-tiedosto generaattori.jar Releaseista ja aja se komennolla `java -jar generaattori.jar`. Vaihtoehtoisesti voit kloonata projektin komennolla 
-```git clone https://github.com/IidaHamalainen/tira-harjoitustyo.git```
+Lataa jar-tiedosto generaattori.jar Releaseista ja aja se komennolla `java -jar tira-harjoitustyo-all.jar`. Vaihtoehtoisesti voit kloonata projektin komennolla 
+```git clone https://github.com/IidaHamalainen/tira-harjoitustyo.git``` ja siirtyä sitten kloonatun projektin sisältävään kansioon.
 
 Ohjelman saa käynnistettyä juurikansiossa komennolla `./gradlew run` tai `./gradlew -q --console=plain run` jolloin konsoliin ei tulostu ylimääräisiä rivejä väliin.
 `./gradlew build` rakentaa ohjelman ja esimerkiksi luo CheckStyle-tiedostot, kun taas `./gradlew test` suorittaa yksikkötestit.
